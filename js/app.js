@@ -206,6 +206,7 @@ window.addToCart = function(product){
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
+    updateCartCount();
     alert("✅ تم إضافة المنتج للسلة");
 
 }
