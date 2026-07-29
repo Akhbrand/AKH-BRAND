@@ -18,7 +18,13 @@ if (cart.length === 0) {
 } else {
 
    cart.forEach((product, index) => {
+const qty = product.quantity || 1;
 
+const price = parseFloat(
+    String(product.price).replace(/[^\d.]/g, "")
+) || 0;
+
+total += price * qty;
         const image = Array.isArray(product.image)
             ? product.image[0]
             : product.image;
@@ -91,4 +97,10 @@ window.changeQty = function(index, change){
 
     location.reload();
 
+}
+
+const totalBox = document.getElementById("totalPrice");
+
+if(totalBox){
+    totalBox.innerHTML = total + " EGP";
 }
