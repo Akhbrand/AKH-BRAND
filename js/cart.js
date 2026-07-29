@@ -75,3 +75,18 @@ window.removeFromCart = function(index){
     location.reload();
 
 }
+window.changeQty = function(index, change){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart[index].quantity = (cart[index].quantity || 1) + change;
+
+    if(cart[index].quantity <= 0){
+        cart.splice(index,1);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    location.reload();
+
+}
