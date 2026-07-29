@@ -115,13 +115,10 @@ margin-top:40px;
 
 <header>
 
-<video 
-src="./images/video.mp4"
-autoplay
-muted
-loop
-playsinline
-preload="auto">
+<video id="logoVideo" muted loop playsinline preload="auto">
+
+<source src="./images/video.mp4" type="video/mp4">
+
 </video>
 
 
@@ -174,14 +171,9 @@ preload="auto">
 الكود: 758
 </p>
 
-
-<a class="btn"
-href="https://wa.me/201097521334?text=مرحباً، أريد طلب هودي Brooklyn New York - كود 758">
-
+<a class="btn" href="https://wa.me/201097521334?text=مرحباً، أريد طلب هودي Brooklyn New York - كود 758">
 اطلب عبر واتساب
-
 </a>
-
 
 </div>
 
@@ -196,6 +188,23 @@ href="https://wa.me/201097521334?text=مرحباً، أريد طلب هودي Br
 © 2026 AKH BRAND
 
 </footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+let video = document.getElementById("logoVideo");
+
+video.play().catch(function(error){
+
+console.log("المتصفح منع التشغيل التلقائي");
+
+});
+
+});
+
+</script>
 
 
 </body>
