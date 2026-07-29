@@ -103,7 +103,7 @@ text-align:center;
 <textarea id="description" placeholder="وصف المنتج"></textarea>
 
 
-<input id="image" placeholder="اسم الصورة">
+<input id="image" placeholder="أسماء الصور (افصل بينهم بفاصلة)">
 
 
 <button onclick="addProduct()">
@@ -156,7 +156,15 @@ const db = getFirestore(app);
 window.addProduct = async function(){
 
 
+let images = document
+.getElementById("image")
+.value
+.split(",")
+.map(img => img.trim());
+
+
 await addDoc(collection(db,"products"),{
+
 
 name: document.getElementById("name").value,
 
@@ -170,12 +178,13 @@ code: document.getElementById("code").value,
 
 description: document.getElementById("description").value,
 
-image: document.getElementById("image").value
+image: images
+
 
 });
 
 
-document.getElementById("msg").innerHTML="✅ تم إضافة المنتج";
+document.getElementById("msg").innerHTML="✅ تم إضافة المنتج بنجاح";
 
 
 }
