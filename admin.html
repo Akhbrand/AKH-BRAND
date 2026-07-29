@@ -120,6 +120,13 @@ margin-top:20px;
 
 <p id="msg"></p>
 
+  <hr style="margin:30px 0;border:1px solid #333;">
+
+<h2 style="text-align:center;">
+المنتجات الموجودة
+</h2>
+
+<div id="productsList"></div>
 
 </div>
 
@@ -130,7 +137,18 @@ margin-top:20px;
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 
