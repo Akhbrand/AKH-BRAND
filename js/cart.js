@@ -2,6 +2,8 @@ const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const box = document.getElementById("cartItems");
 
+let total = 0;
+
 if (cart.length === 0) {
 
     box.innerHTML = `
