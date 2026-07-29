@@ -15,7 +15,7 @@ if (cart.length === 0) {
 
 } else {
 
-    cart.forEach(product => {
+   cart.forEach((product, index) => {
 
         const image = Array.isArray(product.image)
             ? product.image[0]
