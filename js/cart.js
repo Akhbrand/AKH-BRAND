@@ -106,3 +106,15 @@ const totalBox = document.getElementById("totalPrice");
 if(totalBox){
     totalBox.innerHTML = total + " EGP";
 }
+
+window.removeFromCart = function(code){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart = cart.filter(item => item.code !== code);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    location.reload();
+
+};
