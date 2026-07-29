@@ -218,5 +218,18 @@ margin-top:40px;
 border-top:1px solid #222;
 
 }
+   .cartBtn{
+display:block;
+width:100%;
+margin-top:20px;
+background:#fff;
+color:#000;
+padding:20px;
+border-radius:15px;
+border:none;
+font-size:24px;
+font-weight:bold;
+cursor:pointer;
+}
 
 </style>
