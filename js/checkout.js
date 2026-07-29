@@ -32,11 +32,13 @@ if (cart.length === 0) {
             imagePath = "./images/" + image;
         }
 
-        const price = Number(
-            String(product.price).replace(/[^\d.]/g, "")
-        ) || 0;
+     const price = Number(
+    String(product.price).replace(/[^\d.]/g, "")
+) || 0;
 
-        total += price;
+const quantity = product.quantity || 1;
+
+total += price * quantity;
 
         html += `
         <div class="orderCard">
@@ -47,9 +49,11 @@ if (cart.length === 0) {
 
                 <h3>${product.name}</h3>
 
-                <p>السعر: ${product.price}</p>
+              <p>السعر: ${price} EGP × ${quantity}</p>
 
-                <p>المقاس: ${product.size}</p>
+<p>الإجمالي: ${price * quantity} EGP</p>
+
+<p>المقاس: ${product.size}</p>
 
             </div>
 
