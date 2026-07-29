@@ -1,23 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-    getFirestore,
-    collection,
-    addDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",
-    authDomain: "akh-brand.firebaseapp.com",
-    projectId: "akh-brand",
-    storageBucket: "akh-brand.firebasestorage.app",
-    messagingSenderId: "671562968837",
-    appId: "1:671562968837:web:06557b3ab756696cf5116c",
-    measurementId: "G-L1HPJ8PYMJ"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const orderItems = document.getElementById("orderItems");
@@ -25,34 +5,49 @@ const totalPrice = document.getElementById("totalPrice");
 
 let total = 0;
 
-if(cart.length === 0){
+if (cart.length === 0) {
 
-    orderItems.innerHTML = "<p>🛒 السلة فارغة</p>";
+    orderItems.innerHTML = `
+    <div class="orderCard">
+        <div class="orderInfo">
+            <h3>🛒 السلة فارغة</h3>
+            <p>أضف منتجات أولاً.</p>
+        </div>
+    </div>
+    `;
 
-}else{
+} else {
 
-    cart.forEach(product=>{
+    let html = "";
+
+    cart.forEach(product => {
 
         const image = Array.isArray(product.image)
             ? product.image[0]
             : product.image;
 
-        const price = parseFloat(
-            String(product.price).replace(/[^\d.]/g,"")
+        let imagePath = image;
+
+        if (image && !String(image).startsWith("http")) {
+            imagePath = "./images/" + image;
+        }
+
+        const price = Number(
+            String(product.price).replace(/[^\d.]/g, "")
         ) || 0;
 
         total += price;
 
-        orderItems.innerHTML += `
+        html += `
         <div class="orderCard">
 
-            <img src="${image}" alt="${product.name}">
+            <img src="${imagePath}" alt="${product.name}">
 
             <div class="orderInfo">
 
                 <h3>${product.name}</h3>
 
-                <p>${product.price}</p>
+                <p>السعر: ${product.price}</p>
 
                 <p>المقاس: ${product.size}</p>
 
@@ -63,58 +58,89 @@ if(cart.length === 0){
 
     });
 
+    orderItems.innerHTML = html;
+
 }
 
-totalPrice.innerHTML = total + " EGP";
+totalPrice.textContent = total + " document.getElementById("sendOrder").onclick = async () => {
 
-document.getElementById("sendOrder").onclick = async ()=>{
+    if (cart.length === 0) {
+        alert("🛒 السلة فارغة");
+        return;
+    }
 
-    if(cart.length===0){
-        alert("السلة فارغة");
+    const customerName = document.getElementById("customerName").value.trim();
+    const customerPhone = document.getElementById("customerPhone").value.trim();
+    const governorate = document.getElementById("customerGovernorate").value;
+    const city = document.getElementById("customerCity").value.trim();
+    const address = document.getElementById("customerAddress").value.trim();
+    const notes = document.getElementById("customerNotes").value.trim();
+
+    if (!customerName || !customerPhone || !governorate || !city || !address) {
+        alert("من فضلك أكمل جميع البيانات المطلوبة.");
         return;
     }
 
     const payment =
-    document.querySelector('input[name="payment"]:checked').value;
+        document.querySelector('input[name="payment"]:checked').value;
 
-    const order={
+    const btn = document.getElementById("sendOrder");
+    btn.disabled = true;
+    btn.innerHTML = "⏳ جاري إرسال الطلب...";
 
-        customerName:
-        document.getElementById("customerName").value,
+    try {
 
-        customerPhone:
-        document.getElementById("customerPhone").value,
+        const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
 
-        governorate:
-        document.getElementById("customerGovernorate").value,
+        const {
+            getFirestore,
+            collection,
+            addDoc
+        } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
 
-        city:
-        document.getElementById("customerCity").value,
+        const firebaseConfig = {
+            apiKey: "AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",
+            authDomain: "akh-brand.firebaseapp.com",
+            projectId: "akh-brand",
+            storageBucket: "akh-brand.firebasestorage.app",
+            messagingSenderId: "671562968837",
+            appId: "1:671562968837:web:06557b3ab756696cf5116c",
+            measurementId: "G-L1HPJ8PYMJ"
+        };
 
-        address:
-        document.getElementById("customerAddress").value,
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-        notes:
-        document.getElementById("customerNotes").value,
+        await addDoc(collection(db, "orders"), {
 
-        payment,
+            customerName,
+            customerPhone,
+            governorate,
+            city,
+            address,
+            notes,
+            payment,
+            products: cart,
+            total,
+            status: "جديد",
+            createdAt: new Date().toISOString()
 
-        products:cart,
+        });
 
-        total,
+        localStorage.removeItem("cart");
 
-        status:"جديد",
+        alert("✅ تم إرسال الطلب بنجاح");
 
-        createdAt:new Date().toISOString()
+        window.location.href = "index.html";
 
-    };
+    } catch (e) {
 
-    await addDoc(collection(db,"orders"),order);
+        console.error(e);
 
-    localStorage.removeItem("cart");
+        alert("❌ حدث خطأ أثناء إرسال الطلب.");
 
-    alert("✅ تم إرسال الطلب بنجاح");
-
-    window.location.href="index.html";
+        btn.disabled = false;
+        btn.innerHTML = "✅ تأكيد الطلب";
+    }
 
 };
