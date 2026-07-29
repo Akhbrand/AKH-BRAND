@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,162 +18,379 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#f5f5f5;
-color:#222;
+
+background:#050505;
+color:white;
+
 }
+
+
+/* الهيدر */
 
 header{
-background:#111;
-color:white;
-padding:20px;
+
+background:#000;
 text-align:center;
+padding:30px 20px;
+
+border-bottom:1px solid #333;
+
 }
+
 
 header img{
-width:130px;
-height:130px;
+
+width:150px;
+height:150px;
+
 object-fit:cover;
-border-radius:15px;
-margin-bottom:10px;
+
+border-radius:20px;
+
+margin-bottom:15px;
+
 }
+
+
+
+header h1{
+
+font-size:38px;
+
+letter-spacing:3px;
+
+}
+
+
+
+header p{
+
+color:#aaa;
+
+font-size:18px;
+
+margin-top:8px;
+
+}
+
+
+
+/* القائمة */
+
+.menu{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+padding:20px;
+
+background:#111;
+
+}
+
+
+.menu a{
+
+color:white;
+
+text-decoration:none;
+
+font-size:18px;
+
+}
+
+
+
+/* البانر */
 
 .hero{
-background:white;
+
 text-align:center;
-padding:40px 20px;
+
+padding:60px 20px;
+
+background:linear-gradient(#111,#000);
+
 }
+
 
 .hero h2{
-font-size:32px;
-margin-bottom:10px;
+
+font-size:36px;
+
+margin-bottom:15px;
+
 }
+
 
 .hero p{
-color:#666;
+
+color:#bbb;
+
+font-size:20px;
+
 }
+
+
+
+/* المنتجات */
 
 .products{
-max-width:1000px;
+
+max-width:1100px;
+
 margin:auto;
-padding:30px;
+
+padding:40px 20px;
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
 }
+
+
 
 .card{
-background:white;
-border-radius:15px;
+
+background:#111;
+
+border-radius:20px;
+
 overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+border:1px solid #333;
+
+transition:.3s;
+
 }
+
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
 
 .card img{
+
 width:100%;
-display:block;
+
+height:350px;
+
+object-fit:cover;
+
 }
+
+
 
 .info{
-padding:20px;
+
+padding:25px;
+
 text-align:center;
+
 }
+
 
 .info h2{
-font-size:22px;
+
+font-size:24px;
+
 }
+
+
 
 .price{
-font-size:28px;
+
+font-size:30px;
+
 font-weight:bold;
-margin:15px 0;
+
+margin:20px 0;
+
+color:white;
+
 }
+
+
+
+.details{
+
+color:#bbb;
+
+line-height:2;
+
+}
+
+
 
 .btn{
-display:inline-block;
+
+display:block;
+
+margin-top:20px;
+
 background:#25D366;
+
 color:white;
-padding:14px 25px;
-border-radius:10px;
+
+padding:15px;
+
+border-radius:12px;
+
 text-decoration:none;
-font-size:18px;
-margin-top:15px;
+
+font-size:20px;
+
 }
 
+
+
+/* الفوتر */
+
 footer{
-background:#111;
-color:white;
+
+background:#000;
+
 text-align:center;
-padding:20px;
+
+padding:25px;
+
+color:#777;
+
 margin-top:40px;
+
 }
+
+
 
 </style>
 
 </head>
 
+
+
 <body>
+
+
 
 <header>
 
-<img src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif" alt="AKH BRAND">
+
+<img src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif">
+
 
 <h1>AKH BRAND</h1>
 
-<p>Fashion Store</p>
+<p>Luxury Fashion Store</p>
+
 
 </header>
 
 
+
+
+<div class="menu">
+
+<a href="#">الرئيسية</a>
+
+<a href="#">رجالي</a>
+
+<a href="#">حريمي</a>
+
+<a href="#">العروض</a>
+
+</div>
+
+
+
+
+
 <section class="hero">
 
-<h2>أحدث صيحات الموضة</h2>
+
+<h2>
+أحدث صيحات الموضة
+</h2>
+
 
 <p>
-رجالي • حريمي • أفضل جودة بأفضل سعر
+جودة عالية • تصميم مميز • سعر مناسب
 </p>
+
 
 </section>
 
 
+
+
+
+
 <section class="products">
+
 
 <div class="card">
 
-<img src="https://akhbrand.github.io/AKH-BRAND/images/08410060-28e3-4c03-9a0f-43e54e03a360.jpeg" alt="هودي">
+
+<img src="https://akhbrand.github.io/AKH-BRAND/images/08410060-28e3-4c03-9a0f-43e54e03a360.jpeg">
+
 
 <div class="info">
+
 
 <h2>
 هودي Brooklyn New York
 </h2>
 
+
 <p class="price">
 200 جنيه
 </p>
 
-<p>
+
+<div class="details">
+
 الخامة: قطن ليكرا مستورد
-</p>
 
-<p>
+<br>
+
 المقاس: Free Size
-</p>
 
-<p>
+<br>
+
 الكود: 758
-</p>
 
-<a class="btn" href="https://wa.me/201097521334?text=مرحباً، أريد طلب هودي Brooklyn New York - كود 758">
-اطلب عبر واتساب
+</div>
+
+
+
+<a class="btn"
+href="https://wa.me/201097521334?text=مرحباً، أريد طلب هودي Brooklyn New York - كود 758">
+
+اطلب الآن واتساب
+
 </a>
 
-</div>
+
 
 </div>
+
+
+</div>
+
 
 </section>
+
+
+
 
 
 <footer>
@@ -180,6 +398,8 @@ margin-top:40px;
 © 2026 AKH BRAND
 
 </footer>
+
+
 
 </body>
 
