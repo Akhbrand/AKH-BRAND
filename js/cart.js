@@ -3,6 +3,7 @@ const cart = JSON.parse(localStorage.getItem("cart")) || [];
 const box = document.getElementById("cartItems");
 
 if (cart.length === 0) {
+
     box.innerHTML = `
         <div class="card">
             <div class="info">
@@ -11,6 +12,7 @@ if (cart.length === 0) {
             </div>
         </div>
     `;
+
 } else {
 
     cart.forEach(product => {
@@ -23,8 +25,8 @@ if (cart.length === 0) {
         <div class="card">
 
             <div class="cartImageBox">
-    <img class="cartImage" src="${image}" alt="${product.name}">
-</div>
+                <img class="cartImage" src="${image}" alt="${product.name}">
+            </div>
 
             <div class="info">
 
@@ -35,8 +37,14 @@ if (cart.length === 0) {
                 </div>
 
                 <p>الخامة: ${product.material}</p>
+
                 <p>المقاس: ${product.size}</p>
 
             </div>
 
-        </
+        </div>
+        `;
+
+    });
+
+}
