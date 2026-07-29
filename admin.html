@@ -450,9 +450,35 @@ async function loadOrders() {
 
             <p>💳 ${order.payment}</p>
 
-            <p>📦 الحالة:
-                <strong>${order.status}</strong>
-            </p>
+          <p>📦 الحالة:
+    <strong>${order.status}</strong>
+</p>
+
+<button
+onclick="toggleProducts('${item.id}')"
+style="
+margin-top:15px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#25D366;
+color:#fff;
+font-size:16px;
+cursor:pointer;
+">
+📦 عرض المنتجات
+</button>
+
+<div
+id="products-${item.id}"
+style="
+display:none;
+margin-top:15px;
+padding-top:15px;
+border-top:1px solid #333;
+">
+</div>
 
         </div>
 
@@ -463,6 +489,62 @@ async function loadOrders() {
 }
 
 loadOrders();
+
+  window.toggleProducts = async function(id){
+
+    const box = document.getElementById("products-"+id);
+
+    if(box.style.display==="block"){
+
+        box.style.display="none";
+        return;
+
+    }
+
+    box.style.display="block";
+
+    const snapshot = await getDocs(collection(db,"orders"));
+
+    snapshot.forEach(docItem=>{
+
+        if(docItem.id!==id) return;
+
+        const order = docItem.data();
+
+        let html="";
+
+        order.products.forEach(product=>{
+
+            html += `
+
+            <div style="
+            background:#111;
+            padding:12px;
+            border-radius:10px;
+            margin-top:10px;
+            ">
+
+                <strong>${product.name}</strong>
+
+                <br>
+
+                الكمية: ${product.quantity || 1}
+
+                <br>
+
+                السعر: ${product.price}
+
+            </div>
+
+            `;
+
+        });
+
+        box.innerHTML = html;
+
+    });
+
+}
 </script>
 
 
