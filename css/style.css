@@ -362,3 +362,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 }
+
+body{
+border:5px solid red !important;
+}
