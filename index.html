@@ -107,6 +107,8 @@ height:350px;
 
 .slider{
 display:flex;
+flex-direction:row;
+direction:ltr;
 width:100%;
 height:100%;
 transition:transform .4s ease;
@@ -114,12 +116,10 @@ transition:transform .4s ease;
 
 .slider img{
 width:100%;
-min-width:100%;
 height:350px;
 object-fit:cover;
 display:block;
 flex:0 0 100%;
-}0;
 }
 
 
@@ -428,14 +428,13 @@ gallery.addEventListener("touchstart", e=>{
 
 gallery.addEventListener("touchend", e=>{
     endX = e.changedTouches[0].clientX;
+if(startX - endX > 50){
+    showSlide(index + 1);
+}
 
-    if(startX - endX > 50){
-        showSlide(index + 1); // سحب لليسار
-    }
-
-    if(endX - startX > 50){
-        showSlide(index - 1); // سحب لليمين
-    }
+if(endX - startX > 50){
+    showSlide(index - 1);
+}
 });
 
     function showSlide(i){
