@@ -128,6 +128,14 @@ margin-top:20px;
 
 <div id="productsList"></div>
 
+<hr style="margin:40px 0;border:1px solid #333;">
+
+<h2 style="text-align:center;">
+🛒 الطلبات الواردة
+</h2>
+
+<div id="ordersList"></div>
+
 </div>
 
 
@@ -144,10 +152,9 @@ collection,
 addDoc,
 getDocs,
 deleteDoc,
-doc
+doc,
+updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
 
 const firebaseConfig = {
 
@@ -393,6 +400,69 @@ window.deleteProduct = async function(id){
 }
 
 loadProducts();
+
+async function loadOrders() {
+
+    const list = document.getElementById("ordersList");
+
+    list.innerHTML = "";
+
+    const snapshot = await getDocs(collection(db, "orders"));
+
+    if (snapshot.empty) {
+
+        list.innerHTML = `
+        <div style="
+            background:#1a1a1a;
+            padding:20px;
+            border-radius:15px;
+            text-align:center;
+            margin-top:20px;
+        ">
+            لا توجد طلبات حالياً
+        </div>
+        `;
+
+        return;
+    }
+
+    snapshot.forEach((item) => {
+
+        const order = item.data();
+
+        list.innerHTML += `
+
+        <div style="
+            background:#1a1a1a;
+            border:1px solid #333;
+            border-radius:15px;
+            padding:20px;
+            margin-top:20px;
+        ">
+
+            <h3>👤 ${order.customerName}</h3>
+
+            <p>📞 ${order.customerPhone}</p>
+
+            <p>📍 ${order.governorate} - ${order.city}</p>
+
+            <p>💰 ${order.total} EGP</p>
+
+            <p>💳 ${order.payment}</p>
+
+            <p>📦 الحالة:
+                <strong>${order.status}</strong>
+            </p>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+loadOrders();
 </script>
 
 
