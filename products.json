@@ -6,5 +6,23 @@
     "size": "Free Size",
     "code": "758",
     "image": "08410060-28e3-4c03-9a0f-43e54e03a360.jpeg"
+  },
+
+  {
+    "name": "هودي AKH Premium",
+    "price": "250 جنيه",
+    "material": "قطن ثقيل",
+    "size": "M - L - XL",
+    "code": "759",
+    "image": "hoodie-2.jpeg"
+  },
+
+  {
+    "name": "تيشيرت AKH Classic",
+    "price": "150 جنيه",
+    "material": "قطن 100%",
+    "size": "M - L - XL",
+    "code": "760",
+    "image": "tshirt-1.jpeg"
   }
 ]
