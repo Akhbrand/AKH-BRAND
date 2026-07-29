@@ -39,6 +39,18 @@ if (cart.length === 0) {
                     <p>الخامة: ${product.material}</p>
                <p>المقاس: ${product.size}</p>
 
+               <p>الكمية: <span>${product.quantity || 1}</span></p>
+
+<div class="qtyBox">
+
+<button class="qtyBtn" onclick="changeQty(${index},-1)">➖</button>
+
+<span class="qtyNumber">${product.quantity || 1}</span>
+
+<button class="qtyBtn" onclick="changeQty(${index},1)">➕</button>
+
+</div>
+
 <button class="deleteBtn" onclick="removeFromCart(${index})">
 🗑️ حذف المنتج
 </button>
