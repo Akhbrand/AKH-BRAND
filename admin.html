@@ -450,9 +450,38 @@ async function loadOrders() {
 
             <p>💳 ${order.payment}</p>
 
-          <p>📦 الحالة:
-    <strong>${order.status}</strong>
+        <p style="margin-top:15px;">
+📦 الحالة
 </p>
+
+<select
+onchange="changeStatus('${item.id}',this.value)"
+style="
+width:100%;
+padding:12px;
+border-radius:10px;
+background:#222;
+color:#fff;
+border:1px solid #444;
+">
+
+<option ${order.status=="جديد"?"selected":""}>
+جديد
+</option>
+
+<option ${order.status=="جاري التجهيز"?"selected":""}>
+جاري التجهيز
+</option>
+
+<option ${order.status=="تم الشحن"?"selected":""}>
+تم الشحن
+</option>
+
+<option ${order.status=="تم التسليم"?"selected":""}>
+تم التسليم
+</option>
+
+</select>
 
 <button
 onclick="toggleProducts('${item.id}')"
@@ -543,6 +572,18 @@ loadOrders();
         box.innerHTML = html;
 
     });
+
+}
+  window.changeStatus = async function(id,status){
+
+    await updateDoc(
+        doc(db,"orders",id),
+        {
+            status:status
+        }
+    );
+
+    alert("✅ تم تحديث حالة الطلب");
 
 }
 </script>
