@@ -97,6 +97,7 @@ transition:.3s;
 .card:hover{
 
 transform:translateY(-8px);
+}  
 
 .gallery{
 position:relative;
@@ -112,9 +113,12 @@ height:100%;
 }
 
 .slider img{
+width:100%;
 min-width:100%;
 height:350px;
 object-fit:cover;
+display:block;
+flex-shrink:0;
 }
 
 .prev,
@@ -388,11 +392,9 @@ box.innerHTML += `
 
 <div class="card">
 
-<div class="gallery">
 
 ${images}
 
-</div>
 
 
 <div class="info">
