@@ -22,14 +22,12 @@ background:#050505;
 color:white;
 }
 
-
 header{
 background:#000;
 text-align:center;
 padding:35px 20px;
 border-bottom:1px solid #222;
 }
-
 
 header img{
 width:160px;
@@ -39,12 +37,10 @@ border-radius:20px;
 margin-bottom:15px;
 }
 
-
 header h1{
 font-size:42px;
 letter-spacing:4px;
 }
-
 
 header p{
 color:#aaa;
@@ -52,28 +48,21 @@ font-size:18px;
 margin-top:10px;
 }
 
-
-
 .hero{
-
 text-align:center;
 padding:60px 20px;
 background:linear-gradient(#111,#050505);
-
 }
-
 
 .hero h2{
 font-size:36px;
 margin-bottom:15px;
 }
 
-
 .hero p{
 color:#bbb;
 font-size:20px;
 }
-
 
 
 .products{
@@ -88,7 +77,6 @@ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 
 }
-
 
 
 .card{
@@ -125,6 +113,7 @@ overflow-x:auto;
 padding:10px;
 
 }
+
 
 
 .gallery img{
@@ -225,7 +214,6 @@ border-top:1px solid #222;
 
 }
 
-
 </style>
 
 </head>
@@ -248,9 +236,7 @@ border-top:1px solid #222;
 
 <section class="hero">
 
-<h2>
-أحدث صيحات الموضة
-</h2>
+<h2>أحدث صيحات الموضة</h2>
 
 <p>
 جودة عالية • تصميم مميز • أسلوبك الخاص
@@ -266,7 +252,6 @@ border-top:1px solid #222;
 
 
 
-
 <footer>
 
 © 2026 AKH BRAND
@@ -275,20 +260,48 @@ border-top:1px solid #222;
 
 
 
-<script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-fetch("products.json")
+const firebaseConfig = {
 
-.then(response => response.json())
+apiKey: "AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",
 
-.then(products => {
+authDomain: "akh-brand.firebaseapp.com",
+
+projectId: "akh-brand",
+
+storageBucket: "akh-brand.firebasestorage.app",
+
+messagingSenderId: "671562968837",
+
+appId: "1:671562968837:web:06557b3ab756696cf5116c",
+
+measurementId: "G-L1HPJ8PYMJ"
+
+};
 
 
-let box = document.getElementById("products");
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
 
 
-products.forEach(product => {
+
+const box = document.getElementById("products");
+
+
+const querySnapshot = await getDocs(collection(db,"products"));
+
+
+querySnapshot.forEach((doc)=>{
+
+
+let product = doc.data();
 
 
 let images = "";
@@ -297,13 +310,9 @@ let images = "";
 if(Array.isArray(product.image)){
 
 
-product.image.forEach(img => {
+product.image.forEach(img=>{
 
-images += `
-
-<img src="./images/${img}">
-
-`;
+images += `<img src="./images/${img}">`;
 
 });
 
@@ -311,11 +320,7 @@ images += `
 }else{
 
 
-images = `
-
-<img src="./images/${product.image}">
-
-`;
+images = `<img src="./images/${product.image}">`;
 
 }
 
@@ -323,9 +328,7 @@ images = `
 
 box.innerHTML += `
 
-
 <div class="card">
-
 
 <div class="gallery">
 
@@ -337,9 +340,7 @@ ${images}
 <div class="info">
 
 
-<h2>
-${product.name}
-</h2>
+<h2>${product.name}</h2>
 
 
 <div class="price">
@@ -349,20 +350,16 @@ ${product.price}
 </div>
 
 
-<p>
-الخامة: ${product.material}
-</p>
+<p>الخامة: ${product.material}</p>
+
+<p>المقاس: ${product.size}</p>
+
+<p>الكود: ${product.code}</p>
 
 
 <p>
-المقاس: ${product.size}
+${product.description || ""}
 </p>
-
-
-<p>
-الكود: ${product.code}
-</p>
-
 
 
 <a class="btn"
@@ -376,15 +373,9 @@ href="https://wa.me/201097521334?text=مرحباً، أريد طلب ${product.n
 
 </div>
 
-
 </div>
 
-
 `;
-
-
-});
-
 
 });
 
