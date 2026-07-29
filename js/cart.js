@@ -22,9 +22,9 @@ if (cart.length === 0) {
         box.innerHTML += `
         <div class="card">
 
-            <div class="gallery">
-                <img class="cartImage" src="${image}" alt="${product.name}">
-            </div>
+            <div class="cartImageBox">
+    <img class="cartImage" src="${image}" alt="${product.name}">
+</div>
 
             <div class="info">
 
