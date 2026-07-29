@@ -328,23 +328,19 @@ align-items:center;
 text-decoration:none;
 font-size:28px;
 color:#fff;
-
-background:rgba(0,0,0,0.45);
+background:rgba(0,0,0,.45);
 backdrop-filter:blur(12px);
 -webkit-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,0.15);
+border:1px solid rgba(255,255,255,.15);
 border-radius:50%;
-
 box-shadow:0 8px 25px rgba(0,0,0,.35);
-
 z-index:9999;
 transition:.3s;
 }
 
 .cartIcon:hover{
 transform:scale(1.08);
-background:rgba(255,255,255,0.12);
+background:rgba(255,255,255,.12);
 }
 
 #cartCount{
@@ -361,8 +357,4 @@ font-weight:bold;
 display:flex;
 justify-content:center;
 align-items:center;
-}
-
-body{
-border:5px solid red !important;
 }
