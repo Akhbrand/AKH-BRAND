@@ -23,100 +23,66 @@ color:white;
 }
 
 
-/* الهيدر */
-
 header{
-
 background:#000;
 text-align:center;
 padding:35px 20px;
-
 border-bottom:1px solid #222;
-
 }
 
 
 header img{
-
 width:160px;
 height:160px;
-
 object-fit:cover;
-
 border-radius:20px;
-
 margin-bottom:15px;
-
 }
-
 
 
 header h1{
-
 font-size:42px;
-
 letter-spacing:4px;
-
 }
-
 
 
 header p{
-
 color:#aaa;
-
 font-size:18px;
-
 margin-top:10px;
-
 }
 
 
-
-/* البانر */
 
 .hero{
 
 text-align:center;
-
 padding:60px 20px;
-
 background:linear-gradient(#111,#050505);
 
 }
 
 
 .hero h2{
-
 font-size:36px;
-
 margin-bottom:15px;
-
 }
 
 
 .hero p{
-
 color:#bbb;
-
 font-size:20px;
-
 }
 
 
 
-/* المنتجات */
-
 .products{
 
 max-width:1200px;
-
 margin:auto;
-
 padding:40px 20px;
 
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
 gap:30px;
@@ -140,27 +106,40 @@ transition:.3s;
 }
 
 
-
 .card:hover{
 
-transform:translateY(-10px);
-
-box-shadow:0 10px 30px rgba(255,255,255,.1);
+transform:translateY(-8px);
 
 }
 
 
 
-.card img{
+.gallery{
+
+display:flex;
+
+gap:10px;
+
+overflow-x:auto;
+
+padding:10px;
+
+}
+
+
+.gallery img{
 
 width:100%;
+
+min-width:100%;
 
 height:350px;
 
 object-fit:cover;
 
-}
+border-radius:15px;
 
+}
 
 
 
@@ -206,7 +185,6 @@ line-height:1.8;
 
 
 
-
 .btn{
 
 display:block;
@@ -231,16 +209,6 @@ font-weight:bold;
 
 
 
-.btn:hover{
-
-opacity:.8;
-
-}
-
-
-
-/* الفوتر */
-
 footer{
 
 background:#000;
@@ -258,7 +226,6 @@ border-top:1px solid #222;
 }
 
 
-
 </style>
 
 </head>
@@ -267,47 +234,35 @@ border-top:1px solid #222;
 <body>
 
 
-
 <header>
 
-
 <img src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif">
-
 
 <h1>AKH BRAND</h1>
 
 <p>Luxury Fashion Store</p>
 
-
 </header>
-
 
 
 
 <section class="hero">
 
-
 <h2>
 أحدث صيحات الموضة
 </h2>
-
 
 <p>
 جودة عالية • تصميم مميز • أسلوبك الخاص
 </p>
 
-
 </section>
-
-
 
 
 
 <section class="products" id="products">
 
-
 </section>
-
 
 
 
@@ -317,8 +272,6 @@ border-top:1px solid #222;
 © 2026 AKH BRAND
 
 </footer>
-
-
 
 
 
@@ -338,23 +291,61 @@ let box = document.getElementById("products");
 products.forEach(product => {
 
 
+let images = "";
+
+
+if(Array.isArray(product.image)){
+
+
+product.image.forEach(img => {
+
+images += `
+
+<img src="./images/${img}">
+
+`;
+
+});
+
+
+}else{
+
+
+images = `
+
+<img src="./images/${product.image}">
+
+`;
+
+}
+
+
+
 box.innerHTML += `
 
 
 <div class="card">
 
 
-<img src="./images/${product.image}" alt="${product.name}">
+<div class="gallery">
+
+${images}
+
+</div>
 
 
 <div class="info">
 
 
-<h2>${product.name}</h2>
+<h2>
+${product.name}
+</h2>
 
 
 <div class="price">
+
 ${product.price}
+
 </div>
 
 
