@@ -187,12 +187,25 @@ dots.forEach((dot,i)=>{
 });
 
 window.addToCart = function(product){
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-cart.push(product);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-localStorage.setItem("cart", JSON.stringify(cart));
+    let existing = cart.find(item => item.code === product.code);
 
-alert("✅ تم إضافة المنتج للسلة");
+    if(existing){
+
+        existing.quantity = (existing.quantity || 1) + 1;
+
+    }else{
+
+        product.quantity = 1;
+
+        cart.push(product);
+
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("✅ تم إضافة المنتج للسلة");
 
 }
