@@ -1,28 +1,22 @@
 [
   {
-    "name": "هودي Brooklyn New York",
+    "name": "المنتج القديم",
     "price": "200 جنيه",
-    "material": "قطن ليكرا مستورد",
-    "size": "Free Size",
+    "material": "الخامة",
+    "size": "المقاس",
     "code": "758",
-    "image": "08410060-28e3-4c03-9a0f-43e54e03a360.jpeg"
+    "image": "اسم الصورة.jpeg"
   },
 
   {
-    "name": "هودي AKH Premium",
+    "name": "تيشيرت أوفر سايز برنت جولد",
     "price": "250 جنيه",
-    "material": "قطن ثقيل",
-    "size": "M - L - XL",
-    "code": "759",
-    "image": "hoodie-2.jpeg"
-  },
-
-  {
-    "name": "تيشيرت AKH Classic",
-    "price": "150 جنيه",
-    "material": "قطن 100%",
-    "size": "M - L - XL",
-    "code": "760",
-    "image": "tshirt-1.jpeg"
+    "material": "ميلتون قطن بيور مستورد",
+    "size": "One Size - مناسب من 65ك إلى 90ك",
+    "code": "775",
+    "image": [
+      "494A71DB-C445-4702-B9E8-86899E123CB1.jpeg",
+      "885397B5-1791-49EB-A3EA-2165D915E333.jpeg"
+    ]
   }
 ]
