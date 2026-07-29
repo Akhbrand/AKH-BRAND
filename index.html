@@ -21,6 +21,7 @@ background:#f5f5f5;
 color:#222;
 }
 
+
 header{
 background:#111;
 color:white;
@@ -28,7 +29,8 @@ padding:20px;
 text-align:center;
 }
 
-header video{
+
+header img{
 width:130px;
 height:130px;
 object-fit:cover;
@@ -36,90 +38,139 @@ border-radius:15px;
 margin-bottom:10px;
 }
 
+
+
 .hero{
 background:white;
 text-align:center;
 padding:40px 20px;
 }
 
+
 .hero h2{
 font-size:32px;
 margin-bottom:10px;
 }
 
+
 .hero p{
 color:#666;
 }
 
+
+
 .products{
+
 max-width:1000px;
 margin:auto;
 padding:30px;
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
 gap:25px;
+
 }
 
+
+
 .card{
+
 background:white;
 border-radius:15px;
 overflow:hidden;
+
 box-shadow:0 5px 20px rgba(0,0,0,.15);
+
 }
+
+
 
 .card img{
+
 width:100%;
 display:block;
+
 }
+
+
 
 .info{
+
 padding:20px;
 text-align:center;
+
 }
+
+
 
 .info h2{
+
 font-size:22px;
+
 }
 
+
+
 .price{
+
 font-size:28px;
 font-weight:bold;
 margin:15px 0;
+
 }
+
+
 
 .btn{
+
 display:inline-block;
+
 background:#25D366;
+
 color:white;
+
 padding:14px 25px;
+
 border-radius:10px;
+
 text-decoration:none;
+
 font-size:18px;
+
 margin-top:15px;
+
 }
 
+
+
 footer{
+
 background:#111;
+
 color:white;
+
 text-align:center;
+
 padding:20px;
+
 margin-top:40px;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 
 <header>
 
-<video id="logoVideo" muted loop playsinline preload="auto">
 
-<source src="./images/video.mp4" type="video/mp4">
-
-</video>
+<img src="./images/VideoToGif_GIF.gif" alt="AKH BRAND">
 
 
 <h1>AKH BRAND</h1>
@@ -131,55 +182,86 @@ margin-top:40px;
 
 
 
+
+
 <section class="hero">
 
+
 <h2>أحدث صيحات الموضة</h2>
+
 
 <p>
 رجالي • حريمي • أفضل جودة بأفضل سعر
 </p>
 
+
 </section>
+
+
 
 
 
 <section class="products">
 
+
 <div class="card">
+
 
 <img src="./images/08410060-28e3-4c03-9a0f-43e54e03a360.jpeg" alt="هودي">
 
+
+
 <div class="info">
+
 
 <h2>
 هودي Brooklyn New York
 </h2>
 
+
+
 <p class="price">
 200 جنيه
 </p>
+
+
 
 <p>
 الخامة: قطن ليكرا مستورد
 </p>
 
+
+
 <p>
 المقاس: Free Size
 </p>
+
+
 
 <p>
 الكود: 758
 </p>
 
-<a class="btn" href="https://wa.me/201097521334?text=مرحباً، أريد طلب هودي Brooklyn New York - كود 758">
+
+
+<a class="btn"
+href="https://wa.me/201097521334?text=مرحباً، أريد طلب هودي Brooklyn New York - كود 758">
+
 اطلب عبر واتساب
+
 </a>
 
-</div>
+
 
 </div>
+
+
+</div>
+
 
 </section>
+
+
 
 
 
@@ -190,21 +272,6 @@ margin-top:40px;
 </footer>
 
 
-<script>
-
-document.addEventListener("DOMContentLoaded", function(){
-
-let video = document.getElementById("logoVideo");
-
-video.play().catch(function(error){
-
-console.log("المتصفح منع التشغيل التلقائي");
-
-});
-
-});
-
-</script>
 
 
 </body>
