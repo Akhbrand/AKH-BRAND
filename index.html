@@ -335,36 +335,49 @@ querySnapshot.forEach((doc)=>{
 
 let product = doc.data();
 
-
 let images = "";
+let dots = "";
 
-if (Array.isArray(product.image)) {
+const imgs = Array.isArray(product.image) ? product.image : [product.image];
 
-    product.image.forEach(img => {
-
-        const imagePath =
-            (typeof img === "string" && img.startsWith("http"))
-                ? img
-                : "./images/" + img;
-
-        images += `
-            <img src="${imagePath}" loading="lazy" alt="${product.name}">
-        `;
-
-    });
-
-} else {
+imgs.forEach((img,index)=>{
 
     const imagePath =
-        (typeof product.image === "string" && product.image.startsWith("http"))
-            ? product.image
-            : "./images/" + product.image;
+        (typeof img === "string" && img.startsWith("http"))
+        ? img
+        : "./images/" + img;
 
-    images = `
+    images += `
         <img src="${imagePath}" loading="lazy" alt="${product.name}">
     `;
 
-}
+    dots += `
+        <span class="dot ${index==0?"active":""}"></span>
+    `;
+
+});
+
+images = `
+<div class="gallery">
+
+    <div class="slider">
+
+        ${images}
+
+    </div>
+
+    <button class="prev">❮</button>
+
+    <button class="next">❯</button>
+
+    <div class="dots">
+
+        ${dots}
+
+    </div>
+
+</div>
+`;
 
 
 
@@ -424,7 +437,38 @@ href="https://wa.me/201097521334?text=مرحباً، أريد طلب ${product.n
 
 });
 
+document.querySelectorAll(".gallery").forEach(gallery=>{
 
+    const slider = gallery.querySelector(".slider");
+    const prev = gallery.querySelector(".prev");
+    const next = gallery.querySelector(".next");
+    const dots = gallery.querySelectorAll(".dot");
+
+    let index = 0;
+
+    function showSlide(i){
+
+        if(i < 0) i = dots.length - 1;
+        if(i >= dots.length) i = 0;
+
+        index = i;
+
+        slider.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach(dot=>dot.classList.remove("active"));
+        dots[index].classList.add("active");
+
+    }
+
+    prev.onclick = ()=>showSlide(index - 1);
+    next.onclick = ()=>showSlide(index + 1);
+
+    dots.forEach((dot,i)=>{
+        dot.onclick = ()=>showSlide(i);
+    });
+
+});
+    
 </script>
 
 
