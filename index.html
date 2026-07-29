@@ -306,23 +306,36 @@ let product = doc.data();
 
 let images = "";
 
+if (Array.isArray(product.image)) {
 
-if(Array.isArray(product.image)){
+    product.image.forEach(img => {
 
+        const imagePath =
+            (typeof img === "string" && img.startsWith("http"))
+                ? img
+                : "./images/" + img;
 
-product.image.forEach(img=>{
+        images += `
+            <img src="${imagePath}" loading="lazy" alt="${product.name}">
+        `;
 
-images += `<img src="./images/${img}">`;
+    });
 
-});
+} else {
 
+    const imagePath =
+        (typeof product.image === "string" && product.image.startsWith("http"))
+            ? product.image
+            : "./images/" + product.image;
 
-}else{
-
-
-images = `<img src="./images/${product.image}">`;
+    images = `
+        <img src="${imagePath}" loading="lazy" alt="${product.name}">
+    `;
 
 }
+
+
+
 
 
 
