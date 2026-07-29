@@ -2,8 +2,10 @@ const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const orderItems = document.getElementById("orderItems");
 const totalPrice = document.getElementById("totalPrice");
+const totalItems = document.getElementById("totalItems");
 
 let total = 0;
+let itemsCount = 0;
 
 if (cart.length === 0) {
 
@@ -15,6 +17,12 @@ if (cart.length === 0) {
         </div>
     </div>
     `;
+
+    totalPrice.textContent = "0 EGP";
+
+    if (totalItems) {
+        totalItems.textContent = "0";
+    }
 
 } else {
 
@@ -32,13 +40,17 @@ if (cart.length === 0) {
             imagePath = "./images/" + image;
         }
 
-     const price = Number(
-    String(product.price).replace(/[^\d.]/g, "")
-) || 0;
+        const price = Number(
+            String(product.price).replace(/[^\d.]/g, "")
+        ) || 0;
 
-const quantity = product.quantity || 1;
+        const quantity = product.quantity || 1;
 
-total += price * quantity;
+        const itemTotal = price * quantity;
+
+        total += itemTotal;
+
+        itemsCount += quantity;
 
         html += `
         <div class="orderCard">
@@ -49,11 +61,13 @@ total += price * quantity;
 
                 <h3>${product.name}</h3>
 
-              <p>السعر: ${price} EGP × ${quantity}</p>
+                <p>سعر القطعة: ${price} EGP</p>
 
-<p>الإجمالي: ${price * quantity} EGP</p>
+                <p>الكمية: ${quantity}</p>
 
-<p>المقاس: ${product.size}</p>
+                <p><strong>الإجمالي: ${itemTotal} EGP</strong></p>
+
+                <p>المقاس: ${product.size}</p>
 
             </div>
 
@@ -64,9 +78,14 @@ total += price * quantity;
 
     orderItems.innerHTML = html;
 
-}
+    totalPrice.textContent = total + " EGP";
 
-totalPrice.textContent = total + " document.getElementById("sendOrder").onclick = async () => {
+    if (totalItems) {
+        totalItems.textContent = itemsCount;
+    }
+
+}
+document.getElementById("sendOrder").onclick = async () => {
 
     if (cart.length === 0) {
         alert("🛒 السلة فارغة");
@@ -85,8 +104,9 @@ totalPrice.textContent = total + " document.getElementById("sendOrder").onclick 
         return;
     }
 
-    const payment =
-        document.querySelector('input[name="payment"]:checked').value;
+    const payment = document.querySelector(
+        'input[name="payment"]:checked'
+    ).value;
 
     const btn = document.getElementById("sendOrder");
     btn.disabled = true;
@@ -94,13 +114,17 @@ totalPrice.textContent = total + " document.getElementById("sendOrder").onclick 
 
     try {
 
-        const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+        const { initializeApp } = await import(
+            "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"
+        );
 
         const {
             getFirestore,
             collection,
             addDoc
-        } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+        } = await import(
+            "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+        );
 
         const firebaseConfig = {
             apiKey: "AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",
@@ -116,7 +140,6 @@ totalPrice.textContent = total + " document.getElementById("sendOrder").onclick 
         const db = getFirestore(app);
 
         await addDoc(collection(db, "orders"), {
-
             customerName,
             customerPhone,
             governorate,
@@ -126,9 +149,9 @@ totalPrice.textContent = total + " document.getElementById("sendOrder").onclick 
             payment,
             products: cart,
             total,
+            totalItems: itemsCount,
             status: "جديد",
             createdAt: new Date().toISOString()
-
         });
 
         localStorage.removeItem("cart");
@@ -137,9 +160,9 @@ totalPrice.textContent = total + " document.getElementById("sendOrder").onclick 
 
         window.location.href = "index.html";
 
-    } catch (e) {
+    } catch (error) {
 
-        console.error(e);
+        console.error(error);
 
         alert("❌ حدث خطأ أثناء إرسال الطلب.");
 
