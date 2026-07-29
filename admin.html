@@ -308,7 +308,9 @@ image:imageUrls
 
 
 
-document.getElementById("msg").innerHTML="✅ تم نشر المنتج بنجاح";
+ddocument.getElementById("msg").innerHTML="✅ تم نشر المنتج بنجاح";
+
+loadProducts();
 
 
 }
@@ -331,7 +333,66 @@ document.getElementById("msg").innerHTML=
 
 }
 
+async function loadProducts() {
 
+    const list = document.getElementById("productsList");
+
+    list.innerHTML = "";
+
+    const snapshot = await getDocs(collection(db, "products"));
+
+    snapshot.forEach((item) => {
+
+        const product = item.data();
+
+        list.innerHTML += `
+        <div style="
+            background:#1a1a1a;
+            border:1px solid #333;
+            border-radius:15px;
+            padding:15px;
+            margin-top:15px;
+        ">
+
+            <h3>${product.name}</h3>
+
+            <p>${product.price}</p>
+
+            <button
+                onclick="deleteProduct('${item.id}')"
+                style="
+                    background:#ff3333;
+                    color:white;
+                    border:none;
+                    padding:12px;
+                    border-radius:10px;
+                    cursor:pointer;
+                ">
+                🗑️ حذف المنتج
+            </button>
+
+        </div>
+        `;
+
+    });
+
+}
+
+window.deleteProduct = async function(id){
+
+    let ok = confirm("هل أنت متأكد من حذف المنتج؟");
+
+    if(!ok) return;
+
+    await deleteDoc(doc(db,"products",id));
+
+    alert("✅ تم حذف المنتج");
+
+    loadProducts();
+
+}
+
+loadProducts();
 </script>
 
 
