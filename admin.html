@@ -13,34 +13,30 @@
 body{
 background:#050505;
 color:white;
-font-family:Arial,sans-serif;
+font-family:Arial;
 padding:20px;
 }
 
 .box{
-
 max-width:600px;
 margin:auto;
 background:#111;
 padding:30px;
 border-radius:20px;
 border:1px solid #333;
-
 }
 
 h1{
 text-align:center;
-margin-bottom:25px;
 }
 
-input, textarea{
+input,textarea{
 
 width:100%;
 padding:15px;
 margin:10px 0;
 border-radius:10px;
 border:none;
-font-size:16px;
 
 }
 
@@ -55,18 +51,20 @@ width:100%;
 padding:15px;
 background:#25D366;
 color:white;
-border:none;
+border:0;
 border-radius:10px;
 font-size:18px;
-cursor:pointer;
 
 }
 
 
-#msg{
+#preview img{
 
-margin-top:20px;
-text-align:center;
+width:100px;
+height:100px;
+object-fit:cover;
+border-radius:10px;
+margin:5px;
 
 }
 
@@ -80,6 +78,7 @@ text-align:center;
 
 <div class="box">
 
+
 <h1>
 إضافة منتج AKH BRAND
 </h1>
@@ -87,15 +86,11 @@ text-align:center;
 
 <input id="name" placeholder="اسم المنتج">
 
-
 <input id="price" placeholder="السعر">
-
 
 <input id="material" placeholder="الخامة">
 
-
 <input id="size" placeholder="المقاس">
-
 
 <input id="code" placeholder="الكود">
 
@@ -103,7 +98,10 @@ text-align:center;
 <textarea id="description" placeholder="وصف المنتج"></textarea>
 
 
-<input id="image" placeholder="أسماء الصور (افصل بينهم بفاصلة)">
+<input type="file" id="images" multiple accept="image/*">
+
+
+<div id="preview"></div>
 
 
 <button onclick="addProduct()">
@@ -146,49 +144,119 @@ measurementId: "G-L1HPJ8PYMJ"
 };
 
 
-
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
 
 
+let imageUrls=[];
+
+
+
+document.getElementById("images").addEventListener("change",function(){
+
+let preview=document.getElementById("preview");
+
+preview.innerHTML="";
+
+
+for(let file of this.files){
+
+let img=document.createElement("img");
+
+img.src=URL.createObjectURL(file);
+
+preview.appendChild(img);
+
+}
+
+});
+
+
+
+
+async function uploadImage(file){
+
+
+let formData=new FormData();
+
+formData.append("file",file);
+
+formData.append("upload_preset","akh_upload");
+
+
+
+let res=await fetch(
+
+"https://api.cloudinary.com/v1_1/yhwzc937/image/upload",
+
+{
+
+method:"POST",
+
+body:formData
+
+}
+
+);
+
+
+let data=await res.json();
+
+return data.secure_url;
+
+
+}
+
+
+
+
+
 window.addProduct = async function(){
 
 
-let images = document
-.getElementById("image")
-.value
-.split(",")
-.map(img => img.trim());
+let files=document.getElementById("images").files;
+
+
+imageUrls=[];
+
+
+for(let file of files){
+
+let url=await uploadImage(file);
+
+imageUrls.push(url);
+
+}
+
 
 
 await addDoc(collection(db,"products"),{
 
 
-name: document.getElementById("name").value,
+name: name.value,
 
-price: document.getElementById("price").value,
+price: price.value,
 
-material: document.getElementById("material").value,
+material: material.value,
 
-size: document.getElementById("size").value,
+size: size.value,
 
-code: document.getElementById("code").value,
+code: code.value,
 
-description: document.getElementById("description").value,
+description: description.value,
 
-image: images
+image:imageUrls
 
 
 });
 
 
-document.getElementById("msg").innerHTML="✅ تم إضافة المنتج بنجاح";
+document.getElementById("msg").innerHTML="✅ تم نشر المنتج";
 
 
 }
-
 
 
 </script>
