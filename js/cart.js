@@ -37,12 +37,16 @@ if (cart.length === 0) {
                     </div>
 
                     <p>الخامة: ${product.material}</p>
-                    <p>المقاس: ${product.size}</p>
+               <p>المقاس: ${product.size}</p>
 
-                </div>
+<button class="deleteBtn" onclick="removeFromCart(${index})">
+🗑️ حذف المنتج
+</button>
 
-            </div>
-        `;
+</div>
+
+</div>
+`;
 
     });
 
