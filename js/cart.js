@@ -51,3 +51,15 @@ if (cart.length === 0) {
     });
 
 }
+
+window.removeFromCart = function(index){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    location.reload();
+
+}
