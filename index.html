@@ -122,29 +122,6 @@ display:block;
 flex-shrink:0;
 }
 
-.prev,
-.next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,.5);
-color:#fff;
-border:none;
-width:40px;
-height:40px;
-border-radius:50%;
-cursor:pointer;
-font-size:20px;
-z-index:5;
-}
-
-.prev{
-left:10px;
-}
-
-.next{
-right:10px;
-}
 
 .dots{
 position:absolute;
@@ -440,11 +417,29 @@ href="https://wa.me/201097521334?text=مرحباً، أريد طلب ${product.n
 document.querySelectorAll(".gallery").forEach(gallery=>{
 
     const slider = gallery.querySelector(".slider");
-    const prev = gallery.querySelector(".prev");
-    const next = gallery.querySelector(".next");
+    
     const dots = gallery.querySelectorAll(".dot");
 
     let index = 0;
+
+    let startX = 0;
+let endX = 0;
+
+gallery.addEventListener("touchstart", e=>{
+    startX = e.touches[0].clientX;
+});
+
+gallery.addEventListener("touchend", e=>{
+    endX = e.changedTouches[0].clientX;
+
+    if(startX - endX > 50){
+        showSlide(index + 1); // سحب لليسار
+    }
+
+    if(endX - startX > 50){
+        showSlide(index - 1); // سحب لليمين
+    }
+});
 
     function showSlide(i){
 
@@ -460,8 +455,7 @@ document.querySelectorAll(".gallery").forEach(gallery=>{
 
     }
 
-    prev.onclick = ()=>showSlide(index - 1);
-    next.onclick = ()=>showSlide(index + 1);
+    
 
     dots.forEach((dot,i)=>{
         dot.onclick = ()=>showSlide(i);
