@@ -188,26 +188,26 @@ dots.forEach((dot,i)=>{
 
 window.addToCart = function(product){
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let existing = cart.find(item => item.code === product.code);
+// البحث عن المنتج إذا كان موجودًا بالفعل
+let existing = cart.find(item => item.code === product.code);
 
-    if(existing){
+if(existing){
 
-        existing.quantity = (existing.quantity || 1) + 1;
+    existing.quantity = (existing.quantity || 1) + 1;
 
-    }else{
+}else{
 
-        product.quantity = 1;
+    product.quantity = 1;
 
-        cart.push(product);
+    cart.push(product);
 
-    }
+}
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+localStorage.setItem("cart", JSON.stringify(cart));
 
-    updateCartCount();
-    alert("✅ تم إضافة المنتج للسلة");
+alert("✅ تم إضافة المنتج للسلة");
 
 }
 function updateCartCount(){
