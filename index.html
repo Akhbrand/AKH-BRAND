@@ -107,18 +107,20 @@ height:350px;
 
 .slider{
 display:flex;
-transition:0.4s;
 width:100%;
 height:100%;
+transition:transform .4s ease;
+flex-wrap:nowrap;
+overflow:hidden;
 }
 
+
 .slider img{
+flex:0 0 100%;
 width:100%;
-min-width:100%;
 height:350px;
 object-fit:cover;
 display:block;
-flex-shrink:0;
 }
 
 .prev,
