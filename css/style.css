@@ -296,3 +296,23 @@ font-weight:bold;
 min-width:30px;
 text-align:center;
 }
+.cartHeader{
+display:flex;
+justify-content:flex-start;
+padding:20px;
+}
+
+.cartLink{
+background:#25D366;
+color:#fff;
+text-decoration:none;
+padding:15px 25px;
+border-radius:15px;
+font-size:20px;
+font-weight:bold;
+transition:.3s;
+}
+
+.cartLink:hover{
+transform:scale(1.05);
+}
