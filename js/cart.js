@@ -23,7 +23,7 @@ if (cart.length === 0) {
         <div class="card">
 
             <div class="gallery">
-                <img src="${image}" alt="${product.name}">
+                <img class="cartImage" src="${image}" alt="${product.name}">
             </div>
 
             <div class="info">
