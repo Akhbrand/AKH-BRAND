@@ -209,3 +209,17 @@ window.addToCart = function(product){
     alert("✅ تم إضافة المنتج للسلة");
 
 }
+function updateCartCount(){
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let total = 0;
+
+    cart.forEach(item=>{
+        total += item.quantity || 1;
+    });
+
+    document.getElementById("cartCount").innerText = total;
+}
+
+updateCartCount();
