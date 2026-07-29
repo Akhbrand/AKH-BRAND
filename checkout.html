@@ -24,20 +24,97 @@
 
 </header>
 
-<div class="card" style="max-width:700px;margin:40px auto;padding:25px;">
+<div class="checkoutContainer">
 
-<div class="info">
+<div class="checkoutLeft">
 
-<input id="customerName" type="text" placeholder="الاسم بالكامل">
+<h2>🛒 ملخص الطلب</h2>
 
-<input id="customerPhone" type="tel" placeholder="رقم الهاتف">
+<div id="orderItems"></div>
 
-<input id="customerAddress" type="text" placeholder="العنوان بالكامل">
+<div class="totalBox">
+
+<span>الإجمالي</span>
+
+<span id="totalPrice">0 EGP</span>
+
+</div>
+
+</div>
+
+<div class="checkoutRight">
+
+<h2>📋 بيانات العميل</h2>
+
+<input type="text" id="customerName" placeholder="الاسم بالكامل">
+
+<input type="tel" id="customerPhone" placeholder="رقم الهاتف">
+
+<select id="customerGovernorate">
+
+<option value="">اختر المحافظة</option>
+
+<option>القاهرة</option>
+<option>الجيزة</option>
+<option>الإسكندرية</option>
+<option>القليوبية</option>
+<option>الشرقية</option>
+<option>الغربية</option>
+<option>المنوفية</option>
+<option>البحيرة</option>
+<option>الدقهلية</option>
+<option>كفر الشيخ</option>
+<option>دمياط</option>
+<option>بورسعيد</option>
+<option>الإسماعيلية</option>
+<option>السويس</option>
+<option>الفيوم</option>
+<option>بني سويف</option>
+<option>المنيا</option>
+<option>أسيوط</option>
+<option>سوهاج</option>
+<option>قنا</option>
+<option>الأقصر</option>
+<option>أسوان</option>
+
+</select>
+
+<input type="text" id="customerCity" placeholder="المدينة">
+
+<textarea id="customerAddress" placeholder="العنوان بالكامل"></textarea>
+
+<h3>🚚 طريقة الدفع</h3>
+
+<label class="radioBox">
+
+<input type="radio" name="payment" value="الدفع عند الاستلام" checked>
+
+الدفع عند الاستلام
+
+</label>
+
+<label class="radioBox">
+
+<input type="radio" name="payment" value="Vodafone Cash">
+
+Vodafone Cash
+
+</label>
+
+<label class="radioBox">
+
+<input type="radio" name="payment" value="InstaPay">
+
+InstaPay
+
+</label>
 
 <textarea id="customerNotes" placeholder="ملاحظات (اختياري)"></textarea>
 
-<button class="btn" id="sendOrder">
+<button id="sendOrder" class="confirmBtn">
+
 ✅ تأكيد الطلب
+
 </button>
 
 </div>
