@@ -22,27 +22,26 @@ if (cart.length === 0) {
             : product.image;
 
         box.innerHTML += `
-        <div class="card">
+            <div class="card">
 
-            <div class="cartImageBox">
-                <img class="cartImage" src="${image}" alt="${product.name}">
-            </div>
-
-            <div class="info">
-
-                <h2>${product.name}</h2>
-
-                <div class="price">
-                    ${product.price}
+                <div class="cartImageBox">
+                    <img class="cartImage" src="${image}" alt="${product.name}">
                 </div>
 
-                <p>الخامة: ${product.material}</p>
+                <div class="info">
 
-                <p>المقاس: ${product.size}</p>
+                    <h2>${product.name}</h2>
+
+                    <div class="price">
+                        ${product.price}
+                    </div>
+
+                    <p>الخامة: ${product.material}</p>
+                    <p>المقاس: ${product.size}</p>
+
+                </div>
 
             </div>
-
-        </div>
         `;
 
     });
