@@ -48,7 +48,9 @@ total += price * qty;
                <p>المقاس: ${product.size}</p>
 
                <p>الكمية: <span>${product.quantity || 1}</span></p>
-
+<button class="deleteBtn" onclick="removeFromCart('${product.code}')">
+🗑️ حذف المنتج
+</button>
 <div class="qtyBox">
 
 <button class="qtyBtn" onclick="changeQty(${index},-1)">➖</button>
