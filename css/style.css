@@ -511,4 +511,22 @@ transform:scale(1.02);
 grid-template-columns:1fr;
 }
 
+} لا
+
+.deleteBtn{
+width:100%;
+margin-top:15px;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#dc3545;
+color:#fff;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.deleteBtn:hover{
+background:#b02a37;
 }
