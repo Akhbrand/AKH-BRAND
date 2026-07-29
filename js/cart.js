@@ -43,4 +43,13 @@ if (cart.length === 0) {
         `;
     });
 
+
+}
+
+.cartImage{
+width:100%;
+height:300px;
+object-fit:contain;
+background:#000;
+padding:10px;
 }
