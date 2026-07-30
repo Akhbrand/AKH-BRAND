@@ -1105,3 +1105,39 @@ footer{
 }
 
 }
+
+/* =====================
+   PREMIUM HERO EFFECT
+===================== */
+
+.logo{
+
+    box-shadow:
+    0 0 40px rgba(212,175,55,.25),
+    0 0 80px rgba(212,175,55,.15);
+
+}
+
+
+.mainHeader h1{
+
+    text-shadow:
+    0 5px 30px rgba(0,0,0,.8);
+
+}
+
+
+.shopBtn{
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.5);
+
+}
+
+
+.shopBtn:hover{
+
+    box-shadow:
+    0 15px 40px rgba(212,175,55,.35);
+
+}
