@@ -4410,3 +4410,7 @@ body::before{
 
 
 }
+
+.brandStory{
+    display:none !important;
+}
