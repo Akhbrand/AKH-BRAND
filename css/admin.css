@@ -9,17 +9,18 @@ body{
     background:#050505;
     color:#fff;
     padding:20px;
+    overflow-x:hidden;
 }
 
 .box{
-    max-width:1200px;
+    width:100%;
+    max-width:1400px;
     margin:auto;
     background:#111;
     border:1px solid #333;
     border-radius:20px;
     padding:30px;
 }
-
 h1,h2{
     text-align:center;
     margin-bottom:20px;
