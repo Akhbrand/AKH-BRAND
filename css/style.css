@@ -1020,3 +1020,88 @@ footer{
     box-shadow:
     0 25px 60px rgba(212,175,55,.12);
 }
+
+
+/* =====================
+   FEATURES
+===================== */
+
+.features{
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+    padding:30px 20px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+.featureBox{
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+
+.featureBox:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#d4af37;
+
+}
+
+
+.featureIcon{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+
+.featureBox h3{
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+}
+
+
+.featureBox p{
+
+    color:#aaa;
+
+}
+
+
+
+@media(max-width:900px){
+
+.features{
+
+    grid-template-columns:1fr;
+
+}
+
+}
