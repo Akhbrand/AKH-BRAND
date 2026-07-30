@@ -3957,3 +3957,226 @@ height:70px;
 
 
 }
+/* =====================================
+   AKH BRAND HOMEPAGE PREMIUM UPDATE
+===================================== */
+
+
+/* HERO TAG */
+
+.brandTag{
+
+    display:block;
+
+    color:#d8ae3f;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:5px;
+
+    margin-bottom:25px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/* HERO BUTTONS */
+
+.heroButtons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:10px;
+
+}
+
+
+
+.ordersBtn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:260px;
+
+    height:75px;
+
+    border-radius:0;
+
+    background:transparent;
+
+    border:1px solid #d8ae3f;
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    transition:.35s;
+
+}
+
+
+
+.ordersBtn:hover{
+
+    background:#d8ae3f;
+
+    color:#111;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* HERO IMPROVEMENT */
+
+.headerContent{
+
+    animation:heroShow 1s ease;
+
+}
+
+
+
+@keyframes heroShow{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+/* COLLECTION TITLE */
+
+.collectionTitle span{
+
+    display:block;
+
+    color:#d8ae3f;
+
+    letter-spacing:6px;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+.collectionTitle h2{
+
+    position:relative;
+
+}
+
+
+
+.collectionTitle h2::after{
+
+    content:"";
+
+    display:block;
+
+    width:80px;
+
+    height:3px;
+
+    background:#d8ae3f;
+
+    margin:25px auto 0;
+
+}
+
+
+
+/* PRODUCT CARDS PREMIUM */
+
+.card{
+
+    transition:.45s ease;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.heroButtons{
+
+    flex-direction:column;
+
+    width:100%;
+
+}
+
+
+
+.shopBtn,
+.ordersBtn{
+
+    width:220px;
+
+    height:60px;
+
+    font-size:18px;
+
+}
+
+
+
+.brandTag{
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+}
+
+
+}
