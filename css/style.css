@@ -78,49 +78,31 @@ section{
 ========================= */
 
 .navbar{
-
-    position:fixed;
-
-    top:15px;
-
-    left:0;
-
-    right:0;
-
-    margin:auto;
-
-    width:92%;
-
-    max-width:1400px;
-
+    position:fixed !important;
+    top:15px !important;
+    left:20px !important;
+    right:20px !important;
+    width:auto !important;
     height:75px;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     padding:0 25px;
 
-    border-radius:25px;
+    background:#111 !important;
 
-    background:rgba(15,15,15,.75);
+    border:1px solid #222;
 
-    backdrop-filter:blur(20px);
-
-    -webkit-backdrop-filter:blur(20px);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    z-index:99999;
+    z-index:999999;
 
     transform:none !important;
-
+    transition:none !important;
     animation:none !important;
-
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
 }
-
 .brandName{
 
     font-size:32px;
