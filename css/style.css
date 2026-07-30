@@ -2433,3 +2433,252 @@ header p{
 
 
 }
+
+/* =====================================
+   AKH PRODUCT DROP STYLE
+===================================== */
+
+
+/* PRODUCTS GRID */
+
+.products{
+
+    width:92%;
+
+    max-width:1400px;
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+
+/* CARD */
+
+.card{
+
+    position:relative;
+
+    background:#0b0b0b;
+
+    border:1px solid #1d1d1d;
+
+    overflow:hidden;
+
+    border-radius:0;
+
+    transition:.5s ease;
+
+}
+
+
+
+/* NEW DROP LABEL */
+
+.card::before{
+
+    content:"NEW DROP";
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    background:#d8ae3f;
+
+    color:#000;
+
+    padding:8px 18px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    z-index:5;
+
+}
+
+
+
+/* IMAGE AREA */
+
+.gallery{
+
+    height:520px;
+
+    background:#050505;
+
+}
+
+
+
+/* IMAGE */
+
+.slider img{
+
+    height:520px;
+
+    object-fit:contain;
+
+    padding:30px;
+
+}
+
+
+
+/* INFO */
+
+.info{
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+
+
+/* PRODUCT NAME */
+
+.info h2{
+
+    font-size:28px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* PRICE */
+
+.price{
+
+    font-size:34px;
+
+    color:#d8ae3f;
+
+    font-weight:900;
+
+}
+
+
+
+/* HIDE DESCRIPTION */
+
+.info p{
+
+    display:none;
+
+}
+
+
+
+/* BUTTON */
+
+.cartBtn{
+
+    height:60px;
+
+    margin-top:25px;
+
+    background:#fff;
+
+    color:#000;
+
+    border-radius:0;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    transition:.35s;
+
+}
+
+
+
+.cartBtn:hover{
+
+    background:#d8ae3f;
+
+}
+
+
+
+/* WHATSAPP BUTTON */
+
+.btn{
+
+    border-radius:0;
+
+    height:60px;
+
+    font-weight:900;
+
+}
+
+
+
+/* CARD HOVER */
+
+.card:hover{
+
+    transform:translateY(-15px);
+
+    border-color:#d8ae3f;
+
+}
+
+
+
+/* IMAGE MOTION */
+
+.card:hover .slider img{
+
+    transform:scale(1.04);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+
+.products{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.gallery{
+
+    height:420px;
+
+}
+
+
+.slider img{
+
+    height:420px;
+
+}
+
+
+}
