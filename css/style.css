@@ -4625,3 +4625,142 @@ body::before{
     text-transform:uppercase;
 
 }
+/* =====================================
+   PRODUCT PAGE UPGRADE
+===================================== */
+
+.singleProduct{
+
+    max-width:1300px;
+
+    margin:60px auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:start;
+
+    padding:20px;
+
+}
+
+.productDetails{
+
+    background:#0b0b0b;
+
+    border:1px solid #222;
+
+    border-radius:20px;
+
+    padding:35px;
+
+}
+
+.productDetails h1{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+
+}
+
+.productDetails .price{
+
+    font-size:34px;
+
+    font-weight:900;
+
+    color:#d8ae3f;
+
+    margin-bottom:25px;
+
+}
+
+.productDetails p{
+
+    color:#cfcfcf;
+
+    line-height:1.9;
+
+    margin-bottom:12px;
+
+}
+
+.mainImageBox{
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.mainProductImage{
+
+    width:100%;
+
+    display:none;
+
+}
+
+.activeImage{
+
+    display:block;
+
+}
+
+.thumbs{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.thumbs img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    border:2px solid #222;
+
+    transition:.3s;
+
+}
+
+.thumbs img:hover{
+
+    border-color:#d8ae3f;
+
+}
+
+@media(max-width:900px){
+
+    .singleProduct{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .productDetails h1{
+
+        font-size:30px;
+
+    }
+
+}
