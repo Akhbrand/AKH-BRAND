@@ -2415,3 +2415,21 @@ section{
     gap:30px !important;
 
 }
+
+.products{
+
+    width:98% !important;
+
+    max-width:2200px !important;
+
+    margin:70px auto !important;
+
+    padding:70px 20px !important;
+
+    display:grid !important;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr)) !important;
+
+    gap:30px !important;
+
+}
