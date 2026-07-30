@@ -20,14 +20,11 @@ const db = getFirestore(app);
 
 const productId = new URLSearchParams(location.search).get("id");
 
-
 const box = document.getElementById("productPage");
 
 
 
 const snapshot = await getDocs(collection(db,"products"));
-
-
 
 let found = false;
 
@@ -47,20 +44,55 @@ found = true;
 
 
 
-let image = Array.isArray(product.image)
+let imgs = Array.isArray(product.image)
 ?
-product.image[0]
+product.image.filter(img=>img && img.trim()!=="")
 :
-product.image;
+[product.image];
 
+
+
+let galleryImages = "";
+let thumbnails = "";
+
+
+
+imgs.forEach((img,index)=>{
 
 
 let imagePath =
-image.startsWith("http")
+img.startsWith("http")
 ?
-image
+img
 :
-"./images/" + image;
+"./images/" + img;
+
+
+
+galleryImages += `
+
+<img 
+src="${imagePath}"
+class="mainProductImage ${index===0?"activeImage":""}"
+id="image${index}">
+
+`;
+
+
+
+thumbnails += `
+
+<img 
+src="${imagePath}"
+onclick="changeImage(${index})">
+
+`;
+
+
+
+});
+
+
 
 
 
@@ -70,8 +102,32 @@ box.innerHTML = `
 <div class="singleProduct">
 
 
-<img src="${imagePath}">
 
+<div class="productGallery">
+
+
+<div class="mainImageBox">
+
+${galleryImages}
+
+</div>
+
+
+
+<div class="thumbs">
+
+${thumbnails}
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="productDetails">
 
 
 <h1>
@@ -110,9 +166,14 @@ ${product.description || ""}
 
 
 
-<button class="cartBtn">
+
+<button class="cartBtn"
+onclick='addToCart(${JSON.stringify(product)})'>
+
 🛒 أضف للسلة
+
 </button>
+
 
 
 
@@ -122,6 +183,10 @@ href="https://wa.me/201097521334?text=أريد طلب ${product.name}">
 اطلب واتساب
 
 </a>
+
+
+
+</div>
 
 
 
@@ -140,9 +205,33 @@ href="https://wa.me/201097521334?text=أريد طلب ${product.name}">
 
 
 
+
+
+window.changeImage=function(index){
+
+
+document.querySelectorAll(".mainProductImage")
+.forEach(img=>{
+
+img.classList.remove("activeImage");
+
+});
+
+
+document
+.getElementById("image"+index)
+.classList.add("activeImage");
+
+
+};
+
+
+
+
+
 if(!found){
 
-box.innerHTML = `
+box.innerHTML=`
 
 <h2 style="text-align:center;margin-top:100px">
 
