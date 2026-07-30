@@ -180,7 +180,7 @@ function showSlide(i){
 
     index = i;
 
-    slider.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+    slider.style.transform = `translate3d(-${index * 100}
 
     dots.forEach(dot=>dot.classList.remove("active"));
     dots[index].classList.add("active");
