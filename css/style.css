@@ -1241,4 +1241,43 @@ footer{
 }
 
 }
+@media(max-width:700px){
 
+.navLinks{
+
+    position:absolute;
+
+    top:75px;
+
+    left:20px;
+
+    right:auto;
+
+    width:220px;
+
+    padding:25px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    text-align:center;
+
+    border:1px solid rgba(212,175,55,.3);
+
+}
+
+
+.navLinks.active{
+
+    display:flex;
+
+}
+
+}
