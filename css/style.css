@@ -3607,5 +3607,86 @@ header p{
 }
 
 
+/* =========================
+   HERO BUTTONS
+========================= */
 
+.heroButtons{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+
+.ordersBtn{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:220px;
+
+height:70px;
+
+border-radius:60px;
+
+border:2px solid #d8ae3f;
+
+color:#d8ae3f;
+
+font-size:22px;
+
+font-weight:800;
+
+transition:.35s;
+
+}
+
+
+
+.ordersBtn:hover{
+
+background:#d8ae3f;
+
+color:#111;
+
+transform:translateY(-5px);
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+.heroButtons{
+
+flex-direction:column;
+
+}
+
+
+.ordersBtn{
+
+width:190px;
+
+height:58px;
+
+font-size:18px;
+
+}
+
+
+}
 
