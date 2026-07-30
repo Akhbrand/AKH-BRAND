@@ -377,13 +377,7 @@ async function loadOrders() {
     if (snapshot.empty) {
 
         list.innerHTML = `
-        <div style="
-            background:#1a1a1a;
-            padding:20px;
-            border-radius:15px;
-            text-align:center;
-            margin-top:20px;
-        ">
+      <div class="orderCard">
             لا توجد طلبات حالياً
         </div>
         `;
@@ -397,14 +391,7 @@ async function loadOrders() {
 
         list.innerHTML += `
 
-        <div style="
-            background:#1a1a1a;
-            border:1px solid #333;
-            border-radius:15px;
-            padding:20px;
-            margin-top:20px;
-        ">
-
+       <div class="orderCard">
             <h3>👤 ${order.customerName}</h3>
 
             <p>📞 ${order.customerPhone}</p>
@@ -466,13 +453,8 @@ class="deleteProductBtn">
 
 <div
 id="products-${item.id}"
-style="
-display:none;
-margin-top:15px;
-padding-top:15px;
-border-top:1px solid #333;
-">
-</div>
+class="orderProducts"
+style="display:none;"></div>
 
 </div>
 
