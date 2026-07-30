@@ -4180,3 +4180,64 @@ height:70px;
 
 
 }
+/* =====================================
+   AKH BRAND FABRIC TEXTURE BACKGROUND
+===================================== */
+
+body{
+
+    background-color:#070707;
+
+    background-image:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.85)
+    ),
+    url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+
+    background-attachment:fixed;
+
+    background-size:auto;
+
+}
+
+
+/* لمسة إضاءة خلف الصفحة */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(216,174,63,.12),
+        transparent 35%
+    );
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+
+
+/* نخلي الأقسام فوق الخلفية */
+
+.mainHeader,
+.aboutBrand,
+.collectionTitle,
+.products,
+.features,
+.footer{
+
+    position:relative;
+
+    z-index:2;
+
+}
