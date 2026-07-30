@@ -1616,3 +1616,12 @@ section{
 .bannerOverlay{
     animation:none !important;
 }
+
+.brandBanner,
+.bannerContent,
+.bannerOverlay,
+.brandBanner *{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+}
