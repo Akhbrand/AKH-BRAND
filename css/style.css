@@ -845,3 +845,136 @@ footer{
 
 }
 
+/* =====================
+   LUXURY PRODUCT CARDS
+===================== */
+
+.card{
+
+    animation:cardShow .7s ease both;
+
+}
+
+
+.card:nth-child(2){
+    animation-delay:.1s;
+}
+
+.card:nth-child(3){
+    animation-delay:.2s;
+}
+
+.card:nth-child(4){
+    animation-delay:.3s;
+}
+
+
+.gallery{
+
+    background:
+    linear-gradient(
+        145deg,
+        #111,
+        #000
+    );
+
+}
+
+
+.slider img{
+
+    transition:.5s;
+
+}
+
+
+.card:hover .slider img{
+
+    transform:scale(1.05);
+
+}
+
+
+/* PRODUCT NAME */
+
+.info h2{
+
+    letter-spacing:1px;
+
+}
+
+
+/* PRICE */
+
+.price{
+
+    font-family:Arial,sans-serif;
+
+}
+
+
+/* BUY BUTTON */
+
+.btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+
+    transition:.5s;
+
+}
+
+
+.btn:hover::before{
+
+    left:100%;
+
+}
+
+
+/* CARD ANIMATION */
+
+@keyframes cardShow{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
