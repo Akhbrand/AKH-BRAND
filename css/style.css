@@ -574,25 +574,71 @@ footer{
 ===================== */
 
 .navbar{
-
     position:absolute;
     top:0;
     left:0;
     width:100%;
-
-    padding:25px 50px;
+    padding:25px 45px;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    z-index:10;
+    z-index:20;
 
-    background:rgba(0,0,0,.25);
+    background:linear-gradient(
+        rgba(0,0,0,.45),
+        transparent
+    );
+}
 
-    backdrop-filter:blur(10px);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+.brandName{
+    font-size:34px;
+    font-weight:900;
+    letter-spacing:5px;
+}
+
+
+.navLinks{
+    display:flex;
+    gap:35px;
+}
+
+
+.navLinks a{
+    color:white;
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:600;
+
+    position:relative;
+}
+
+
+.navLinks a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+    right:0;
+
+    width:0;
+    height:2px;
+
+    background:#d4af37;
+
+    transition:.3s;
+
+}
+
+
+.navLinks a:hover::after{
+
+    width:100%;
 
 }
 
