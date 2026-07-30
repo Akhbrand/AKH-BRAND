@@ -316,6 +316,8 @@ async function loadProducts() {
     list.innerHTML = "";
 
     const snapshot = await getDocs(collection(db, "products"));
+  document.getElementById("productsCount").innerText =
+snapshot.size;
 
     snapshot.forEach((item) => {
 
@@ -382,7 +384,9 @@ async function loadOrders() {
     list.innerHTML = "";
 
     const snapshot = await getDocs(collection(db, "orders"));
-
+  
+document.getElementById("ordersCount").innerText =
+snapshot.size;
     if (snapshot.empty) {
 
         list.innerHTML = `
@@ -393,11 +397,18 @@ async function loadOrders() {
 
         return;
     }
-
+  
+let newOrders = 0;
+let totalSales = 0;
     snapshot.forEach((item) => {
 
         const order = item.data();
+      
+if(order.status === "جديد"){
+    newOrders++;
+}
 
+totalSales += Number(order.total || 0);
         list.innerHTML += `
 
        <div class="orderCard">
@@ -470,6 +481,11 @@ style="display:none;"></div>
 `;
 
     });
+  document.getElementById("newOrders").innerText =
+newOrders;
+
+document.getElementById("salesTotal").innerText =
+totalSales + " EGP";
 
 }
 
