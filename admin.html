@@ -93,11 +93,14 @@ style="cursor:pointer;">
 
 <hr style="margin:40px 0;border:1px solid #333;">
 
-<h2 style="text-align:center;">
+<div
+class="sectionTitle"
+onclick="toggleOrdersList()"
+style="cursor:pointer;">
 🛒 الطلبات الواردة
-</h2>
+</div>
 
-<div id="ordersList"></div>
+<div id="ordersList" style="display:none;"></div>
 
 </div>
 
@@ -384,7 +387,11 @@ async function loadOrders() {
 
     const list = document.getElementById("ordersList");
 
-    list.innerHTML = "";
+list.innerHTML = "";
+
+if(list.style.display === "none"){
+    return;
+}
 
     const snapshot = await getDocs(collection(db, "orders"));
   
@@ -427,7 +434,17 @@ totalSales += Number(order.total || 0);
 
 <p style="margin-top:15px;">
 📦 الحالة الحالية:
-<strong>${order.status}</strong>
+
+<strong style="
+color:
+${order.status=="جديد" ? "#ffc107" :
+order.status=="جاري التجهيز" ? "#0dcaf0" :
+order.status=="تم الشحن" ? "#fd7e14" :
+"#25D366"};
+">
+${order.status}
+</strong>
+
 </p>
 
 <select
@@ -590,7 +607,21 @@ loadOrders();
     }
 
 };
+window.toggleOrdersList = function(){
 
+    const box = document.getElementById("ordersList");
+
+    if(box.style.display === "none"){
+
+        box.style.display = "block";
+
+    }else{
+
+        box.style.display = "none";
+
+    }
+
+};
 </script>
 
 
