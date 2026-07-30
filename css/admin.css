@@ -262,3 +262,52 @@ background:#dc3545;
 margin-top:10px;
 
 }
+
+#ordersList{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.orderCard{
+
+background:#1a1a1a;
+border:1px solid #333;
+border-radius:20px;
+padding:20px;
+
+}
+
+.orderCard h3{
+
+margin-bottom:15px;
+color:#25D366;
+
+}
+
+.orderCard p{
+
+margin:8px 0;
+color:#ddd;
+
+}
+
+.orderActions{
+
+margin-top:15px;
+
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+
+}
+
+.orderActions button,
+.orderActions select{
+
+flex:1;
+min-width:150px;
+
+}
