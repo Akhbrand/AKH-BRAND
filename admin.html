@@ -415,8 +415,9 @@ async function loadOrders() {
 
             <p>💳 ${order.payment}</p>
 
-        <p style="margin-top:15px;">
-📦 الحالة
+<p style="margin-top:15px;">
+📦 الحالة الحالية:
+<strong>${order.status}</strong>
 </p>
 
 <select
@@ -448,21 +449,20 @@ border:1px solid #444;
 
 </select>
 
+<div class="orderActions">
+
 <button
-onclick="toggleProducts('${item.id}')"
-style="
-margin-top:15px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#25D366;
-color:#fff;
-font-size:16px;
-cursor:pointer;
-">
+onclick="toggleProducts('${item.id}')">
 📦 عرض المنتجات
 </button>
+
+<button
+onclick="deleteOrder('${item.id}')"
+class="deleteProductBtn">
+🗑️ حذف الطلب
+</button>
+
+</div>
 
 <div
 id="products-${item.id}"
@@ -474,29 +474,7 @@ border-top:1px solid #333;
 ">
 </div>
 
-        </div>
-
-        <button
-onclick="deleteOrder('${item.id}')"
-style="
-margin-top:10px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#dc3545;
-color:#fff;
-font-size:16px;
-cursor:pointer;
-">
-🗑️ حذف الطلب
-</button>
-
-        `;
-
-    });
-
-}
+</div>
 
 loadOrders();
 
