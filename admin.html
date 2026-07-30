@@ -389,9 +389,6 @@ async function loadOrders() {
 
 list.innerHTML = "";
 
-if(list.style.display === "none"){
-    return;
-}
 
     const snapshot = await getDocs(collection(db, "orders"));
   
@@ -614,6 +611,8 @@ window.toggleOrdersList = function(){
     if(box.style.display === "none"){
 
         box.style.display = "block";
+
+        loadOrders();
 
     }else{
 
