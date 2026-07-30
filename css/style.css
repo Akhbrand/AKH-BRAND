@@ -2602,15 +2602,15 @@ section{
 
     position: relative;
 
-    width: 92%;
+    width: 96%;
 
     max-width: 1400px;
 
-    height: 520px;
+    height: 380px;
 
-    margin: 80px auto;
+    margin: 40px auto;
 
-    border-radius: 35px;
+    border-radius: 28px;
 
     overflow: hidden;
 
@@ -2736,62 +2736,48 @@ section{
 
 @media (max-width:768px){
 
-.brandBanner{
+    .brandBanner{
 
-    width:94%;
+        width:96%;
 
-    height:520px;
+        height:330px;
 
-    justify-content:center;
+        margin:30px auto;
 
-    background-position:center;
+        border-radius:25px;
 
-}
+    }
 
-.bannerOverlay{
+    .bannerContent{
 
-    background:rgba(0,0,0,.45);
+        padding:25px;
 
-}
+    }
 
-.bannerContent{
+    .bannerContent h2{
 
-    width:100%;
+        font-size:52px;
 
-    padding:35px;
+        line-height:.95;
 
-    text-align:center;
+    }
 
-}
+    .bannerContent p{
 
-.bannerContent span{
+        font-size:18px;
 
-    font-size:18px;
+        margin-bottom:25px;
 
-    letter-spacing:5px;
+    }
 
-}
+    .bannerBtn{
 
-.bannerContent h2{
+        width:200px;
 
-    font-size:58px;
+        height:55px;
 
-}
+        font-size:22px;
 
-.bannerContent p{
-
-    font-size:22px;
-
-}
-
-.bannerBtn{
-
-    width:240px;
-
-    height:65px;
-
-    font-size:24px;
-
-}
+    }
 
 }
