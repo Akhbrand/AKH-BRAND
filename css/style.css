@@ -4241,3 +4241,172 @@ body::before{
     z-index:2;
 
 }
+
+/* =====================================
+   BRAND STORY SECTION
+===================================== */
+
+
+.brandStory{
+
+    width:90%;
+
+    max-width:1400px;
+
+    margin:120px auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+
+
+.storyImage{
+
+    height:500px;
+
+    overflow:hidden;
+
+    background:#000;
+
+}
+
+
+
+.storyImage img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+.storyContent span{
+
+    color:#d8ae3f;
+
+    letter-spacing:6px;
+
+    font-weight:800;
+
+}
+
+
+
+.storyContent h2{
+
+    font-size:60px;
+
+    line-height:1;
+
+    margin:20px 0;
+
+    font-weight:900;
+
+}
+
+
+
+.storyContent p{
+
+    color:#aaa;
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.storyBtn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:240px;
+
+    height:65px;
+
+    background:#d8ae3f;
+
+    color:#111;
+
+    font-weight:800;
+
+    transition:.35s;
+
+}
+
+
+
+.storyBtn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.brandStory{
+
+    grid-template-columns:1fr;
+
+    gap:35px;
+
+}
+
+
+
+.storyImage{
+
+    height:350px;
+
+}
+
+
+
+.storyContent{
+
+    text-align:center;
+
+}
+
+
+
+.storyContent h2{
+
+    font-size:38px;
+
+}
+
+
+
+.storyContent p{
+
+    font-size:18px;
+
+}
+
+
+}
