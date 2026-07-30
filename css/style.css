@@ -318,7 +318,7 @@ body{
 
     position:fixed;
 
-    top:25px;
+    top:95px;
 
     left:25px;
 
@@ -578,7 +578,7 @@ footer{
     top:0;
     left:0;
     width:100%;
-    padding:25px 45px;
+    padding:25px 110px 25px 45px;
 
     display:flex;
     justify-content:space-between;
