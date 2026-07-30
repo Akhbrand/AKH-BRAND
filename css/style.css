@@ -1428,3 +1428,91 @@ footer{
     color:#000;
 
 }
+
+/* =====================
+   BRAND BANNER
+===================== */
+
+.brandBanner{
+
+    min-height:350px;
+
+    margin:40px 20px;
+
+    border-radius:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.85)
+    ),
+
+    url("https://images.unsplash.com/photo-1496747611176-843222e1e57c");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+.bannerContent h2{
+
+    font-size:50px;
+
+    letter-spacing:6px;
+
+    margin-bottom:15px;
+
+}
+
+
+.bannerContent p{
+
+    color:#ccc;
+
+    font-size:20px;
+
+    margin-bottom:30px;
+
+}
+
+
+.bannerContent a{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    background:#d4af37;
+
+    color:#000;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+}
+
+
+
+@media(max-width:700px){
+
+.bannerContent h2{
+
+    font-size:32px;
+
+}
+
+}
