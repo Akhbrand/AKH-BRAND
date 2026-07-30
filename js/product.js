@@ -12,92 +12,144 @@ appId: "1:671562968837:web:06557b3ab756696cf5116c"
 };
 
 
-const app=initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db=getFirestore(app);
-
-
-
-const id=new URLSearchParams(location.search).get("id");
+const db = getFirestore(app);
 
 
 
-const box=document.getElementById("productPage");
+const productId = new URLSearchParams(location.search).get("id");
+
+
+const box = document.getElementById("productPage");
 
 
 
-const snap=await getDocs(collection(db,"products"));
+const snapshot = await getDocs(collection(db,"products"));
 
 
 
-snap.forEach(doc=>{
-
-
-let p=doc.data();
+let found = false;
 
 
 
-if(p.code==id){
+snapshot.forEach(doc=>{
 
 
-let img=p.image[0] || p.image;
+let product = doc.data();
 
 
 
-box.innerHTML=`
+if(product.code == productId){
+
+
+found = true;
+
+
+
+let image = Array.isArray(product.image)
+?
+product.image[0]
+:
+product.image;
+
+
+
+let imagePath =
+image.startsWith("http")
+?
+image
+:
+"./images/" + image;
+
+
+
+box.innerHTML = `
+
 
 <div class="singleProduct">
 
 
-<img src="./images/${img}">
+<img src="${imagePath}">
+
 
 
 <h1>
-${p.name}
+${product.name}
 </h1>
 
 
-<h2>
-${p.price}
-</h2>
 
+<div class="price">
+${product.price}
+</div>
 
-<p>
-الخامة: ${p.material}
-</p>
 
 
 <p>
-المقاس: ${p.size}
+الخامة: ${product.material}
 </p>
+
 
 
 <p>
-${p.description || ""}
+المقاس: ${product.size}
 </p>
+
+
+
+<p>
+الكود: ${product.code}
+</p>
+
+
+
+<p>
+${product.description || ""}
+</p>
+
 
 
 <button class="cartBtn">
-
 🛒 أضف للسلة
-
 </button>
 
 
+
 <a class="btn"
-href="https://wa.me/201097521334">
+href="https://wa.me/201097521334?text=أريد طلب ${product.name}">
 
 اطلب واتساب
 
 </a>
 
 
+
 </div>
 
+
 `;
+
 
 
 }
 
 
+
 });
+
+
+
+if(!found){
+
+box.innerHTML = `
+
+<h2 style="text-align:center;margin-top:100px">
+
+المنتج غير موجود
+
+</h2>
+
+`;
+
+}
