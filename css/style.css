@@ -3690,3 +3690,76 @@ font-size:18px;
 
 }
 
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.heroButtons{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+
+
+.ordersBtn{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:240px;
+
+height:70px;
+
+border-radius:60px;
+
+background:#d8ae3f;
+
+color:#111;
+
+font-size:24px;
+
+font-weight:800;
+
+transition:.35s;
+
+}
+
+
+
+.ordersBtn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 18px 40px rgba(216,174,63,.35);
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.ordersBtn{
+
+width:190px;
+
+height:58px;
+
+font-size:18px;
+
+}
+
+
+}
