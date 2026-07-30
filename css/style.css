@@ -1141,3 +1141,67 @@ footer{
     0 15px 40px rgba(212,175,55,.35);
 
 }
+
+/* =====================
+   MOBILE MENU
+===================== */
+
+.menuBtn{
+
+    display:none;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+}
+
+
+
+@media(max-width:700px){
+
+.menuBtn{
+
+    display:block;
+
+}
+
+
+.navLinks{
+
+    position:absolute;
+
+    top:80px;
+
+    right:20px;
+
+    width:220px;
+
+    padding:25px;
+
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:20px;
+
+
+    background:#111;
+
+    border-radius:20px;
+
+    border:1px solid #222;
+
+}
+
+
+
+.navLinks.active{
+
+    display:flex;
+
+}
+
+
+}
