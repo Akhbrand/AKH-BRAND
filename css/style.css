@@ -1614,3 +1614,6 @@ section{
     transition: none !important;
     transform: none !important;
 }
+.navbar{
+    display:none !important;
+}
