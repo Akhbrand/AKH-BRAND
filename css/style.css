@@ -997,3 +997,26 @@ footer{
     }
 
 }
+
+/* PRODUCT PREMIUM TOUCH */
+
+.card{
+    border:1px solid rgba(212,175,55,.15);
+}
+
+.gallery{
+    background:#080808;
+}
+
+.info h2{
+    letter-spacing:2px;
+}
+
+.btn{
+    box-shadow:0 10px 25px rgba(255,255,255,.08);
+}
+
+.card:hover{
+    box-shadow:
+    0 25px 60px rgba(212,175,55,.12);
+}
