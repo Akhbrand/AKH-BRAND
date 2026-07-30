@@ -4456,3 +4456,82 @@ body::before{
     background-attachment: fixed;
 }
 
+/* =====================================
+   AKH BRAND HERO BACKGROUND FIX
+===================================== */
+
+.mainHeader{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.85)
+    ),
+    url("../images/hero.jpg.jpg");
+
+    background-size:cover;
+
+    background-position:center 25%;
+
+    background-repeat:no-repeat;
+
+    position:relative;
+
+}
+
+
+/* تحسين ظهور المحتوى فوق الخلفية */
+
+.overlay{
+    display:none;
+}
+
+.headerContent{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* تحسين اللوجو والنصوص فوق الخلفية */
+
+.logo{
+
+    filter:
+    drop-shadow(0 0 20px rgba(0,0,0,.8));
+
+}
+
+.headerContent h1{
+
+    text-shadow:
+    0 4px 20px rgba(0,0,0,.8);
+
+}
+
+.headerContent p{
+
+    text-shadow:
+    0 2px 12px rgba(0,0,0,.8);
+
+}
+
+
+/* موبايل */
+
+@media(max-width:768px){
+
+    .mainHeader{
+
+        background-position:center center;
+
+        min-height:85vh;
+
+    }
+
+}
+
