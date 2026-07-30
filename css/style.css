@@ -1281,3 +1281,33 @@ footer{
 }
 
 }
+/* =====================
+   MENU ANIMATION
+===================== */
+
+@media(max-width:700px){
+
+.navLinks{
+
+    opacity:0;
+
+    transform:translateY(-15px);
+
+    transition:.35s ease;
+
+    pointer-events:none;
+
+}
+
+
+.navLinks.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    pointer-events:auto;
+
+}
+
+}
