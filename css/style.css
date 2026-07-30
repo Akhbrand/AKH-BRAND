@@ -569,7 +569,152 @@ footer{
 
 
 /* MOBILE */
+/* =====================
+   NAVBAR
+===================== */
 
+.navbar{
+
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+
+    padding:25px 50px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:10;
+
+    background:rgba(0,0,0,.25);
+
+    backdrop-filter:blur(10px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.brandName{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+}
+
+
+.navLinks{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+
+.navLinks a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.navLinks a:hover{
+
+    color:#d4af37;
+
+}
+
+
+
+/* =====================
+   ABOUT BRAND
+===================== */
+
+
+.aboutBrand{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    background:linear-gradient(#050505,#111);
+
+}
+
+
+.aboutBrand h2{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+    letter-spacing:5px;
+
+}
+
+
+.aboutBrand p{
+
+    color:#aaa;
+
+    font-size:20px;
+
+}
+
+
+/* MOBILE NAV */
+
+@media(max-width:700px){
+
+.navbar{
+
+    padding:20px;
+
+}
+
+
+.brandName{
+
+    font-size:20px;
+
+}
+
+
+.navLinks{
+
+    gap:15px;
+
+}
+
+
+.navLinks a{
+
+    font-size:14px;
+
+}
+
+
+.aboutBrand h2{
+
+    font-size:32px;
+
+}
+
+}
 @media(max-width:900px){
 
 
