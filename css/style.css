@@ -1753,3 +1753,25 @@ footer{
     font-size:14px;
 
 }
+
+.brandBanner{
+
+    min-height:320px;
+
+    margin:50px 25px;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.75)
+    ),
+    url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f");
+
+    background-size:cover;
+    background-position:center;
+
+}
