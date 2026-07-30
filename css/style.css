@@ -2211,3 +2211,109 @@ footer{
     box-shadow:0 25px 70px rgba(0,0,0,.5);
 
 }
+
+/* ===========================
+   FULL WIDTH DASHBOARD FIX
+=========================== */
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+.container,
+.wrapper,
+.dashboard,
+.main,
+.content,
+.adminContainer{
+
+    width:96% !important;
+    max-width:1700px !important;
+
+    margin:25px auto !important;
+
+    padding:25px !important;
+
+    box-sizing:border-box;
+}
+
+/* جميع الكروت */
+.card,
+.box,
+.statCard,
+.panel{
+
+    width:100%;
+}
+
+/* صف الإحصائيات */
+.stats{
+
+    display:grid !important;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    width:100%;
+}
+
+/* جميع الفورمات */
+
+form{
+
+    width:100%;
+}
+
+input,
+textarea,
+select,
+button{
+
+    width:100%;
+    box-sizing:border-box;
+}
+
+/* الجداول */
+
+table{
+
+    width:100%;
+}
+
+/* الموبايل */
+
+@media(max-width:768px){
+
+.container,
+.wrapper,
+.dashboard,
+.main,
+.content,
+.adminContainer{
+
+    width:98% !important;
+
+    padding:15px !important;
+
+}
+
+.stats{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.stats{
+
+    grid-template-columns:1fr;
+
+}
+
+}
