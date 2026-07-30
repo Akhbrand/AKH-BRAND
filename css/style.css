@@ -12,11 +12,67 @@ color:white;
 font-family:'Cairo',sans-serif;
 overflow-x:hidden;
 }
-header{
-background:#000;
+.mainHeader{
+height:85vh;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:35px 20px;
-border-bottom:1px solid #222;
+
+background:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.85)
+),
+
+url("https://images.unsplash.com/photo-1523398002811-999ca8dec234");
+
+background-size:cover;
+background-position:center;
+}
+
+.headerContent{
+position:relative;
+z-index:2;
+}
+
+.logo{
+width:180px;
+height:180px;
+object-fit:cover;
+border-radius:25px;
+margin-bottom:20px;
+box-shadow:0 0 30px rgba(255,255,255,.15);
+}
+
+.mainHeader h1{
+font-size:70px;
+font-weight:800;
+letter-spacing:6px;
+margin-bottom:10px;
+}
+
+.mainHeader p{
+font-size:24px;
+color:#ddd;
+margin-bottom:25px;
+}
+
+.shopBtn{
+display:inline-block;
+padding:16px 40px;
+background:#25D366;
+color:#fff;
+text-decoration:none;
+border-radius:14px;
+font-size:20px;
+font-weight:bold;
+transition:.3s;
+}
+
+.shopBtn:hover{
+transform:translateY(-4px);
 }
 
 header img{
