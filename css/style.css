@@ -2094,3 +2094,342 @@ header p{
 
 
 }
+
+/* =====================================
+   AKH BRAND FINAL LUXURY PATCH
+   ADD AT END OF CSS
+===================================== */
+
+
+/* NAVBAR FIX */
+
+.navbar{
+
+    display:flex !important;
+
+    position:fixed !important;
+
+    top:20px !important;
+
+    left:50% !important;
+
+    right:auto !important;
+
+    transform:translateX(-50%) !important;
+
+    width:90% !important;
+
+    max-width:1200px;
+
+    height:75px;
+
+    padding:0 35px;
+
+    background:rgba(10,10,10,.75) !important;
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:50px;
+
+    z-index:99999;
+
+}
+
+
+
+/* NAV LOGO */
+
+.navLogo{
+
+    font-size:32px;
+
+    font-weight:900;
+
+    letter-spacing:8px;
+
+    color:#d8ae3f;
+
+}
+
+
+
+/* NAV LINKS */
+
+.navLinks a{
+
+    font-size:17px;
+
+    font-weight:700;
+
+}
+
+
+
+/* HERO */
+
+.headerContent{
+
+    animation:heroShow 1.2s ease forwards;
+
+}
+
+
+
+@keyframes heroShow{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* LOGO PREMIUM */
+
+.logo{
+
+    width:170px !important;
+
+    height:170px !important;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    margin:auto;
+
+    margin-bottom:35px;
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.7);
+
+}
+
+
+
+/* TITLE GOLD EFFECT */
+
+.mainHeader h1{
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #fff,
+    #d8ae3f,
+    #fff
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    font-size:90px;
+
+    letter-spacing:10px;
+
+}
+
+
+
+/* SUBTITLE */
+
+.mainHeader p{
+
+    letter-spacing:4px;
+
+    color:#ddd;
+
+}
+
+
+
+/* BUTTON PREMIUM */
+
+.shopBtn{
+
+    width:260px;
+
+    height:75px;
+
+    border-radius:0;
+
+    background:transparent;
+
+    border:1px solid #d8ae3f;
+
+    color:#d8ae3f;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    transition:.35s;
+
+}
+
+
+
+.shopBtn:hover{
+
+    background:#d8ae3f;
+
+    color:#000;
+
+    transform:translateY(-6px);
+
+}
+
+
+
+/* PRODUCT PREMIUM HOVER */
+
+.card{
+
+    transition:.4s ease;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#d8ae3f;
+
+}
+
+
+
+/* IMAGE ZOOM */
+
+.gallery img{
+
+    transition:.5s ease;
+
+}
+
+
+.card:hover .gallery img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* FEATURES PREMIUM */
+
+.featureBox{
+
+    transition:.4s ease;
+
+}
+
+
+.featureBox:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+/* FOOTER BRAND */
+
+.footer h3{
+
+    font-size:42px;
+
+    letter-spacing:10px;
+
+}
+
+
+
+/* MOBILE FIX */
+
+@media(max-width:768px){
+
+
+.navbar{
+
+    width:92% !important;
+
+    height:65px;
+
+    padding:0 20px;
+
+}
+
+
+.navLinks{
+
+    display:none;
+
+}
+
+
+.navLogo{
+
+    font-size:25px;
+
+}
+
+
+.logo{
+
+    width:120px !important;
+
+    height:120px !important;
+
+}
+
+
+.mainHeader h1{
+
+    font-size:45px;
+
+    letter-spacing:4px;
+
+}
+
+
+.mainHeader p{
+
+    font-size:18px;
+
+}
+
+
+.shopBtn{
+
+    width:210px;
+
+    height:60px;
+
+}
+
+
+}
