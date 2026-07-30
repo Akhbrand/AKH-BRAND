@@ -2317,3 +2317,53 @@ table{
 }
 
 }
+
+/* ===========================
+   FULL WIDTH WEBSITE
+=========================== */
+
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+.container,
+.wrapper,
+.content,
+main,
+section{
+    width:96% !important;
+    max-width:1800px !important;
+    margin:0 auto !important;
+}
+
+.mainHeader,
+.products,
+.categories,
+.about,
+.contact,
+footer{
+    width:100% !important;
+    max-width:none !important;
+}
+
+.productsGrid,
+.cards,
+.productsContainer{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    width:100%;
+}
+
+@media (max-width:768px){
+
+.container,
+.wrapper,
+.content,
+main,
+section{
+    width:98% !important;
+}
+
+}
