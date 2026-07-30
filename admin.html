@@ -82,11 +82,14 @@
 
   <hr style="margin:30px 0;border:1px solid #333;">
 
-<div class="sectionTitle">
+<div
+class="sectionTitle"
+onclick="toggleProductsList()"
+style="cursor:pointer;">
 📦 المنتجات الموجودة
 </div>
 
-<div id="productsList"></div>
+<div id="productsList" style="display:none;"></div>
 
 <hr style="margin:40px 0;border:1px solid #333;">
 
@@ -568,6 +571,23 @@ loadOrders();
     alert("✅ تم حذف الطلب");
 
 loadOrders();
+
+};
+
+  window.toggleProductsList = function(){
+
+    const box =
+    document.getElementById("productsList");
+
+    if(box.style.display === "none"){
+
+        box.style.display = "block";
+
+    }else{
+
+        box.style.display = "none";
+
+    }
 
 };
 
