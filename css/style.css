@@ -2433,3 +2433,22 @@ section{
     gap:30px !important;
 
 }
+
+.products{
+    width:100% !important;
+    max-width:none !important;
+
+    padding:60px !important;
+
+    display:grid !important;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr)) !important;
+
+    gap:25px !important;
+}
+
+.card{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+}
