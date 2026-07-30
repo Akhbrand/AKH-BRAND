@@ -1356,3 +1356,75 @@ footer{
     color:#d4af37;
 
 }
+
+/* =====================
+   PREMIUM PRODUCT STYLE
+===================== */
+
+.card{
+
+    background:
+    linear-gradient(
+        145deg,
+        #111,
+        #070707
+    );
+
+}
+
+
+.gallery{
+
+    padding:20px;
+
+}
+
+
+.slider img{
+
+    transition:.5s ease;
+
+}
+
+
+.card:hover .slider img{
+
+    transform:scale(1.07);
+
+}
+
+
+.info h2{
+
+    font-size:28px;
+
+    letter-spacing:2px;
+
+}
+
+
+.price{
+
+    font-size:34px;
+
+    letter-spacing:1px;
+
+}
+
+
+.btn{
+
+    background:#d4af37;
+
+    color:#000;
+
+}
+
+
+.btn:hover{
+
+    background:#fff;
+
+    color:#000;
+
+}
