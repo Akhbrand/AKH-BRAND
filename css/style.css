@@ -1205,3 +1205,40 @@ footer{
 
 
 }
+@media(max-width:700px){
+
+.navLinks{
+
+    display:none !important;
+
+    position:absolute;
+
+    top:80px;
+
+    right:20px;
+
+    width:220px;
+
+    padding:25px;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    border:1px solid #222;
+
+}
+
+
+.navLinks.active{
+
+    display:flex !important;
+
+}
+
+}
+
