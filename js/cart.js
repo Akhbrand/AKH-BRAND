@@ -7,15 +7,30 @@ let total = 0;
 if (cart.length === 0) {
 
     box.innerHTML = `
-        <div class="card">
-            <div class="info" style="text-align:center;">
-                <h2>🛒 السلة فارغة</h2>
-                <p>أضف منتجات أولاً من الصفحة الرئيسية.</p>
+    <div class="card">
+        <div class="info" style="text-align:center;padding:50px 25px;">
+
+            <div style="font-size:70px;margin-bottom:15px;">
+                🛒
             </div>
+
+            <h2>السلة فارغة</h2>
+
+            <p style="margin-top:15px;">
+                لم تقم بإضافة أي منتجات بعد
+            </p>
+
+            <a href="index.html" class="btn">
+                العودة للتسوق
+            </a>
+
         </div>
+    </div>
     `;
 
-} else {
+} 
+
+else {
 
     cart.forEach((product, index) => {
 
