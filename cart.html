@@ -1,57 +1,41 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>سلة المشتريات | AKH BRAND</title>
-
 <link rel="stylesheet" href="css/style.css">
-
 </head>
-
 <body>
-
-<header>
-
-<img src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif">
-
-<h1>🛒 سلة المشتريات</h1>
-
-<p>AKH BRAND</p>
-
-</header>
-
-<section class="products" id="cartItems">
-
-  <div class="card" style="max-width:500px;margin:20px auto;">
-    <div class="info">
-
-        <h2>إجمالي الطلب</h2>
-
-        <div class="price" id="totalPrice">
-            0
-        </div>
-
-        <button class="btn" onclick="location.href='checkout.html'">
-            ✅ إتمام الطلب
-        </button>
-
-    </div>
+<div class="cartHeader">
+<a href="index.html" class="cartLink">
+⬅ العودة للتسوق
+</a>
+</div>
+<section class="cartPage">
+<h1 class="cartTitle">
+🛒 سلة المشتريات
+</h1>
+<div id="cartItems" class="cartProducts">
+</div>
+<div class="cartSummary">
+<h2>
+إجمالي الطلب
+</h2>
+<div class="cartTotal" id="totalPrice">
+0
 </div>
 
+✅ إتمام الطلب
+</div>
 </section>
-
-<footer>
-
-© 2026 AKH BRAND
-
+<footer class="footer">
+<h3>AKH BRAND</h3>
+<p>Luxury Fashion Store</p>
+<div class="footerCopy">
+© 2026 AKH BRAND - All Rights Reserved
+</div>
 </footer>
-
 <script type="module" src="js/cart.js"></script>
-
 </body>
-
 </html>
