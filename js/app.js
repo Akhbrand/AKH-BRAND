@@ -44,7 +44,9 @@ let product = doc.data();
 let images = ""; 
 let dots = "";
 
-const imgs = Array.isArray(product.image) ? product.image : [product.image];
+const imgs = Array.isArray(product.image)
+  ? product.image.filter(img => img && img.trim() !== "")
+  : [product.image];
 
 imgs.forEach((img,index)=>{
 
@@ -67,6 +69,12 @@ images = `
 
 <div class="slider">
 
+images += `
+<img src="${imagePath}"
+     loading="lazy"
+     alt="${product.name}"
+     onerror="console.log('Image Error:', '${imagePath}')">
+`;
     ${images}
 
 </div>
