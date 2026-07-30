@@ -1720,3 +1720,79 @@ header p{
     object-fit:cover;
     border-radius:20px;
 }
+
+/* ===== LUXURY STYLE ===== */
+
+.mainHeader{
+    height:85vh;
+    min-height:600px;
+}
+
+.logo{
+    width:220px;
+    height:220px;
+}
+
+.mainHeader h1{
+    font-size:65px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.mainHeader p{
+    font-size:22px;
+    color:#ccc;
+}
+
+.collectionTitle{
+    padding:100px 20px 50px;
+}
+
+.collectionTitle h2{
+    font-size:50px;
+    letter-spacing:4px;
+}
+
+.collectionTitle p{
+    color:#999;
+    margin-top:10px;
+}
+
+.card{
+    border-radius:0;
+    border:none;
+    background:#0d0d0d;
+}
+
+.card:hover{
+    transform:none;
+}
+
+.gallery{
+    background:#000;
+}
+
+.info{
+    text-align:center;
+}
+
+.info h2{
+    font-size:22px;
+}
+
+.price{
+    font-size:30px;
+}
+
+.info p{
+    display:none;
+}
+
+.features{
+    margin-top:120px;
+    margin-bottom:120px;
+}
+
+.footer{
+    margin-top:80px;
+}
