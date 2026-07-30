@@ -1993,3 +1993,190 @@ footer{
     0 20px 40px rgba(212,175,55,.45);
 
 }
+
+/* ==========================
+      SUMMER BANNER
+========================== */
+
+.brandBanner{
+
+    position:relative;
+
+    width:calc(100% - 30px);
+
+    max-width:1400px;
+
+    height:420px;
+
+    margin:60px auto;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    background:url("https://www.supermama.me/photos/93961/5ce40a69470e9.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+
+}
+
+.bannerOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,.60) 0%,
+        rgba(0,0,0,.35) 35%,
+        rgba(0,0,0,.08) 100%
+    );
+
+}
+
+.bannerContent{
+
+    position:relative;
+
+    z-index:2;
+
+    padding:70px;
+
+    max-width:520px;
+
+}
+
+.bannerContent span{
+
+    color:#d4af37;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    letter-spacing:8px;
+
+}
+
+.bannerContent h2{
+
+    margin:15px 0;
+
+    font-size:78px;
+
+    line-height:.92;
+
+    font-weight:900;
+
+    color:#fff;
+
+}
+
+.bannerContent p{
+
+    color:#eee;
+
+    font-size:28px;
+
+    line-height:1.5;
+
+    margin-bottom:35px;
+
+}
+
+.bannerBtn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:270px;
+
+    height:72px;
+
+    background:#d4af37;
+
+    color:#111;
+
+    text-decoration:none;
+
+    border-radius:999px;
+
+    font-size:24px;
+
+    font-weight:800;
+
+    transition:.3s;
+
+}
+
+.bannerBtn:hover{
+
+    transform:translateY(-3px);
+
+    background:#e2be48;
+
+}
+
+@media(max-width:768px){
+
+.brandBanner{
+
+    height:330px;
+
+    margin:35px 15px;
+
+}
+
+.bannerContent{
+
+    padding:30px;
+
+    max-width:250px;
+
+}
+
+.bannerContent span{
+
+    font-size:16px;
+
+    letter-spacing:4px;
+
+}
+
+.bannerContent h2{
+
+    font-size:46px;
+
+}
+
+.bannerContent p{
+
+    font-size:16px;
+
+    margin-bottom:22px;
+
+}
+
+.bannerBtn{
+
+    width:190px;
+
+    height:55px;
+
+    font-size:18px;
+
+}
+
+}
