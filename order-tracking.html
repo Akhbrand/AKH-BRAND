@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 
 <head>
@@ -10,9 +9,7 @@
 
 <title>طلباتي | AKH BRAND</title>
 
-
 <link rel="stylesheet" href="css/style.css">
-
 
 </head>
 
@@ -22,38 +19,57 @@
 
 <header>
 
+<img 
+src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif"
+class="cartLogo">
+
+
 <h1>
-طلباتي
+📦 طلباتي
 </h1>
+
 
 <p>
 AKH BRAND
 </p>
 
+
 </header>
 
 
 
-<div class="cartPage">
+
+<div class="trackingBox">
+
+
+
+<h2>
+تابع طلبك
+</h2>
+
+
+
+<p>
+ادخل رقم الهاتف المستخدم في الطلب
+</p>
+
 
 
 <input 
-id="phoneSearch"
-placeholder="اكتب رقم الهاتف"
-class="checkoutRight input">
+type="tel"
+id="searchPhone"
+placeholder="رقم الهاتف">
+
 
 
 <button 
-onclick="searchOrders()"
+id="searchOrders"
 class="confirmBtn">
 
-بحث عن الطلبات
+🔍 عرض الطلبات
 
 </button>
 
-
-
-<div id="ordersResult"></div>
 
 
 
@@ -61,7 +77,38 @@ class="confirmBtn">
 
 
 
-<script type="module" src="js/orders.js"></script>
+
+
+
+<div 
+id="ordersResult"
+class="customerOrders">
+
+</div>
+
+
+
+
+
+<footer class="footer">
+
+<h3>
+AKH BRAND
+</h3>
+
+
+<p>
+Premium Oversized Fashion
+</p>
+
+
+</footer>
+
+
+
+
+
+<script type="module" src="js/order-tracking.js"></script>
 
 
 </body>
