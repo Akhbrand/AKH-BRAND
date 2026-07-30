@@ -7,9 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="css/admin.css">
-
 <title>AKH BRAND Admin</title>
+
+<link rel="stylesheet" href="css/admin.css">
 
 </head>
 
@@ -30,6 +30,7 @@
 
 
 
+
 <div class="stats">
 
 
@@ -42,6 +43,7 @@
 </div>
 
 
+
 <div class="statCard">
 
 <span id="ordersCount">0</span>
@@ -49,6 +51,7 @@
 <p>🛒 الطلبات</p>
 
 </div>
+
 
 
 <div class="statCard">
@@ -60,6 +63,7 @@
 </div>
 
 
+
 <div class="statCard">
 
 <span id="salesTotal">0 EGP</span>
@@ -67,6 +71,7 @@
 <p>💰 المبيعات</p>
 
 </div>
+
 
 
 </div>
@@ -128,7 +133,6 @@
 
 
 
-
 <div 
 class="sectionTitle"
 onclick="toggleProductsList()"
@@ -140,7 +144,7 @@ style="cursor:pointer;">
 
 
 
-<div id="productsList" style="display:none;"></div>
+<div id="productsList" class="productsList"></div>
 
 
 
@@ -152,7 +156,7 @@ style="cursor:pointer;">
 
 
 
-<div
+<div 
 class="sectionTitle"
 onclick="toggleOrdersList()"
 style="cursor:pointer;">
@@ -163,7 +167,8 @@ style="cursor:pointer;">
 
 
 
-<div id="ordersList" style="display:none;"></div>
+<div id="ordersList" class="ordersList"></div>
+
 
 
 
@@ -172,20 +177,35 @@ style="cursor:pointer;">
 
 
 
+
+
 <script type="module">
  import { initializeApp } from 
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
+
 import {
+
 getFirestore,
+
 collection,
+
 addDoc,
+
 getDocs,
+
 deleteDoc,
+
 doc,
+
 updateDoc
-} from 
+
+}
+
+from
+
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 
 
 
@@ -209,9 +229,13 @@ measurementId: "G-L1HPJ8PYMJ"
 
 
 
+
 const app = initializeApp(firebaseConfig);
 
+
 const db = getFirestore(app);
+
+
 
 
 
@@ -219,24 +243,37 @@ let imageUrls=[];
 
 
 
-document.getElementById("images").addEventListener("change",function(){
+
+
+document
+.getElementById("images")
+.addEventListener("change",function(){
+
 
 let preview=document.getElementById("preview");
+
 
 preview.innerHTML="";
 
 
+
 for(let file of this.files){
+
 
 let img=document.createElement("img");
 
+
 img.src=URL.createObjectURL(file);
+
 
 preview.appendChild(img);
 
+
 }
 
+
 });
+
 
 
 
@@ -248,9 +285,16 @@ async function uploadImage(file){
 let formData=new FormData();
 
 
+
 formData.append("file",file);
 
-formData.append("upload_preset","akh_upload");
+
+
+formData.append(
+"upload_preset",
+"akh_upload"
+);
+
 
 
 
@@ -283,10 +327,14 @@ return data.secure_url;
 
 
 
+
+
 window.addProduct = async function(){
 
 
+
 try{
+
 
 
 document.getElementById("msg").innerHTML=
@@ -294,18 +342,25 @@ document.getElementById("msg").innerHTML=
 
 
 
-let files=document.getElementById("images").files;
+
+let files=
+document.getElementById("images").files;
+
 
 
 
 if(files.length===0){
 
+
 document.getElementById("msg").innerHTML=
 "❌ اختر صور المنتج";
 
+
 return;
 
+
 }
+
 
 
 
@@ -315,17 +370,24 @@ imageUrls=[];
 
 for(let file of files){
 
+
 let url=await uploadImage(file);
 
+
 imageUrls.push(url);
+
 
 }
 
 
 
 
+
+
 await addDoc(
+
 collection(db,"products"),
+
 {
 
 
@@ -364,7 +426,18 @@ image:imageUrls
 
 
 document.getElementById("msg").innerHTML=
-"✅ تم نشر المنتج";
+"✅ تم نشر المنتج بنجاح";
+
+
+
+document.getElementById("name").value="";
+document.getElementById("price").value="";
+document.getElementById("material").value="";
+document.getElementById("size").value="";
+document.getElementById("code").value="";
+document.getElementById("description").value="";
+document.getElementById("images").value="";
+document.getElementById("preview").innerHTML="";
 
 
 
@@ -376,18 +449,23 @@ loadProducts();
 
 
 
+
 catch(error){
 
+
 console.log(error);
+
 
 document.getElementById("msg").innerHTML=
 "❌ خطأ: "+error.message;
 
+
+}
+
+
 }
 
 
-
-}
 
 
 
@@ -396,7 +474,10 @@ document.getElementById("msg").innerHTML=
 async function loadProducts(){
 
 
-const list=document.getElementById("productsList");
+
+const list=
+document.getElementById("productsList");
+
 
 
 list.innerHTML="";
@@ -404,12 +485,17 @@ list.innerHTML="";
 
 
 const snapshot=
-await getDocs(collection(db,"products"));
+await getDocs(
+collection(db,"products")
+);
+
 
 
 
 document.getElementById("productsCount").innerText=
 snapshot.size;
+
+
 
 
 
@@ -429,7 +515,9 @@ product.image;
 
 
 
-list.innerHTML += `
+
+
+list.innerHTML +=`
 
 
 <div class="productCard">
@@ -447,11 +535,9 @@ ${product.name}
 </h3>
 
 
-
 <p>
 💰 ${product.price}
 </p>
-
 
 
 <p>
@@ -460,7 +546,7 @@ ${product.name}
 
 
 
-<button
+<button 
 onclick="deleteProduct('${item.id}')"
 class="deleteProductBtn">
 
@@ -469,11 +555,11 @@ class="deleteProductBtn">
 </button>
 
 
-
 </div>
 
 
 </div>
+
 
 
 `;
@@ -483,19 +569,19 @@ class="deleteProductBtn">
 });
 
 
+
 }
+ window.deleteProduct = async function(id){
 
 
-
-window.deleteProduct = async function(id){
-
-
-let ok=confirm(
+let ok = confirm(
 "هل أنت متأكد من حذف المنتج؟"
 );
 
 
-if(!ok)return;
+
+if(!ok) return;
+
 
 
 
@@ -512,18 +598,31 @@ alert("✅ تم حذف المنتج");
 loadProducts();
 
 
-} 
+}
+
+
+
+
+
+
 async function loadOrders(){
 
 
-const list=document.getElementById("ordersList");
+
+const list =
+document.getElementById("ordersList");
+
+
 
 list.innerHTML="";
 
 
 
-const snapshot=
-await getDocs(collection(db,"orders"));
+const snapshot =
+await getDocs(
+collection(db,"orders")
+);
+
 
 
 
@@ -532,9 +631,12 @@ snapshot.size;
 
 
 
+
 let newOrders=0;
 
 let totalSales=0;
+
+
 
 
 
@@ -551,7 +653,6 @@ list.innerHTML=`
 
 `;
 
-
 return;
 
 }
@@ -560,21 +661,23 @@ return;
 
 
 
-snapshot.forEach((item)=>{
+
+
+snapshot.forEach(item=>{
+
 
 
 const order=item.data();
 
 
 
-if(
-order.status=="جديد" ||
-order.status=="جاري المراجعة"
-){
+
+if(order.status=="جديد"){
 
 newOrders++;
 
 }
+
 
 
 
@@ -587,12 +690,15 @@ totalSales += Number(order.total || 0);
 list.innerHTML += `
 
 
+
 <div class="orderCard">
+
 
 
 <h3>
 👤 ${order.customerName}
 </h3>
+
 
 
 
@@ -608,9 +714,18 @@ list.innerHTML += `
 
 
 
+
+<p>
+🏠 ${order.address}
+</p>
+
+
+
+
 <p>
 💰 ${order.total} EGP
 </p>
+
 
 
 
@@ -620,59 +735,18 @@ list.innerHTML += `
 
 
 
+
 <p>
+
 📦 الحالة:
 
-<strong style="color:
-${
-order.status=="جديد" ||
-order.status=="جاري المراجعة"
-?
-"#ffc107"
-
-:
-
-order.status=="جاري التجهيز"
-?
-"#0dcaf0"
-
-:
-
-order.status=="تم الشحن"
-?
-"#fd7e14"
-
-:
-
-order.status=="تم التسليم"
-?
-"#25D366"
-
-:
-
-"#dc3545"
-
-}
-">
+<strong>
 
 ${order.status}
 
 </strong>
 
 </p>
-
-
-
-
-<a
-href="https://wa.me/${order.customerPhone}"
-target="_blank"
-class="btn">
-
-💬 واتساب العميل
-
-</a>
-
 
 
 
@@ -687,16 +761,9 @@ onchange="changeStatus('${item.id}',this.value)"
 </option>
 
 
-<option ${order.status=="جاري المراجعة"?"selected":""}>
-جاري المراجعة
-</option>
-
-
-
 <option ${order.status=="جاري التجهيز"?"selected":""}>
 جاري التجهيز
 </option>
-
 
 
 <option ${order.status=="تم الشحن"?"selected":""}>
@@ -704,11 +771,9 @@ onchange="changeStatus('${item.id}',this.value)"
 </option>
 
 
-
 <option ${order.status=="تم التسليم"?"selected":""}>
 تم التسليم
 </option>
-
 
 
 </select>
@@ -716,12 +781,14 @@ onchange="changeStatus('${item.id}',this.value)"
 
 
 
+
 <button
 onclick="toggleProducts('${item.id}')">
 
-📦 المنتجات
+📦 عرض المنتجات
 
 </button>
+
 
 
 
@@ -737,6 +804,7 @@ class="deleteProductBtn">
 
 
 
+
 <div
 id="products-${item.id}"
 style="display:none">
@@ -746,7 +814,9 @@ style="display:none">
 
 
 
+
 </div>
+
 
 
 `;
@@ -758,8 +828,10 @@ style="display:none">
 
 
 
+
 document.getElementById("newOrders").innerText =
 newOrders;
+
 
 
 
@@ -774,15 +846,9 @@ totalSales+" EGP";
 
 
 
-loadOrders();
-
-
-
-
-
-
 
 window.changeStatus = async function(id,status){
+
 
 
 await updateDoc(
@@ -799,14 +865,13 @@ status:status
 
 
 
-alert("✅ تم تحديث حالة الطلب");
+alert("✅ تم تحديث الحالة");
 
 
 loadOrders();
 
 
 }
-
 
 
 
@@ -816,12 +881,16 @@ loadOrders();
 window.deleteOrder = async function(id){
 
 
-let ok=confirm(
-"حذف الطلب؟"
+
+let ok =
+confirm(
+"هل تريد حذف الطلب؟"
 );
 
 
+
 if(!ok)return;
+
 
 
 
@@ -831,26 +900,24 @@ doc(db,"orders",id)
 
 
 
+alert("✅ تم حذف الطلب");
+
+
+
 loadOrders();
 
 
 }
+ window.toggleProducts = async function(id){
 
 
-
-
-
-
-
-window.toggleProducts = async function(id){
-
-
-let box=
+const box =
 document.getElementById("products-"+id);
 
 
 
 if(box.style.display=="block"){
+
 
 box.style.display="none";
 
@@ -864,19 +931,23 @@ box.style.display="block";
 
 
 
-const snapshot=
-await getDocs(collection(db,"orders"));
+const snapshot =
+await getDocs(
+collection(db,"orders")
+);
 
 
 
 snapshot.forEach(docItem=>{
 
 
-if(docItem.id!==id)return;
+
+if(docItem.id !== id) return;
 
 
 
-let order=docItem.data();
+const order =
+docItem.data();
 
 
 
@@ -893,8 +964,8 @@ html += `
 <div style="
 background:#111;
 padding:12px;
-margin-top:10px;
 border-radius:10px;
+margin-top:10px;
 ">
 
 
@@ -905,20 +976,26 @@ ${product.name}
 
 <br>
 
+
 الكمية:
 ${product.quantity || 1}
 
 
+
 <br>
+
 
 السعر:
 ${product.price}
 
 
+
 </div>
 
 
+
 `;
+
 
 
 });
@@ -928,7 +1005,9 @@ ${product.price}
 box.innerHTML=html;
 
 
+
 });
+
 
 
 }
@@ -942,18 +1021,28 @@ box.innerHTML=html;
 window.toggleProductsList=function(){
 
 
-let box=document.getElementById("productsList");
+const box =
+document.getElementById("productsList");
 
 
-box.style.display =
-box.style.display=="none"
-?
-"block"
-:
-"none";
+
+if(box.style.display=="none"){
+
+
+box.style.display="grid";
+
+
+}else{
+
+
+box.style.display="none";
 
 
 }
+
+
+}
+
 
 
 
@@ -962,27 +1051,45 @@ box.style.display=="none"
 window.toggleOrdersList=function(){
 
 
-let box=document.getElementById("ordersList");
+const box =
+document.getElementById("ordersList");
+
 
 
 if(box.style.display=="none"){
 
+
 box.style.display="block";
+
 
 loadOrders();
 
-}
 
-else{
+
+}else{
+
 
 box.style.display="none";
 
-}
-
 
 }
 
- </script>
+
+}
+
+
+
+
+
+
+loadProducts();
+
+loadOrders();
+
+
+
+</script>
+
 
 </body>
 
