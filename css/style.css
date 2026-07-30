@@ -1711,3 +1711,12 @@ header h1,
 header p{
     text-align:center;
 }
+
+.cartLogo{
+    width:120px;
+    height:120px;
+    display:block;
+    margin:20px auto;
+    object-fit:cover;
+    border-radius:20px;
+}
