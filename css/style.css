@@ -2180,3 +2180,34 @@ footer{
 }
 
 }
+
+.brandBanner{
+
+    width:96%;
+    max-width:1600px;
+
+    min-height:480px;
+
+    margin:60px auto;
+
+    border-radius:35px;
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+
+    padding:60px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.45)
+    ),
+    url("https://www.supermama.me/photos/93961/5ce40a69470e9.jpg");
+
+     background-size:cover;
+    background-position:center center;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.5);
+
+}
