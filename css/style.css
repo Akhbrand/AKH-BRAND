@@ -1386,11 +1386,11 @@ section{
 
 .navLinks{
 
-    position:absolute;
+    position:fixed;
 
-    top:90px;
+    top:100px;
 
-    right:15px;
+    right:20px;
 
     width:220px;
 
@@ -1408,8 +1408,9 @@ section{
 
     gap:18px;
 
-}
+    z-index:999999;
 
+}
 .navLinks.active{
 
     display:flex;
