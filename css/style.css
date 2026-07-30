@@ -811,5 +811,37 @@ footer{
 
 }
 
+/* =====================
+   COLLECTION TITLE
+===================== */
 
+.collectionTitle{
+
+    text-align:center;
+
+    padding:70px 20px 20px;
+
+}
+
+
+.collectionTitle h2{
+
+    font-size:45px;
+
+    letter-spacing:5px;
+
+    font-weight:900;
+
+}
+
+
+.collectionTitle p{
+
+    margin-top:15px;
+
+    color:#aaa;
+
+    font-size:20px;
+
+}
 
