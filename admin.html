@@ -794,7 +794,80 @@ sales+" EGP";
 
 
 
+window.toggleProducts = async function(id){
 
+const box = document.getElementById("products-" + id);
+
+if(box.style.display === "block"){
+
+    box.style.display = "none";
+    return;
+
+}
+
+box.style.display = "block";
+
+const snapshot = await getDocs(collection(db,"orders"));
+
+let html = "";
+
+snapshot.forEach(docItem=>{
+
+    if(docItem.id === id){
+
+        const order = docItem.data();
+
+        if(order.products && order.products.length){
+
+            order.products.forEach(product=>{
+
+                html += `
+
+                <div style="
+                background:#111;
+                border:1px solid #333;
+                border-radius:12px;
+                padding:15px;
+                margin-top:10px;
+                ">
+
+                    <strong>${product.name}</strong>
+
+                    <br><br>
+
+                    الكمية: ${product.quantity || 1}
+
+                    <br>
+
+                    السعر: ${product.price}
+
+                    <br>
+
+                    المقاس: ${product.size || "-"}
+
+                    <br>
+
+                    الكود: ${product.code || "-"}
+
+                </div>
+
+                `;
+
+            });
+
+        }else{
+
+            html = "لا توجد منتجات داخل هذا الطلب";
+
+        }
+
+    }
+
+});
+
+box.innerHTML = html;
+
+};
 
 
 window.changeStatus = async function(id,status){
