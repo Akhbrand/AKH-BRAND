@@ -1598,3 +1598,21 @@ section{
     }
 
 }
+
+.brandBanner{
+    position: relative;
+    overflow: hidden;
+    animation: none !important;
+}
+
+.bannerContent{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) !important;
+    animation: none !important;
+}
+
+.bannerOverlay{
+    animation: none !important;
+}
