@@ -1788,3 +1788,309 @@ header p{
 .footer{
     margin-top:80px;
 }
+
+/* =====================================
+   AKH BRAND LUXURY UPGRADE
+   ADD AT END OF CSS
+===================================== */
+
+
+/* HERO PREMIUM */
+
+.mainHeader{
+
+    height:100vh;
+    min-height:750px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.65)
+    ),
+    url("images/hero.jpg");
+
+    background-size:cover;
+    background-position:center top;
+
+}
+
+
+/* LOGO */
+
+.logo{
+
+    width:150px;
+    height:150px;
+
+    border-radius:25px;
+
+    margin-bottom:35px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.7);
+
+}
+
+
+
+/* BRAND TITLE */
+
+.mainHeader h1{
+
+    font-size:90px;
+
+    letter-spacing:10px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/* SUB TITLE */
+
+.mainHeader p{
+
+    font-size:24px;
+
+    letter-spacing:3px;
+
+    color:#ddd;
+
+}
+
+
+
+/* BUTTON PREMIUM */
+
+.shopBtn{
+
+    width:260px;
+
+    height:75px;
+
+    border-radius:0;
+
+    font-size:22px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+/* ABOUT */
+
+.aboutBrand{
+
+    max-width:900px;
+
+    margin:140px auto 100px;
+
+}
+
+
+
+.aboutBrand h2{
+
+    font-size:55px;
+
+    letter-spacing:8px;
+
+}
+
+
+
+.aboutBrand p{
+
+    color:#aaa;
+
+    font-size:22px;
+
+}
+
+
+
+/* COLLECTION BANNER */
+
+.brandBanner{
+
+    height:600px;
+
+    border-radius:0;
+
+}
+
+
+
+.bannerContent h2{
+
+    font-size:100px;
+
+}
+
+
+
+/* PRODUCTS */
+
+.products{
+
+    gap:45px;
+
+}
+
+
+
+.card{
+
+    background:#090909;
+
+    border-radius:0;
+
+    border:1px solid #222;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+/* PRODUCT IMAGE */
+
+.gallery{
+
+    height:500px;
+
+}
+
+
+.slider img{
+
+    height:500px;
+
+}
+
+
+
+/* PRODUCT INFO */
+
+.info{
+
+    padding:35px;
+
+}
+
+
+
+.info h2{
+
+    font-size:30px;
+
+}
+
+
+
+.price{
+
+    font-size:38px;
+
+}
+
+
+
+/* FEATURES */
+
+.featureBox{
+
+    border-radius:0;
+
+    background:#090909;
+
+}
+
+
+
+/* FOOTER */
+
+.footer{
+
+    padding-top:100px;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+.mainHeader{
+
+    min-height:700px;
+
+}
+
+
+.logo{
+
+    width:120px;
+
+    height:120px;
+
+}
+
+
+.mainHeader h1{
+
+    font-size:48px;
+
+    letter-spacing:4px;
+
+}
+
+
+.mainHeader p{
+
+    font-size:18px;
+
+}
+
+
+.brandBanner{
+
+    height:400px;
+
+}
+
+
+.bannerContent h2{
+
+    font-size:55px;
+
+}
+
+
+.gallery{
+
+    height:380px;
+
+}
+
+
+.slider img{
+
+    height:380px;
+
+}
+
+
+}
