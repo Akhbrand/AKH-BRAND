@@ -3059,3 +3059,293 @@ header p{
     letter-spacing:8px;
 
 }
+
+/* =====================================
+   AKH BRAND PRODUCT PREMIUM UPGRADE
+===================================== */
+
+
+/* PRODUCTS AREA */
+
+.products{
+
+    width:92%;
+
+    max-width:1400px;
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+
+/* CARD */
+
+.card{
+
+    background:#0a0a0a;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    transition:.5s ease;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#d8ae3f;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.5);
+
+}
+
+
+
+/* IMAGE */
+
+.gallery{
+
+    height:520px;
+
+    background:#050505;
+
+    overflow:hidden;
+
+}
+
+
+
+.slider img{
+
+    height:520px;
+
+    object-fit:contain;
+
+    padding:25px;
+
+    transition:.5s ease;
+
+}
+
+
+
+.card:hover .slider img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* DOTS */
+
+.dot{
+
+    background:#555;
+
+}
+
+
+.dot.active{
+
+    background:#d8ae3f;
+
+}
+
+
+
+/* INFO */
+
+.info{
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+
+
+.info h2{
+
+    font-size:28px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+/* PRICE */
+
+.price{
+
+    font-size:36px;
+
+    font-weight:900;
+
+    color:#d8ae3f;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* DETAILS */
+
+.info p{
+
+    color:#999;
+
+    font-size:16px;
+
+    margin:8px 0;
+
+}
+
+
+
+/* CART BUTTON */
+
+.cartBtn{
+
+    height:60px;
+
+    margin-top:25px;
+
+    background:#fff;
+
+    color:#000;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    transition:.35s;
+
+}
+
+
+
+.cartBtn:hover{
+
+    background:#d8ae3f;
+
+}
+
+
+
+/* WHATSAPP */
+
+.btn{
+
+    height:60px;
+
+    margin-top:15px;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:900;
+
+}
+
+
+
+/* ADD BADGE */
+
+.card::before{
+
+    content:"NEW";
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    z-index:10;
+
+    background:#d8ae3f;
+
+    color:#000;
+
+    padding:7px 18px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+
+.products{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.gallery{
+
+    height:420px;
+
+}
+
+
+.slider img{
+
+    height:420px;
+
+}
+
+
+.info h2{
+
+    font-size:24px;
+
+}
+
+
+.price{
+
+    font-size:30px;
+
+}
+
+
+}
+
