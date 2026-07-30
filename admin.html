@@ -384,35 +384,40 @@ async function loadProducts() {
 
         const product = item.data();
 
-        list.innerHTML += `
-        <div style="
-            background:#1a1a1a;
-            border:1px solid #333;
-            border-radius:15px;
-            padding:15px;
-            margin-top:15px;
-        ">
+     const image =
+Array.isArray(product.image)
+? product.image[0]
+: product.image;
 
-            <h3>${product.name}</h3>
+list.innerHTML += `
 
-            <p>${product.price}</p>
+<div class="productCard">
 
-            <button
-                onclick="deleteProduct('${item.id}')"
-                style="
-                    background:#ff3333;
-                    color:white;
-                    border:none;
-                    padding:12px;
-                    border-radius:10px;
-                    cursor:pointer;
-                ">
-                🗑️ حذف المنتج
-            </button>
+    <img
+    src="${image}"
+    class="productImage">
 
-        </div>
-        `;
+    <div class="productInfo">
 
+        <h3>${product.name}</h3>
+
+        <p>💰 ${product.price}</p>
+
+        <p>🏷️ ${product.code}</p>
+
+        <button
+        onclick="deleteProduct('${item.id}')"
+        class="deleteProductBtn">
+
+        🗑️ حذف المنتج
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
     });
 
 }
