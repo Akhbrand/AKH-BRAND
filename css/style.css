@@ -4535,3 +4535,80 @@ body::before{
 
 }
 
+/* =====================================
+   PRODUCTS CARDS UPGRADE
+===================================== */
+
+.card{
+
+    background:#0b0b0b;
+
+    border:1px solid #1f1f1f;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#d8ae3f;
+
+}
+
+.card img{
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.info{
+
+    padding:20px;
+
+}
+
+.info h2{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+
+}
+
+.price{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    color:#d8ae3f;
+
+    margin-bottom:15px;
+
+}
+
+/* PRODUCT CODE */
+
+.productCode{
+
+    color:#888;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+    letter-spacing:1px;
+
+}
