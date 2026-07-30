@@ -794,6 +794,7 @@ sales+" EGP";
 
 
 
+
 window.toggleProducts = async function(id){
 
 const box = document.getElementById("products-" + id);
@@ -821,6 +822,18 @@ snapshot.forEach(docItem=>{
 
             order.products.forEach(product=>{
 
+                let image = "";
+
+                if(Array.isArray(product.image)){
+
+                    image = product.image[0];
+
+                }else{
+
+                    image = product.image || "";
+
+                }
+
                 html += `
 
                 <div style="
@@ -829,25 +842,42 @@ snapshot.forEach(docItem=>{
                 border-radius:12px;
                 padding:15px;
                 margin-top:10px;
+                display:flex;
+                gap:15px;
+                align-items:center;
                 ">
 
-                    <strong>${product.name}</strong>
+                    <img
+                    src="${image}"
+                    style="
+                    width:80px;
+                    height:80px;
+                    object-fit:cover;
+                    border-radius:10px;
+                    border:1px solid #333;
+                    ">
 
-                    <br><br>
+                    <div>
 
-                    الكمية: ${product.quantity || 1}
+                        <strong>${product.name}</strong>
 
-                    <br>
+                        <br><br>
 
-                    السعر: ${product.price}
+                        الكمية: ${product.quantity || 1}
 
-                    <br>
+                        <br>
 
-                    المقاس: ${product.size || "-"}
+                        السعر: ${product.price}
 
-                    <br>
+                        <br>
 
-                    الكود: ${product.code || "-"}
+                        المقاس: ${product.size || "-"}
+
+                        <br>
+
+                        الكود: ${product.code || "-"}
+
+                    </div>
 
                 </div>
 
