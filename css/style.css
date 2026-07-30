@@ -4441,3 +4441,18 @@ body::before{
     background-repeat: no-repeat;
     background-color: #000;
 }
+
+.mainHeader{
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.75)
+    ),
+    url("../images/hero.jpg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
