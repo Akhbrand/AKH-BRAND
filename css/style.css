@@ -3485,3 +3485,127 @@ header p{
 
 }
 
+
+/* =====================================
+   PRODUCT GALLERY
+===================================== */
+
+
+.productGallery{
+
+    width:100%;
+
+}
+
+
+
+.mainImageBox{
+
+    height:650px;
+
+    background:#050505;
+
+    border:1px solid #222;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.mainProductImage{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    display:none;
+
+}
+
+
+
+.mainProductImage.activeImage{
+
+    display:block;
+
+}
+
+
+
+.thumbs{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+    overflow-x:auto;
+
+}
+
+
+
+.thumbs img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    background:#111;
+
+    border:1px solid #333;
+
+    cursor:pointer;
+
+}
+
+
+
+.thumbs img:hover{
+
+    border-color:#d8ae3f;
+
+}
+
+
+
+.productDetails{
+
+    text-align:right;
+
+}
+
+
+
+@media(max-width:900px){
+
+.mainImageBox{
+
+    height:420px;
+
+}
+
+
+.thumbs img{
+
+    width:70px;
+
+    height:70px;
+
+}
+
+}
+
+
+
+
