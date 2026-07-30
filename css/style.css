@@ -3349,3 +3349,139 @@ header p{
 
 }
 
+/* =====================================
+   SINGLE PRODUCT PAGE
+===================================== */
+
+
+#productPage{
+
+    width:92%;
+
+    max-width:1300px;
+
+    margin:120px auto;
+
+}
+
+
+
+.singleProduct{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+
+
+.singleProduct img{
+
+    width:100%;
+
+    height:650px;
+
+    object-fit:contain;
+
+    background:#050505;
+
+    border:1px solid #222;
+
+}
+
+
+
+.singleProduct h1{
+
+    font-size:50px;
+
+    font-weight:900;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.singleProduct .price{
+
+    font-size:45px;
+
+    color:#d8ae3f;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.singleProduct p{
+
+    color:#aaa;
+
+    font-size:20px;
+
+    margin:15px 0;
+
+}
+
+
+
+.singleProduct .cartBtn{
+
+    margin-top:35px;
+
+    height:70px;
+
+    font-size:22px;
+
+}
+
+
+
+.singleProduct .btn{
+
+    margin-top:20px;
+
+    height:70px;
+
+    font-size:22px;
+
+}
+
+
+
+
+@media(max-width:900px){
+
+
+.singleProduct{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+}
+
+
+.singleProduct img{
+
+    height:420px;
+
+}
+
+
+.singleProduct h1{
+
+    font-size:35px;
+
+}
+
+
+}
+
