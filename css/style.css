@@ -1775,3 +1775,92 @@ footer{
     background-position:center;
 
 }
+
+.bannerContent a{
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    width:220px;
+    height:68px;
+
+    background:#d4af37;
+    color:#111;
+
+    text-decoration:none;
+
+    border-radius:18px;
+
+    font-size:22px;
+    font-weight:800;
+
+    letter-spacing:.3px;
+
+    box-shadow:
+        0 12px 30px rgba(212,175,55,.28);
+
+    transition:all .35s ease;
+}
+
+.bannerContent a:hover{
+
+    transform:translateY(-3px);
+
+    background:#dfb83f;
+
+    box-shadow:
+        0 18px 40px rgba(212,175,55,.4);
+}
+
+.brandBanner{
+
+    position:relative;
+
+    min-height:420px;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.55) 0%,
+        rgba(0,0,0,.35) 35%,
+        rgba(0,0,0,.10) 100%
+    ),
+    url("ضع رابط الصورة");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.bannerContent{
+
+    max-width:520px;
+
+    padding:60px;
+
+    color:#fff;
+}
+
+.bannerContent h2{
+
+    font-size:74px;
+
+    line-height:.95;
+
+    font-weight:900;
+
+    margin-bottom:20px;
+}
+
+.bannerContent p{
+
+    font-size:24px;
+
+    color:#f2f2f2;
+
+    margin-bottom:35px;
+}
