@@ -52,7 +52,16 @@ dots += `
 
 box.innerHTML += `
 
-<div class="card"
+<div class="card">
+
+<div class="favoriteBtn"
+
+onclick='toggleFavorite(${JSON.stringify(product)})'>
+
+♡
+
+</div>
+
 onclick="openProduct('${product.code}')">
 
 <div class="gallery">
@@ -203,3 +212,32 @@ if(favCount){
 favCount.innerText = favorites.length;
 
 }
+window.toggleFavorite = function(product){
+
+    let favorites =
+    JSON.parse(localStorage.getItem("favorites")) || [];
+
+    const index =
+    favorites.findIndex(item=>item.code===product.code);
+
+    if(index>-1){
+
+        favorites.splice(index,1);
+
+    }else{
+
+        favorites.push(product);
+
+    }
+
+    localStorage.setItem(
+
+    "favorites",
+
+    JSON.stringify(favorites)
+
+    );
+
+    location.reload();
+
+};
