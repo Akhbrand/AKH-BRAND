@@ -86,6 +86,32 @@ updateCartCount();
 
 updateFavoriteCount();
 
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message,type="success"){
+
+const toast =
+document.getElementById("toast");
+
+if(!toast) return;
+
+toast.className =
+"toast " + type;
+
+toast.innerHTML = message;
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},2200);
+
+}
+
 function showToast(message){
 
 const toast =
