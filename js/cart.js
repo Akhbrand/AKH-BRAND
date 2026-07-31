@@ -131,14 +131,23 @@ window.removeFromCart = function(index){
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    cart.splice(index,1);
+   cart.splice(index,1);
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
 
-    location.reload();
+showToast(
+"🗑️ تم حذف المنتج من السلة",
+"warning"
+);
+
+setTimeout(()=>{
+
+location.reload();
+
+},800);
 };
 
 const totalBox = document.getElementById("totalPrice");
@@ -147,5 +156,27 @@ if(totalBox){
 
     totalBox.innerHTML =
     total + " EGP";
+
+}
+
+function showToast(message,type="success"){
+
+const toast =
+document.getElementById("toast");
+
+if(!toast) return;
+
+toast.className =
+"toast " + type;
+
+toast.innerHTML = message;
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},2200);
 
 }
