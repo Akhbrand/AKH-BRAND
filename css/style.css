@@ -5329,3 +5329,123 @@ body::before{
     height:230px !important;
     object-fit:cover !important;
 }
+
+/* ==========================================
+   LOADER
+========================================== */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#070707;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    z-index:99999;
+
+    transition:.6s;
+
+}
+
+.loaderLogo{
+
+    width:130px;
+
+    margin-bottom:25px;
+
+    animation:logoFloat 2s infinite ease-in-out;
+
+}
+
+.loaderTitle{
+
+    color:#fff;
+
+    font-size:34px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+}
+
+.loaderSub{
+
+    color:#999;
+
+    margin-top:8px;
+
+    margin-bottom:35px;
+
+}
+
+.loaderBar{
+
+    width:240px;
+
+    height:5px;
+
+    background:#1b1b1b;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+.loaderProgress{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+    90deg,
+    #d8ae3f,
+    #f5d77a
+    );
+
+    animation:loading 1.8s forwards;
+
+}
+
+.loaderHide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+@keyframes loading{
+
+0%{width:0;}
+
+100%{width:100%;}
+
+}
+
+@keyframes logoFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
