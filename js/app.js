@@ -54,11 +54,26 @@ box.innerHTML += `
 
 <div class="card">
 
-<div class="favoriteBtn"
+<div
+class="favoriteBtn ${
+favorites.some(f=>f.code===product.code)
+?
+"favoriteActive"
+:
+""
+}"
+
+data-code="${product.code}"
 
 onclick='toggleFavorite(${JSON.stringify(product)})'>
 
-♡
+${
+favorites.some(f=>f.code===product.code)
+?
+"❤️"
+:
+"🤍"
+}
 
 </div>
 
