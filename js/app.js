@@ -281,7 +281,7 @@ onclick="openProduct('${product.code}')">
 <div
 class="favoriteBtn"
 data-code="${product.code}"
-onclick="event.stopPropagation();toggleFavorite('${product.code}')"
+onclick="event.stopPropagation()"
 
 ${isFavorite ? "❤️" : "🤍"}
 
@@ -325,8 +325,8 @@ Code : ${product.code}
 
 <button
 class="cartBtn"
-onclick="event.stopPropagation();addToCart('${product.code}')"
 
+onclick="event.stopPropagation()"
 🛒 أضف للسلة
 
 </button>
