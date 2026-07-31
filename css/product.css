@@ -1,1 +1,203 @@
+/* ==========================================
+   AKH BRAND PRODUCT PAGE
+========================================== */
 
+body{
+
+    background:#070707;
+
+    color:#fff;
+
+    font-family:'Cairo',sans-serif;
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.productHeader{
+
+    max-width:1400px;
+
+    margin:35px auto;
+
+    padding:0 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.productLogo{
+
+    width:90px;
+
+}
+
+.backHomeBtn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    width:220px;
+
+    height:55px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    background:linear-gradient(
+    135deg,
+    #d8ae3f,
+    #f5d77a
+    );
+
+    color:#000;
+
+    font-weight:800;
+
+    transition:.3s;
+
+}
+
+.backHomeBtn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* =========================
+   PRODUCT
+========================= */
+
+.singleProduct{
+
+    max-width:1400px;
+
+    margin:50px auto;
+
+    padding:0 25px;
+
+    display:grid;
+
+    grid-template-columns:1fr 480px;
+
+    gap:60px;
+
+    align-items:start;
+
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.productGallery{
+
+    position:sticky;
+
+    top:30px;
+
+}
+
+.mainImageBox{
+
+    background:#111;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    border:1px solid #222;
+
+    box-shadow:
+
+    0 25px 70px rgba(0,0,0,.45);
+
+}
+
+.mainProductImage{
+
+    display:none;
+
+    width:100%;
+
+    height:760px;
+
+    object-fit:cover;
+
+}
+
+.activeImage{
+
+    display:block;
+
+    animation:fade .35s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:scale(.97);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+.thumbs{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.thumbs img{
+
+    width:90px;
+
+    height:110px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    border:2px solid transparent;
+
+    transition:.3s;
+
+}
+
+.thumbs img:hover{
+
+    border-color:#d8ae3f;
+
+    transform:translateY(-4px);
+
+}
