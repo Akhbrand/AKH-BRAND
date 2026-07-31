@@ -224,130 +224,141 @@ active
    LOAD PRODUCTS
 ========================= */
 
-const snapshot =
-await getDocs(
-collection(db,"products")
+const snapshot = await getDocs(
+    collection(db,"products")
 );
+
+let productsHTML = "";
 
 snapshot.forEach(doc=>{
 
-const product = doc.data();
+    const product = doc.data();
 
-let images = "";
+    let images = "";
+    let dots = "";
 
-let dots = "";
+    const imgs =
+    Array.isArray(product.image)
+    ?
+    product.image.filter(
+        img=>img && img.trim()!==""
+    )
+    :
+    [product.image];
 
-const imgs =
-Array.isArray(product.image)
-?
-product.image.filter(
-img=>img && img.trim()!==""
-)
-:
-[product.image];
-imgs.forEach((img,index)=>{
 
-const imagePath =
-(typeof img==="string" && img.startsWith("http"))
-?
-img
-:
-"./images/"+img;
+    imgs.forEach((img,index)=>{
 
-images += `
-<img
-src="${imagePath}"
-loading="lazy"
-alt="${product.name}">
-`;
+        const imagePath =
+        (typeof img==="string" && img.startsWith("http"))
+        ?
+        img
+        :
+        "./images/"+img;
 
-dots += `
-<span class="dot ${index===0?"active":""}"></span>
-`;
+
+        images += `
+        <img
+        src="${imagePath}"
+        loading="lazy"
+        alt="${product.name}">
+        `;
+
+
+        dots += `
+        <span class="dot ${index===0?"active":""}"></span>
+        `;
+
+    });
+
+
+    const isFavorite =
+    favorites.some(
+        item=>item.code===product.code
+    );
+
+
+    productsHTML += `
+
+    <div class="card"
+    onclick="openProduct('${product.code}')">
+
+
+        <div
+        class="favoriteBtn ${isFavorite ? "favoriteActive" : ""}"
+        data-code="${product.code}"
+        onclick='event.stopPropagation();toggleFavorite(${JSON.stringify(product)})'>
+        ${isFavorite ? "❤️" : "🤍"}
+        </div>
+
+
+
+        <div class="gallery">
+
+            <div class="slider">
+
+                ${images}
+
+            </div>
+
+
+            <div class="dots">
+
+                ${dots}
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info">
+
+
+            <h2>
+            ${product.name}
+            </h2>
+
+
+            <div class="price">
+            ${product.price}
+            </div>
+
+
+            <p class="productCode">
+            Code : ${product.code}
+            </p>
+
+
+
+            <button
+            class="cartBtn"
+            onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'>
+            🛒 أضف للسلة
+            </button>
+
+
+
+            <a
+            class="btn"
+            onclick="event.stopPropagation()"
+            href="https://wa.me/201097521334?text=مرحباً، أريد طلب ${product.name} - كود ${product.code}">
+            اطلب الآن واتساب
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+    `;
+
 
 });
 
-const isFavorite =
-favorites.some(
-item=>item.code===product.code
-);
 
-productsBox.innerHTML += `
-
-<div class="card"
-
-onclick="openProduct('${product.code}')">
-
-<<div
-class="favoriteBtn ${isFavorite ? "favoriteActive" : ""}"
-data-code="${product.code}"
-onclick='event.stopPropagation();toggleFavorite(${JSON.stringify(product)})'
->
-${isFavorite ? "❤️" : "🤍"}
-</div>
-
-<div class="gallery">
-
-<div class="slider">
-
-${images}
-
-</div>
-
-<div class="dots">
-
-${dots}
-
-</div>
-
-</div>
-
-<div class="info">
-
-<h2>
-
-${product.name}
-
-</h2>
-
-<div class="price">
-
-${product.price}
-
-</div>
-
-<p class="productCode">
-
-Code : ${product.code}
-
-</p>
-
-<b<button
-class="cartBtn"
-onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'
->
-🛒 أضف للسلة
-</button>
-
-<a
-
-class="btn"
-
-onclick="event.stopPropagation()"
-
-href="https://wa.me/201097521334?text=مرحباً، أريد طلب ${product.name} - كود ${product.code}">
-
-اطلب الآن واتساب
-
-</a>
-
-</div>
-
-</div>
-
-`;
-
-});
+productsBox.innerHTML = productsHTML;
 /* =========================
    SEARCH
 ========================= */
