@@ -211,8 +211,7 @@ if(favCount){
 
 favCount.innerText = favorites.length;
 
-}
-window.toggleFavorite = function(product){
+}window.toggleFavorite = function(product){
 
     let favorites =
     JSON.parse(localStorage.getItem("favorites")) || [];
@@ -231,13 +230,32 @@ window.toggleFavorite = function(product){
     }
 
     localStorage.setItem(
-
-    "favorites",
-
-    JSON.stringify(favorites)
-
+        "favorites",
+        JSON.stringify(favorites)
     );
 
-    location.reload();
+    document.querySelectorAll(".favoriteBtn").forEach(btn=>{
+
+        if(btn.dataset.code===product.code){
+
+            btn.classList.toggle("favoriteActive");
+
+            btn.innerHTML =
+            btn.classList.contains("favoriteActive")
+            ? "❤️"
+            : "🤍";
+
+        }
+
+    });
+
+    const favCount =
+    document.getElementById("favCount");
+
+    if(favCount){
+
+        favCount.innerText = favorites.length;
+
+    }
 
 };
