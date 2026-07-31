@@ -5527,3 +5527,60 @@ transform:translateY(-8px);
     font-weight:800;
 
 }
+/* =========================
+   FAVORITE BUTTON
+========================= */
+
+.card{
+
+    position:relative;
+
+}
+
+.favoriteBtn{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:26px;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:50;
+
+}
+
+.favoriteBtn:hover{
+
+    transform:scale(1.1);
+
+}
+
+.favoriteActive{
+
+    color:#ff2e63;
+
+}
