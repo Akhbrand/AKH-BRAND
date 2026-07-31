@@ -1,1 +1,516 @@
+/* ==========================================
+   AKH BRAND
+   CHECKOUT PAGE
+========================================== */
 
+body{
+    background:#070707;
+    color:#fff;
+    font-family:'Cairo',sans-serif;
+}
+
+.checkoutContainer{
+
+    max-width:1400px;
+
+    margin:50px auto;
+
+    padding:0 20px;
+
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    gap:35px;
+
+    align-items:flex-start;
+
+}
+
+/* ======================
+   LEFT
+====================== */
+
+.checkoutLeft{
+
+    background:#101010;
+
+    border:1px solid #222;
+
+    border-radius:24px;
+
+    padding:25px;
+
+    position:sticky;
+
+    top:30px;
+
+}
+
+.checkoutLeft h2{
+
+    font-size:24px;
+
+    margin-bottom:25px;
+
+    color:#d8ae3f;
+
+}
+
+/* ======================
+   ORDER CARD
+====================== */
+
+.orderCard{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    padding:15px 0;
+
+    border-bottom:1px solid #222;
+
+}
+
+.orderCard:last-child{
+
+    border:none;
+
+}
+
+.orderCard img{
+
+    width:90px;
+
+    height:110px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    border:1px solid #333;
+
+}
+
+.orderInfo{
+
+    flex:1;
+
+}
+
+.orderInfo h3{
+
+    font-size:18px;
+
+    margin-bottom:8px;
+
+}
+
+.orderInfo p{
+
+    color:#bdbdbd;
+
+    font-size:14px;
+
+    margin:4px 0;
+
+}
+
+/* ======================
+   TOTAL BOX
+====================== */
+
+.totalBox{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#151515;
+
+    border:1px solid #222;
+
+    border-radius:18px;
+
+    padding:18px;
+
+}
+
+.totalBox strong{
+
+    color:#d8ae3f;
+
+    font-size:24px;
+
+}
+/* ======================
+   RIGHT
+====================== */
+
+.checkoutRight{
+
+    background:#101010;
+
+    border:1px solid #222;
+
+    border-radius:24px;
+
+    padding:35px;
+
+}
+
+.checkoutRight h2{
+
+    font-size:28px;
+
+    margin-bottom:30px;
+
+    color:#d8ae3f;
+
+}
+
+/* ======================
+   INPUTS
+====================== */
+
+.checkoutRight input,
+
+.checkoutRight select,
+
+.checkoutRight textarea{
+
+    width:100%;
+
+    height:58px;
+
+    background:#161616;
+
+    border:1px solid #2b2b2b;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    padding:0 18px;
+
+    margin-bottom:18px;
+
+    font-size:16px;
+
+    font-family:'Cairo',sans-serif;
+
+    transition:.3s;
+
+}
+
+.checkoutRight textarea{
+
+    height:120px;
+
+    resize:none;
+
+    padding:15px 18px;
+
+}
+
+.checkoutRight input:focus,
+
+.checkoutRight select:focus,
+
+.checkoutRight textarea:focus{
+
+    outline:none;
+
+    border-color:#d8ae3f;
+
+    box-shadow:0 0 20px rgba(216,174,63,.15);
+
+}
+
+.checkoutRight input::placeholder,
+
+.checkoutRight textarea::placeholder{
+
+    color:#888;
+
+}
+
+/* ======================
+   PAYMENT
+====================== */
+
+.checkoutRight h3{
+
+    margin:30px 0 20px;
+
+    color:#d8ae3f;
+
+    font-size:22px;
+
+}
+
+.radioBox{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#161616;
+
+    border:1px solid #2b2b2b;
+
+    border-radius:14px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.radioBox:hover{
+
+    border-color:#d8ae3f;
+
+    transform:translateY(-2px);
+
+}
+
+.radioBox input{
+
+    width:18px;
+
+    height:18px;
+
+    margin:0;
+
+    accent-color:#d8ae3f;
+
+}
+
+/* ======================
+   BUTTON
+====================== */
+
+.confirmBtn{
+
+    width:100%;
+
+    height:62px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+        135deg,
+        #d8ae3f,
+        #f5d77a
+    );
+
+    color:#000;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 12px 30px rgba(216,174,63,.25);
+
+}
+
+.confirmBtn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 40px rgba(216,174,63,.35);
+
+}
+/* ======================
+   HEADER
+====================== */
+
+header{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+}
+
+header img{
+
+    width:120px;
+
+    margin-bottom:15px;
+
+}
+
+header h1{
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+    font-weight:900;
+
+}
+
+header p{
+
+    color:#bdbdbd;
+
+    font-size:18px;
+
+}
+
+/* ======================
+   FOOTER
+====================== */
+
+footer{
+
+    margin-top:60px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#888;
+
+    border-top:1px solid #222;
+
+}
+
+/* ======================
+   SCROLLBAR
+====================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d8ae3f;
+
+    border-radius:20px;
+
+}
+
+/* ======================
+   MOBILE
+====================== */
+
+@media(max-width:992px){
+
+.checkoutContainer{
+
+    grid-template-columns:1fr;
+
+}
+
+.checkoutLeft{
+
+    position:static;
+
+    order:2;
+
+}
+
+.checkoutRight{
+
+    order:1;
+
+}
+
+}
+
+@media(max-width:768px){
+
+header h1{
+
+    font-size:30px;
+
+}
+
+.checkoutLeft,
+
+.checkoutRight{
+
+    padding:20px;
+
+    border-radius:20px;
+
+}
+
+.orderCard{
+
+    gap:12px;
+
+}
+
+.orderCard img{
+
+    width:75px;
+
+    height:95px;
+
+}
+
+.orderInfo h3{
+
+    font-size:16px;
+
+}
+
+.orderInfo p{
+
+    font-size:13px;
+
+}
+
+.totalBox{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:center;
+
+}
+
+.confirmBtn{
+
+    height:58px;
+
+    font-size:18px;
+
+}
+
+}
