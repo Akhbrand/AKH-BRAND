@@ -142,27 +142,57 @@ ${product.price}
 
 
 
+<div class="productInfoBox">
+
+<div class="infoItem">
+
+<span>📦 الخامة</span>
+
+<strong>${product.material}</strong>
+
+</div>
+
+<div class="infoItem">
+
+<span>📏 المقاس</span>
+
+<strong>${product.size}</strong>
+
+</div>
+
+<div class="infoItem">
+
+<span>🏷 الكود</span>
+
+<strong>${product.code}</strong>
+
+</div>
+
+<div class="infoItem">
+
+<span>🚚 الشحن</span>
+
+<strong>جميع المحافظات</strong>
+
+</div>
+
+</div>
+
+<div class="descriptionBox">
+
+<h3>
+
+📝 وصف المنتج
+
+</h3>
+
 <p>
-الخامة: ${product.material}
+
+${product.description || "لا يوجد وصف."}
+
 </p>
 
-
-
-<p>
-المقاس: ${product.size}
-</p>
-
-
-
-<p>
-الكود: ${product.code}
-</p>
-
-
-
-<p>
-${product.description || ""}
-</p>
+</div>
 
 
 
