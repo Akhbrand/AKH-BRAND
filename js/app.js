@@ -187,9 +187,19 @@ if(index>-1){
 
 favorites.splice(index,1);
 
+showToast(
+"💔 تمت الإزالة من المفضلة",
+"warning"
+);
+
 }else{
 
 favorites.push(product);
+
+showToast(
+"❤️ تمت الإضافة للمفضلة",
+"success"
+);
 
 }
 
