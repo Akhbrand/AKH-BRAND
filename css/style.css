@@ -5742,3 +5742,59 @@ border-color:#dc3545;
 }
 
 }
+
+/* =========================
+   FINAL PRODUCT FIX
+========================= */
+
+.products{
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+    gap:35px !important;
+    width:92% !important;
+    max-width:1400px !important;
+    margin:80px auto !important;
+}
+
+.card{
+    width:100% !important;
+    max-width:none !important;
+    overflow:hidden !important;
+}
+
+.gallery{
+    width:100% !important;
+    height:520px !important;
+    overflow:hidden !important;
+}
+
+.slider{
+    display:flex !important;
+    width:100% !important;
+    height:100% !important;
+}
+
+.slider img,
+.card img{
+    width:100% !important;
+    min-width:100% !important;
+    height:520px !important;
+    object-fit:contain !important;
+    display:block !important;
+    padding:25px !important;
+}
+
+
+@media(max-width:900px){
+
+.products{
+    grid-template-columns:1fr !important;
+}
+
+.gallery,
+.slider img,
+.card img{
+    height:420px !important;
+}
+
+}
