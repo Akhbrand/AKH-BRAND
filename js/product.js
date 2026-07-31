@@ -28,7 +28,8 @@ const snapshot = await getDocs(collection(db,"products"));
 
 let found = false;
 
-
+const relatedBox =
+document.getElementById("relatedProducts");
 
 snapshot.forEach(doc=>{
 
@@ -270,6 +271,77 @@ box.innerHTML=`
 </h2>
 
 `;
+
+}
+/* ==========================
+   RELATED PRODUCTS
+========================== */
+
+let relatedHTML = "";
+
+let count = 0;
+
+snapshot.forEach(doc=>{
+
+    const item = doc.data();
+
+    if(item.code !== productId && count < 4){
+
+        const image = Array.isArray(item.image)
+        ? item.image[0]
+        : item.image;
+
+        relatedHTML += `
+
+        <div class="card">
+
+            <div class="gallery">
+
+                <img
+                src="${image}"
+                onclick="location.href='product.html?id=${item.code}'">
+
+            </div>
+
+            <div class="info">
+
+                <h2>
+
+                ${item.name}
+
+                </h2>
+
+                <div class="price">
+
+                ${item.price}
+
+                </div>
+
+                <button
+
+                class="cartBtn"
+
+                onclick='addToCart(${JSON.stringify(item)})'>
+
+                🛒 إضافة للسلة
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+        count++;
+
+    }
+
+});
+
+if(relatedBox){
+
+    relatedBox.innerHTML = relatedHTML;
 
 }
 window.addToCart = function(product){
