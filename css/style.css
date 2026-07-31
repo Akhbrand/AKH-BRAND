@@ -5003,24 +5003,25 @@ body::before{
 }
 
 /* ===========================
-   FULL WIDTH SUMMER BANNER
+   AKH SUMMER BANNER FINAL
 =========================== */
 
 .akhBanner{
     position:relative;
     width:95%;
-    height:320px;
+    height:240px;
     margin:50px auto;
-    border-radius:30px;
+    border-radius:28px;
     overflow:hidden;
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .akhBanner img{
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center;
+    object-position:center top;
+    display:block;
 }
 
 .akhBanner::before{
@@ -5038,33 +5039,36 @@ body::before{
 
 .akhBannerContent{
     position:absolute;
-    left:30px;
+    left:22px;
     top:50%;
     transform:translateY(-50%);
-    width:45%;
+    width:42%;
     z-index:2;
     text-align:left;
 }
 
 .akhBannerContent span{
+    display:block;
     color:#d8ae3f;
-    font-size:13px;
+    font-size:10px;
     font-weight:700;
-    letter-spacing:4px;
+    letter-spacing:3px;
+    margin-bottom:8px;
 }
 
 .akhBannerContent h2{
-    font-size:52px;
-    line-height:.95;
-    font-weight:900;
-    margin:12px 0;
     color:#fff;
+    font-size:28px;
+    font-weight:900;
+    line-height:.95;
+    margin:0 0 10px;
 }
 
 .akhBannerContent p{
-    color:#eee;
-    font-size:16px;
-    margin-bottom:20px;
+    color:#f1f1f1;
+    font-size:11px;
+    line-height:1.5;
+    margin-bottom:14px;
 }
 
 .akhBannerBtn{
@@ -5074,39 +5078,42 @@ body::before{
     background:#d8ae3f;
     color:#000;
     text-decoration:none;
-    padding:14px 32px;
-    border-radius:50px;
+    font-size:12px;
     font-weight:800;
-    font-size:16px;
+    padding:8px 20px;
+    border-radius:50px;
     transition:.3s;
 }
 
 .akhBannerBtn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 }
+
+/* Mobile */
 
 @media(max-width:768px){
 
     .akhBanner{
-        height:280px;
+        height:220px;
         border-radius:24px;
     }
 
     .akhBannerContent{
-        left:22px;
-        width:48%;
+        left:18px;
+        width:45%;
     }
 
     .akhBannerContent h2{
-        font-size:34px;
+        font-size:24px;
     }
 
     .akhBannerContent p{
-        font-size:13px;
+        font-size:10px;
+        margin-bottom:10px;
     }
 
     .akhBannerBtn{
-        padding:10px 24px;
-        font-size:14px;
+        padding:7px 16px;
+        font-size:11px;
     }
 }
