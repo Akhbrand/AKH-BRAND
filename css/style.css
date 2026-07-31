@@ -4856,3 +4856,27 @@ body::before{
     transform:scale(.98);
 
 }
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+    padding:40px 20px;
+
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+.card{
+
+    width:100%;
+
+    margin:0;
+
+}
