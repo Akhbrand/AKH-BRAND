@@ -284,7 +284,7 @@ class="favoriteBtn ${isFavorite?"favoriteActive":""}"
 
 data-code="${product.code}"
 
-onclick='event.stopPropagation();toggleFavorite(${JSON.stringify(product)})'>
+onclick="event.stopPropagation()"
 
 ${isFavorite ? "❤️" : "🤍"}
 
@@ -330,7 +330,7 @@ Code : ${product.code}
 
 class="cartBtn"
 
-onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'>
+onclick="event.stopPropagation()"
 
 🛒 أضف للسلة
 
