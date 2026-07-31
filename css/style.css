@@ -5584,3 +5584,42 @@ transform:translateY(-8px);
     color:#ff2e63;
 
 }
+.toast{
+
+position:fixed;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%) translateY(120px);
+
+background:#111;
+
+color:#fff;
+
+padding:15px 28px;
+
+border-radius:14px;
+
+font-weight:700;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+opacity:0;
+
+transition:.4s;
+
+z-index:99999;
+
+border:1px solid rgba(216,174,63,.35);
+
+}
+
+.toast.show{
+
+opacity:1;
+
+transform:translateX(-50%) translateY(0);
+
+}
