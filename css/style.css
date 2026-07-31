@@ -5305,3 +5305,16 @@ body::before{
     border-radius:10px !important;
     border:1px solid #222 !important;
 }
+
+.cartImageBox{
+    width:160px !important;
+    min-width:160px !important;
+}
+
+.cartImage{
+    width:160px !important;
+    height:200px !important;
+    object-fit:cover !important;
+    border-radius:15px !important;
+    border:1px solid #333 !important;
+}
