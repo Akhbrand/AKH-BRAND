@@ -5231,3 +5231,61 @@ body::before{
     }
 
 }
+
+.cartImage{
+    width:90px !important;
+    height:110px !important;
+    object-fit:cover !important;
+    border-radius:12px !important;
+}
+
+.cartImageBox{
+    width:90px !important;
+    min-width:90px !important;
+}
+
+.card .btn{
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    width:280px !important;
+
+    margin:20px auto 0 !important;
+
+    height:auto !important;
+
+    padding:16px 25px !important;
+
+    background:linear-gradient(
+    135deg,
+    #d8ae3f,
+    #f5d77a
+    ) !important;
+
+    color:#000 !important;
+
+    font-size:17px !important;
+
+    font-weight:800 !important;
+
+    border:none !important;
+
+    border-radius:14px !important;
+
+    box-shadow:
+    0 10px 30px rgba(216,174,63,.25) !important;
+
+    transition:.3s !important;
+
+}
+
+.card .btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 40px rgba(216,174,63,.35);
+
+}
