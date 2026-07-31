@@ -284,12 +284,12 @@ snapshot.forEach(doc=>{
     onclick="openProduct('${product.code}')">
 
 
-        <div
-        class="favoriteBtn ${isFavorite ? "favoriteActive" : ""}"
-        data-code="${product.code}"
-        onclick='event.stopPropagation();toggleFavorite(${JSON.stringify(product)})'>
-        ${isFavorite ? "❤️" : "🤍"}
-        </div>
+   <div
+class="favoriteBtn"
+data-code="${product.code}"
+onclick="event.stopPropagation(); toggleFavorite(${JSON.stringify(product)})">
+${isFavorite ? "❤️" : "🤍"}
+</div>
 
 
 
@@ -327,15 +327,12 @@ snapshot.forEach(doc=>{
 
             <p class="productCode">
             Code : ${product.code}
-            </p>
-
-
-
-            <button
-            class="cartBtn"
-            onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'>
-            🛒 أضف للسلة
-            </button>
+            </p> 
+   <button
+class="cartBtn"
+onclick="event.stopPropagation(); addToCart(${JSON.stringify(product)})">
+🛒 أضف للسلة
+</button>
 
 
 
