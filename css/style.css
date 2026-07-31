@@ -5117,3 +5117,117 @@ body::before{
         font-size:11px;
     }
 }
+/* =========================
+   CART PAGE PRO
+========================= */
+
+.cartImageBox{
+
+    width:140px;
+    min-width:140px;
+
+}
+
+.cartImage{
+
+    width:140px;
+    height:170px;
+    object-fit:cover;
+    border-radius:18px;
+    border:1px solid #222;
+
+}
+
+.qtyBox{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:15px;
+
+}
+
+.qtyBtn{
+
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:#d8ae3f;
+    color:#000;
+    font-size:16px;
+    font-weight:900;
+    cursor:pointer;
+
+}
+
+.qtyNumber{
+
+    font-size:18px;
+    font-weight:800;
+    min-width:25px;
+    text-align:center;
+
+}
+
+.deleteBtn{
+
+    margin-top:15px;
+    border:none;
+    background:#b91c1c;
+    color:#fff;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+
+}
+
+.deleteBtn:hover{
+
+    background:#dc2626;
+
+}
+
+#totalPrice{
+
+    font-size:34px !important;
+    color:#d8ae3f;
+    font-weight:900;
+
+}
+
+.card .btn{
+
+    width:100%;
+    margin-top:20px;
+    height:65px;
+    font-size:22px;
+    font-weight:900;
+
+}
+
+@media(max-width:768px){
+
+    .cartImageBox{
+
+        width:100px;
+        min-width:100px;
+
+    }
+
+    .cartImage{
+
+        width:100px;
+        height:120px;
+
+    }
+
+    .qtyBtn{
+
+        width:34px;
+        height:34px;
+
+    }
+
+}
