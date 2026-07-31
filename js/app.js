@@ -86,6 +86,24 @@ updateCartCount();
 
 updateFavoriteCount();
 
+function showToast(message){
+
+const toast =
+document.getElementById("toast");
+
+if(!toast) return;
+
+toast.innerHTML = message;
+
+toast.classList.add("show");
+
+setTimeout(()=>{
+
+toast.classList.remove("show");
+
+},2200);
+
+}
 /* =========================
    OPEN PRODUCT
 ========================= */
@@ -125,8 +143,7 @@ JSON.stringify(cart)
 
 updateCartCount();
 
-alert("✅ تم إضافة المنتج للسلة");
-
+showToast("🛒 تم إضافة المنتج للسلة");
 };
 
 /* =========================
