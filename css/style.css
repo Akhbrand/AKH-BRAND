@@ -5289,3 +5289,19 @@ body::before{
     0 15px 40px rgba(216,174,63,.35);
 
 }
+
+.cartImageBox{
+    width:75px !important;
+    min-width:75px !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.cartImage{
+    width:75px !important;
+    height:95px !important;
+    object-fit:cover !important;
+    border-radius:10px !important;
+    border:1px solid #222 !important;
+}
