@@ -191,3 +191,15 @@ card.style.display = "none";
 });
 
 }
+
+const favorites =
+JSON.parse(localStorage.getItem("favorites")) || [];
+
+const favCount =
+document.getElementById("favCount");
+
+if(favCount){
+
+favCount.innerText = favorites.length;
+
+}
