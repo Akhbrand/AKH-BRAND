@@ -279,12 +279,9 @@ productsBox.innerHTML += `
 onclick="openProduct('${product.code}')">
 
 <div
-
-class="favoriteBtn ${isFavorite?"favoriteActive":""}"
-
+class="favoriteBtn"
 data-code="${product.code}"
-
-onclick="event.stopPropagation()"
+onclick="event.stopPropagation(); toggleFavorite(${JSON.stringify(product)})">
 
 ${isFavorite ? "❤️" : "🤍"}
 
@@ -327,9 +324,7 @@ Code : ${product.code}
 </p>
 
 <button
-
 class="cartBtn"
-
 onclick="event.stopPropagation()"
 
 🛒 أضف للسلة
