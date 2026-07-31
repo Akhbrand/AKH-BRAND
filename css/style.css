@@ -5318,3 +5318,14 @@ body::before{
     border-radius:15px !important;
     border:1px solid #333 !important;
 }
+
+.cartImageBox{
+    width:180px !important;
+    min-width:180px !important;
+}
+
+.cartImage{
+    width:180px !important;
+    height:230px !important;
+    object-fit:cover !important;
+}
