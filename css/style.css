@@ -5003,100 +5003,26 @@ body::before{
 }
 
 /* =========================
-   AKH BANNER
+   HERO BANNER
 ========================= */
 
-.akhBanner{
+.akhHeroBanner{
 
-    display:flex;
+    position:relative;
 
-    align-items:center;
+    width:100%;
 
-    justify-content:space-between;
-
-    gap:20px;
-
-    background:#0d0d0d;
-
-    border:1px solid #222;
-
-    border-radius:25px;
+    height:500px;
 
     overflow:hidden;
 
-    margin:60px 20px;
+    border-radius:25px;
+
+    margin:50px 0;
 
 }
 
-.akhBannerContent{
-
-    flex:1;
-
-    padding:35px;
-
-}
-
-.akhBannerContent span{
-
-    color:#d8ae3f;
-
-    font-size:14px;
-
-    letter-spacing:3px;
-
-    font-weight:700;
-
-}
-
-.akhBannerContent h2{
-
-    font-size:48px;
-
-    line-height:1;
-
-    margin:15px 0;
-
-    font-weight:900;
-
-}
-
-.akhBannerContent p{
-
-    color:#bbb;
-
-    font-size:18px;
-
-    margin-bottom:25px;
-
-}
-
-.akhBannerBtn{
-
-    display:inline-block;
-
-    background:#d8ae3f;
-
-    color:#000;
-
-    text-decoration:none;
-
-    padding:14px 35px;
-
-    border-radius:50px;
-
-    font-weight:800;
-
-}
-
-.akhBannerImage{
-
-    flex:1;
-
-    height:350px;
-
-}
-
-.akhBannerImage img{
+.akhHeroBanner img{
 
     width:100%;
 
@@ -5106,31 +5032,126 @@ body::before{
 
 }
 
+.bannerOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    90deg,
+    rgba(0,0,0,.65),
+    rgba(0,0,0,.15)
+    );
+
+}
+
+.bannerContent{
+
+    position:absolute;
+
+    left:60px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    max-width:500px;
+
+    z-index:2;
+
+}
+
+.bannerContent span{
+
+    color:#d8ae3f;
+
+    font-size:20px;
+
+    letter-spacing:5px;
+
+    font-weight:700;
+
+}
+
+.bannerContent h2{
+
+    font-size:85px;
+
+    line-height:.95;
+
+    margin:20px 0;
+
+    font-weight:900;
+
+    color:#fff;
+
+}
+
+.bannerContent p{
+
+    color:#fff;
+
+    font-size:28px;
+
+    margin-bottom:35px;
+
+}
+
+.bannerBtn{
+
+    display:inline-block;
+
+    background:#d8ae3f;
+
+    color:#000;
+
+    text-decoration:none;
+
+    padding:18px 45px;
+
+    border-radius:50px;
+
+    font-size:22px;
+
+    font-weight:800;
+
+}
+
 @media(max-width:768px){
 
-.akhBanner{
+.akhHeroBanner{
 
-    flex-direction:column-reverse;
-
-}
-
-.akhBannerImage{
-
-    width:100%;
-
-    height:280px;
+    height:420px;
 
 }
 
-.akhBannerContent{
+.bannerContent{
 
-    text-align:center;
+    left:25px;
+
+    right:25px;
 
 }
 
-.akhBannerContent h2{
+.bannerContent h2{
 
-    font-size:40px;
+    font-size:50px;
+
+}
+
+.bannerContent p{
+
+    font-size:18px;
+
+}
+
+.bannerBtn{
+
+    font-size:18px;
+
+    padding:15px 35px;
 
 }
 
