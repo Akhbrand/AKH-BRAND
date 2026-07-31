@@ -1,7 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+getFirestore,
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* =========================
+   FIREBASE
+========================= */
 
 const firebaseConfig = {
+
 apiKey: "AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",
 authDomain: "akh-brand.firebaseapp.com",
 projectId: "akh-brand",
@@ -9,28 +18,198 @@ storageBucket: "akh-brand.firebasestorage.app",
 messagingSenderId: "671562968837",
 appId: "1:671562968837:web:06557b3ab756696cf5116c",
 measurementId: "G-L1HPJ8PYMJ"
+
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const box = document.getElementById("products");
+/* =========================
+   ELEMENTS
+========================= */
 
-const querySnapshot = await getDocs(collection(db,"products"));
+const productsBox =
+document.getElementById("products");
 
-querySnapshot.forEach((doc)=>{
+const searchInput =
+document.getElementById("searchInput");
 
-let product = doc.data();
+const cartCount =
+document.getElementById("cartCount");
+
+const favCount =
+document.getElementById("favCount");
+
+/* =========================
+   LOCAL STORAGE
+========================= */
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+let favorites =
+JSON.parse(localStorage.getItem("favorites")) || [];
+
+/* =========================
+   COUNTERS
+========================= */
+
+function updateCartCount(){
+
+let total = 0;
+
+cart.forEach(item=>{
+
+total += item.quantity || 1;
+
+});
+
+if(cartCount){
+
+cartCount.innerHTML = total;
+
+}
+
+}
+
+function updateFavoriteCount(){
+
+if(favCount){
+
+favCount.innerHTML = favorites.length;
+
+}
+
+}
+
+updateCartCount();
+
+updateFavoriteCount();
+
+/* =========================
+   OPEN PRODUCT
+========================= */
+
+window.openProduct = function(code){
+
+location.href =
+"product.html?id="+code;
+
+};
+/* =========================
+   ADD TO CART
+========================= */
+
+window.addToCart = function(product){
+
+let existing =
+cart.find(item=>item.code===product.code);
+
+if(existing){
+
+existing.quantity =
+(existing.quantity || 1)+1;
+
+}else{
+
+product.quantity = 1;
+
+cart.push(product);
+
+}
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+updateCartCount();
+
+alert("✅ تم إضافة المنتج للسلة");
+
+};
+
+/* =========================
+   FAVORITES
+========================= */
+
+window.toggleFavorite = function(product){
+
+const index =
+favorites.findIndex(
+item=>item.code===product.code
+);
+
+if(index>-1){
+
+favorites.splice(index,1);
+
+}else{
+
+favorites.push(product);
+
+}
+
+localStorage.setItem(
+"favorites",
+JSON.stringify(favorites)
+);
+
+updateFavoriteCount();
+
+document.querySelectorAll(".favoriteBtn")
+.forEach(btn=>{
+
+if(btn.dataset.code===product.code){
+
+const active =
+favorites.some(
+item=>item.code===product.code
+);
+
+btn.classList.toggle(
+"favoriteActive",
+active
+);
+
+btn.innerHTML =
+active
+?
+"❤️"
+:
+"🤍";
+
+}
+
+});
+
+};
+
+/* =========================
+   LOAD PRODUCTS
+========================= */
+
+const snapshot =
+await getDocs(
+collection(db,"products")
+);
+
+snapshot.forEach(doc=>{
+
+const product = doc.data();
 
 let images = "";
+
 let dots = "";
 
-const imgs = Array.isArray(product.image)
+const imgs =
+Array.isArray(product.image)
 ?
-product.image.filter(img=>img && img.trim()!=="")
+product.image.filter(
+img=>img && img.trim()!==""
+)
 :
 [product.image];
-
 imgs.forEach((img,index)=>{
 
 const imagePath =
@@ -41,7 +220,10 @@ img
 "./images/"+img;
 
 images += `
-<img src="${imagePath}" loading="lazy" alt="${product.name}">
+<img
+src="${imagePath}"
+loading="lazy"
+alt="${product.name}">
 `;
 
 dots += `
@@ -50,34 +232,28 @@ dots += `
 
 });
 
-box.innerHTML += `
+const isFavorite =
+favorites.some(
+item=>item.code===product.code
+);
 
-<div class="card">
+productsBox.innerHTML += `
+
+<div class="card"
+
+onclick="openProduct('${product.code}')">
 
 <div
-class="favoriteBtn ${
-favorites.some(f=>f.code===product.code)
-?
-"favoriteActive"
-:
-""
-}"
+
+class="favoriteBtn ${isFavorite?"favoriteActive":""}"
 
 data-code="${product.code}"
 
-onclick='toggleFavorite(${JSON.stringify(product)})'>
+onclick='event.stopPropagation();toggleFavorite(${JSON.stringify(product)})'>
 
-${
-favorites.some(f=>f.code===product.code)
-?
-"❤️"
-:
-"🤍"
-}
+${isFavorite ? "❤️" : "🤍"}
 
 </div>
-
-onclick="openProduct('${product.code}')">
 
 <div class="gallery">
 
@@ -98,26 +274,39 @@ ${dots}
 <div class="info">
 
 <h2>
+
 ${product.name}
+
 </h2>
 
 <div class="price">
+
 ${product.price}
+
 </div>
 
 <p class="productCode">
-Code: ${product.code}
+
+Code : ${product.code}
+
 </p>
 
-<button class="cartBtn"
-onclick='event.stopPropagation(); addToCart(${JSON.stringify(product)})'>
+<button
+
+class="cartBtn"
+
+onclick='event.stopPropagation();addToCart(${JSON.stringify(product)})'>
 
 🛒 أضف للسلة
 
 </button>
 
-<a class="btn"
+<a
+
+class="btn"
+
 onclick="event.stopPropagation()"
+
 href="https://wa.me/201097521334?text=مرحباً، أريد طلب ${product.name} - كود ${product.code}">
 
 اطلب الآن واتساب
@@ -131,146 +320,82 @@ href="https://wa.me/201097521334?text=مرحباً، أريد طلب ${product.n
 `;
 
 });
-
-window.openProduct = function(code){
-
-window.location.href = "product.html?id=" + code;
-
-};
-
-window.addToCart = function(product){
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-let existing = cart.find(item => item.code === product.code);
-
-if(existing){
-
-existing.quantity = (existing.quantity || 1) + 1;
-
-}else{
-
-product.quantity = 1;
-
-cart.push(product);
-
-}
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
-alert("✅ تم إضافة المنتج للسلة");
-
-updateCartCount();
-
-};
-
-function updateCartCount(){
-
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-let total = 0;
-
-cart.forEach(item=>{
-
-total += item.quantity || 1;
-
-});
-
-let count = document.getElementById("cartCount");
-
-if(count){
-
-count.innerText = total;
-
-}
-
-}
-
-updateCartCount();
-
-const searchInput = document.getElementById("searchInput");
+/* =========================
+   SEARCH
+========================= */
 
 if(searchInput){
 
 searchInput.addEventListener("input",function(){
 
-const value = this.value.toLowerCase();
+const value =
+this.value.toLowerCase().trim();
 
-document.querySelectorAll(".card").forEach(card=>{
+document.querySelectorAll(".card")
+.forEach(card=>{
 
-const text = card.innerText.toLowerCase();
+const text =
+card.innerText.toLowerCase();
 
-if(text.includes(value)){
-
-card.style.display = "";
-
-}else{
-
-card.style.display = "none";
-
-}
-
-});
+card.style.display =
+text.includes(value)
+?
+""
+:
+"none";
 
 });
 
+});
+
 }
 
-const favorites =
-JSON.parse(localStorage.getItem("favorites")) || [];
+/* =========================
+   SIMPLE IMAGE SLIDER
+========================= */
 
-const favCount =
-document.getElementById("favCount");
+document.querySelectorAll(".slider").forEach(slider=>{
 
-if(favCount){
+const images =
+slider.querySelectorAll("img");
 
-favCount.innerText = favorites.length;
+if(images.length<=1) return;
 
-}window.toggleFavorite = function(product){
+let current = 0;
 
-    let favorites =
-    JSON.parse(localStorage.getItem("favorites")) || [];
+images.forEach((img,index)=>{
 
-    const index =
-    favorites.findIndex(item=>item.code===product.code);
+img.style.display =
+index===0
+?
+"block"
+:
+"none";
 
-    if(index>-1){
+});
 
-        favorites.splice(index,1);
+setInterval(()=>{
 
-    }else{
+images[current].style.display="none";
 
-        favorites.push(product);
+current++;
 
-    }
+if(current>=images.length){
 
-    localStorage.setItem(
-        "favorites",
-        JSON.stringify(favorites)
-    );
+current=0;
 
-    document.querySelectorAll(".favoriteBtn").forEach(btn=>{
+}
 
-        if(btn.dataset.code===product.code){
+images[current].style.display="block";
 
-            btn.classList.toggle("favoriteActive");
+},2500);
 
-            btn.innerHTML =
-            btn.classList.contains("favoriteActive")
-            ? "❤️"
-            : "🤍";
+});
 
-        }
+/* =========================
+   UPDATE COUNTERS
+========================= */
 
-    });
+updateCartCount();
 
-    const favCount =
-    document.getElementById("favCount");
-
-    if(favCount){
-
-        favCount.innerText = favorites.length;
-
-    }
-
-};
+updateFavoriteCount();
