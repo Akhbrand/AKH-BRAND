@@ -5798,3 +5798,45 @@ border-color:#dc3545;
 }
 
 }
+/* =========================
+   EMERGENCY PRODUCT LAYOUT FIX
+========================= */
+
+.products{
+    display:grid !important;
+    grid-template-columns:repeat(3, 1fr) !important;
+}
+
+.card{
+    display:block !important;
+}
+
+.gallery{
+    display:block !important;
+    position:relative !important;
+    height:520px !important;
+}
+
+.slider{
+    display:flex !important;
+    flex-direction:row !important;
+    position:relative !important;
+    height:100% !important;
+}
+
+.slider img{
+    display:block !important;
+    flex:0 0 100% !important;
+    width:100% !important;
+    height:520px !important;
+    object-fit:contain !important;
+}
+
+
+@media(max-width:900px){
+
+.products{
+    grid-template-columns:1fr !important;
+}
+
+}
