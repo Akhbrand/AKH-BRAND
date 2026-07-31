@@ -5075,3 +5075,48 @@ body::before{
 }
 
 }
+.akhBanner{
+    position:relative !important;
+    width:100%;
+    height:320px;
+    overflow:hidden;
+    border-radius:0;
+    margin:50px 0;
+}
+
+.akhBanner img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+}
+
+.akhBannerContent{
+    position:absolute !important;
+    left:25px !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    width:45% !important;
+    z-index:5 !important;
+    text-align:left !important;
+}
+
+.akhBannerContent h2{
+    font-size:42px !important;
+    line-height:0.95 !important;
+    margin:10px 0 !important;
+}
+
+.akhBannerContent p{
+    font-size:15px !important;
+    margin-bottom:15px !important;
+}
+
+.akhBannerBtn{
+    display:inline-block !important;
+    padding:12px 25px !important;
+    font-size:15px !important;
+    border-radius:40px !important;
+}
