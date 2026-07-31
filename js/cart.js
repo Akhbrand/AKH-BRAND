@@ -28,9 +28,7 @@ if (cart.length === 0) {
     </div>
     `;
 
-} 
-
-else {
+} else {
 
     cart.forEach((product, index) => {
 
@@ -50,9 +48,12 @@ else {
         <div class="card">
 
             <div class="cartImageBox">
-                <img class="cartImage"
-                     src="${image}"
-                     alt="${product.name}">
+
+                <img
+                class="cartImage"
+                src="${image}"
+                alt="${product.name}">
+
             </div>
 
             <div class="info">
@@ -67,9 +68,12 @@ else {
 
                 <p>المقاس: ${product.size}</p>
 
+                <p>الكود: ${product.code}</p>
+
                 <div class="qtyBox">
 
-                    <button class="qtyBtn"
+                    <button
+                    class="qtyBtn"
                     onclick="changeQty(${index},-1)">
                     ➖
                     </button>
@@ -78,16 +82,20 @@ else {
                     ${qty}
                     </span>
 
-                    <button class="qtyBtn"
+                    <button
+                    class="qtyBtn"
                     onclick="changeQty(${index},1)">
                     ➕
                     </button>
 
                 </div>
 
-                <button class="deleteBtn"
+                <button
+                class="deleteBtn"
                 onclick="removeFromCart(${index})">
+
                 🗑️ حذف المنتج
+
                 </button>
 
             </div>
@@ -103,10 +111,12 @@ window.changeQty = function(index, change){
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     cart[index].quantity =
-        (cart[index].quantity || 1) + change;
+    (cart[index].quantity || 1) + change;
 
     if(cart[index].quantity <= 0){
+
         cart.splice(index,1);
+
     }
 
     localStorage.setItem(
@@ -134,5 +144,8 @@ window.removeFromCart = function(index){
 const totalBox = document.getElementById("totalPrice");
 
 if(totalBox){
-    totalBox.innerHTML = total + " EGP";
+
+    totalBox.innerHTML =
+    total + " EGP";
+
 }
