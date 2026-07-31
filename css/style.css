@@ -5014,3 +5014,43 @@ body::before{
 }
 
 }
+.products{
+    display:grid !important;
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:15px !important;
+    padding:15px !important;
+}
+
+.card{
+    width:100% !important;
+    margin:0 !important;
+    min-height:auto !important;
+    padding-bottom:15px !important;
+}
+
+.gallery{
+    height:260px !important;
+    overflow:hidden !important;
+}
+
+.gallery img{
+    width:100% !important;
+    height:260px !important;
+    object-fit:cover !important;
+}
+
+.info{
+    padding:15px !important;
+}
+
+.info h2{
+    font-size:22px !important;
+    line-height:1.4 !important;
+    min-height:65px !important;
+}
+
+.cartBtn,
+.btn{
+    width:100% !important;
+    margin-top:10px !important;
+}
