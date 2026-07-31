@@ -323,7 +323,13 @@ ${isFavorite ? "❤️" : "🤍"}
             <div class="price">
             ${product.price}
             </div>
-
+            <div class="productStatus ${
+product.status === "نفد"
+? "soldOut"
+: "available"
+}">
+${product.status || "متوفر"}
+</div>
 
             <p class="productCode">
             Code : ${product.code}
