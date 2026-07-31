@@ -5623,3 +5623,68 @@ opacity:1;
 transform:translateX(-50%) translateY(0);
 
 }
+/* =========================
+   TOAST NOTIFICATION
+========================= */
+
+.toast{
+
+position:fixed;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%) translateY(120px);
+
+background:#111;
+
+color:#fff;
+
+padding:15px 28px;
+
+border-radius:14px;
+
+font-weight:700;
+
+font-size:15px;
+
+opacity:0;
+
+transition:.4s;
+
+z-index:99999;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+border:1px solid rgba(216,174,63,.35);
+
+pointer-events:none;
+
+}
+
+.toast.show{
+
+opacity:1;
+
+transform:translateX(-50%) translateY(0);
+
+}
+
+.toast.success{
+
+border-color:#28a745;
+
+}
+
+.toast.warning{
+
+border-color:#d8ae3f;
+
+}
+
+.toast.error{
+
+border-color:#dc3545;
+
+}
