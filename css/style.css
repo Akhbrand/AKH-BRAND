@@ -5840,3 +5840,23 @@ border-color:#dc3545;
 }
 
 }
+.productStatus{
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:700;
+margin:10px 0;
+}
+
+.available{
+background:#103d1d;
+color:#4cff7a;
+border:1px solid #4cff7a;
+}
+
+.soldOut{
+background:#3d1010;
+color:#ff5f5f;
+border:1px solid #ff5f5f;
+}
