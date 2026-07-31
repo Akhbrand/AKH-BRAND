@@ -271,3 +271,31 @@ JSON.stringify(cart)
 alert("✅ تم إضافة المنتج للسلة");
 
 };
+
+document.addEventListener("click",(e)=>{
+
+if(e.target.classList.contains("mainProductImage")){
+
+    document.getElementById("viewerImage").src=e.target.src;
+
+    document.getElementById("imageViewer").style.display="flex";
+
+}
+
+});
+
+document.getElementById("closeViewer").onclick=function(){
+
+document.getElementById("imageViewer").style.display="none";
+
+}
+
+document.getElementById("imageViewer").onclick=function(e){
+
+if(e.target.id=="imageViewer"){
+
+document.getElementById("imageViewer").style.display="none";
+
+}
+
+}
