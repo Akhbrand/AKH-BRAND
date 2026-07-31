@@ -283,7 +283,11 @@ snapshot.forEach(doc=>{
     <div class="card"
     onclick="openProduct('${product.code}')">
 
-
+${product.stock === false ? `
+<div class="soldOutBadge">
+SOLD OUT
+</div>
+` : ``}
    <div
 class="favoriteBtn"
 data-code="${product.code}"
