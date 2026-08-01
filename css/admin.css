@@ -914,3 +914,44 @@ margin-top:10px;
 }
 
 }
+
+/* HEADER FIX */
+
+.adminHeader{
+    position:relative;
+    text-align:center;
+    padding:35px 25px;
+}
+
+.adminHeader h1{
+    font-size:52px;
+    font-weight:900;
+    color:#d8ae3f;
+    margin:0;
+}
+
+.adminHeader p{
+    color:#888;
+    margin-top:10px;
+}
+
+.adminHeader button{
+
+    position:absolute;
+
+    top:20px;
+    left:20px;
+
+    width:auto;
+    height:48px;
+
+    padding:0 18px;
+
+    background:#d8ae3f;
+    color:#111;
+
+    border-radius:12px;
+
+    font-size:16px;
+    font-weight:700;
+}
