@@ -654,3 +654,39 @@ transform:scale(1);
     padding:0 !important;
 
 }
+.mainImageBox{
+    position:relative;
+    overflow:hidden;
+}
+
+.mainImageBox .soldOutBadge{
+    position:absolute;
+    top:18px;
+    right:-45px;
+    width:170px;
+    text-align:center;
+    background:linear-gradient(
+        90deg,
+        #8c6a16,
+        #d8ae3f,
+        #f4d06f
+    );
+    color:#000;
+    font-weight:900;
+    font-size:13px;
+    padding:10px 0;
+    transform:rotate(45deg);
+    z-index:100;
+    letter-spacing:2px;
+    box-shadow:0 5px 20px rgba(216,174,63,.4);
+}
+
+.mainImageBox:has(.soldOutBadge) .mainProductImage{
+    filter:brightness(.55);
+}
+
+.soldBtn{
+    background:#444 !important;
+    cursor:not-allowed;
+    opacity:.8;
+}
