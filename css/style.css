@@ -5881,3 +5881,24 @@ border:1px solid #ff5f5f;
     letter-spacing:2px;
     box-shadow:0 4px 12px rgba(0,0,0,.35);
 }
+.card{
+    position:relative;
+    overflow:hidden;
+}
+
+.soldOutBadge{
+    position:absolute;
+    top:18px;
+    right:-45px;
+    width:170px;
+    text-align:center;
+    background:#e53935;
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    padding:8px 0;
+    transform:rotate(45deg);
+    z-index:50;
+    letter-spacing:2px;
+    box-shadow:0 4px 15px rgba(0,0,0,.4);
+}
