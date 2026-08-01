@@ -460,7 +460,7 @@ document.getElementById("description").value,
 
 image:imageUrls
 
-
+available:true
 
 });
 
@@ -554,16 +554,23 @@ ${product.name}
 
 
 <p>
-💰 ${product.price}
-</p>
-
-
-
-<p>
 🏷️ ${product.code}
 </p>
 
+<p>
+الحالة:
+${product.available === false ? "❌ نفذ" : "✅ متوفر"}
+</p>
 
+<button
+onclick="changeProductStatus('${item.id}', true)">
+✅ متوفر
+</button>
+
+<button
+onclick="changeProductStatus('${item.id}', false)">
+❌ نفذ
+</button>
 
 <button 
 class="deleteProductBtn"
@@ -572,7 +579,6 @@ onclick="deleteProduct('${item.id}')">
 🗑️ حذف المنتج
 
 </button>
-
 
 
 </div>
@@ -615,7 +621,18 @@ loadProducts();
 
 }
 
+window.changeProductStatus = async function(id,status){
 
+await updateDoc(
+doc(db,"products",id),
+{
+available: status
+}
+);
+
+loadProducts();
+
+}
 
 
 
