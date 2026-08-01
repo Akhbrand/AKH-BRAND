@@ -349,10 +349,6 @@ onclick="event.stopPropagation(); addToCart(${JSON.stringify(product)})">
 </button>
 `
 }
-`
-}
-
-
 
             <a
             class="btn"
