@@ -562,23 +562,27 @@ ${product.name}
 ${product.available === false ? "❌ نفذ" : "✅ متوفر"}
 </p>
 
+<div class="productActions">
+
 <button
+class="availableBtn"
 onclick="changeProductStatus('${item.id}', true)">
-✅ متوفر
+✅
 </button>
 
 <button
+class="soldBtn"
 onclick="changeProductStatus('${item.id}', false)">
-❌ نفذ
+❌
 </button>
 
-<button 
+<button
 class="deleteProductBtn"
 onclick="deleteProduct('${item.id}')">
-
-🗑️ حذف المنتج
-
+🗑️
 </button>
+
+</div>
 
 
 </div>
