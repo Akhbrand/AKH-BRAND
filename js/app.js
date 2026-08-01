@@ -332,11 +332,20 @@ ${isFavorite ? "❤️" : "🤍"}
             <p class="productCode">
             Code : ${product.code}
             </p> 
-   <button
+${product.available === false
+? `
+<button class="cartBtn soldBtn" disabled>
+❌ نفد المخزون
+</button>
+`
+: `
+<button
 class="cartBtn"
 onclick="event.stopPropagation(); addToCart(${JSON.stringify(product)})">
 🛒 أضف للسلة
 </button>
+`
+}
 
 
 
