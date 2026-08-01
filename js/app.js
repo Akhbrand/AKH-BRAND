@@ -334,7 +334,10 @@ ${isFavorite ? "❤️" : "🤍"}
             </p> 
 ${product.available === false
 ? `
-<button class="cartBtn soldBtn" disabled>
+<button
+class="cartBtn soldBtn"
+onclick="event.stopPropagation();"
+disabled>
 ❌ نفد المخزون
 </button>
 `
@@ -344,6 +347,8 @@ class="cartBtn"
 onclick="event.stopPropagation(); addToCart(${JSON.stringify(product)})">
 🛒 أضف للسلة
 </button>
+`
+}
 `
 }
 
