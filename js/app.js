@@ -288,10 +288,10 @@ ${product.available === false ? `
 SOLD OUT
 </div>
 ` : ``}
-   <div
+<div
 class="favoriteBtn"
 data-code="${product.code}"
-onclick="event.stopPropagation(); toggleFavorite(${JSON.stringify(product)})">
+onclick='event.stopPropagation(); event.preventDefault(); toggleFavorite(${JSON.stringify(product)})'>
 ${isFavorite ? "❤️" : "🤍"}
 </div>
 
@@ -344,7 +344,7 @@ disabled>
 : `
 <button
 class="cartBtn"
-onclick="event.stopPropagation(); addToCart(${JSON.stringify(product)})">
+onclick='event.stopPropagation(); event.preventDefault(); addToCart(${JSON.stringify(product)})'>
 🛒 أضف للسلة
 </button>
 `
