@@ -537,60 +537,51 @@ product.image;
 
 list.innerHTML += `
 
-
 <div class="productCard">
 
+    <img
+    src="${image}"
+    class="productImage">
 
-<img 
-src="${image}"
-class="productImage">
+    <div class="productInfo">
 
+        <h3>${product.name}</h3>
 
+        <p>🏷️ ${product.code}</p>
 
-<h3>
-${product.name}
-</h3>
+        <p>
+        ${product.available === false
+        ? "❌ نفذ"
+        : "✅ متوفر"}
+        </p>
 
+    </div>
 
+    <div class="productActions">
 
-<p>
-🏷️ ${product.code}
-</p>
+        <button
+        class="availableBtn"
+        onclick="changeProductStatus('${item.id}', true)">
+        ✅
+        </button>
 
-<p>
-الحالة:
-${product.available === false ? "❌ نفذ" : "✅ متوفر"}
-</p>
+        <button
+        class="soldBtn"
+        onclick="changeProductStatus('${item.id}', false)">
+        ❌
+        </button>
 
-<div class="productActions">
+        <button
+        class="deleteProductBtn"
+        onclick="deleteProduct('${item.id}')">
+        🗑️
+        </button>
 
-<button
-class="availableBtn"
-onclick="changeProductStatus('${item.id}', true)">
-✅
-</button>
-
-<button
-class="soldBtn"
-onclick="changeProductStatus('${item.id}', false)">
-❌
-</button>
-
-<button
-class="deleteProductBtn"
-onclick="deleteProduct('${item.id}')">
-🗑️
-</button>
+    </div>
 
 </div>
-
-
-</div>
-
-
 
 `;
-
 
 
 });
