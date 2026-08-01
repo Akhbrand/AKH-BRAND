@@ -109,6 +109,12 @@ box.innerHTML = `
 
 <div class="mainImageBox">
 
+${product.available === false ? `
+<div class="soldOutBadge">
+SOLD OUT
+</div>
+` : ``}
+
 ${galleryImages}
 
 </div>
@@ -198,12 +204,22 @@ ${product.description || "لا يوجد وصف."}
 
 
 
-<button class="cartBtn"
-onclick='addToCart(${JSON.stringify(product)})'>
-
-🛒 أضف للسلة
-
+${product.available === false
+? `
+<button
+class="cartBtn soldBtn"
+disabled>
+❌ نفد المخزون
 </button>
+`
+: `
+<button
+class="cartBtn"
+onclick='addToCart(${JSON.stringify(product)})'>
+🛒 أضف للسلة
+</button>
+`
+}
 
 
 
