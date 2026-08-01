@@ -5891,14 +5891,35 @@ border:1px solid #ff5f5f;
     top:18px;
     right:-45px;
     width:170px;
+
     text-align:center;
-    background:#e53935;
-    color:#fff;
+
+    background:linear-gradient(
+        90deg,
+        #8c6a16,
+        #d8ae3f,
+        #f4d06f
+    );
+
+    color:#000;
+
+    font-weight:900;
     font-size:13px;
-    font-weight:800;
-    padding:8px 0;
+
+    padding:10px 0;
+
     transform:rotate(45deg);
+
     z-index:50;
+
     letter-spacing:2px;
-    box-shadow:0 4px 15px rgba(0,0,0,.4);
+
+    box-shadow:
+    0 5px 20px rgba(216,174,63,.4);
+
+    border-top:1px solid rgba(255,255,255,.4);
+    border-bottom:1px solid rgba(0,0,0,.4);
+}
+.card:has(.soldOutBadge) .gallery img{
+    filter:brightness(.55);
 }
