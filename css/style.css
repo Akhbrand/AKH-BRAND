@@ -9003,3 +9003,54 @@ body {
         height: 75px !important;
     }
 }
+
+
+/* =========================================
+   AKH BRAND - LUXURY LOGO UPGRADE 2027
+========================================= */
+
+/* Main logo inside hero */
+.brandLogo{
+    margin: 20px auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brandLogo img{
+    width: 430px !important;
+    max-width: 95% !important;
+    height: auto !important;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    filter:
+        sepia(0.65)
+        saturate(1.35)
+        brightness(1.15)
+        drop-shadow(0 0 12px rgba(212,175,55,.35));
+}
+
+/* Header logo */
+.akhTopbarLogo img{
+    width: 115px !important;
+    height: 115px !important;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    filter:
+        sepia(.65)
+        saturate(1.35)
+        brightness(1.15)
+        drop-shadow(0 0 8px rgba(212,175,55,.3));
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .brandLogo img{
+        width: 310px !important;
+    }
+
+    .akhTopbarLogo img{
+        width: 85px !important;
+        height: 85px !important;
+    }
+}
