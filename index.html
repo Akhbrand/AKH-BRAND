@@ -19,28 +19,15 @@
   <style>
     /* =========================================
        AKH BRAND
-       WINTER ROYAL COLLECTION 2027
-    ========================================= */
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      overflow-x: hidden;
-      background: #070707;
-    }
-
-    /* =========================================
-       WINTER HERO
+       ORIGINAL WINTER ROYAL DESIGN 2027
     ========================================= */
 
     .akhFullBanner {
       position: relative !important;
       width: 100% !important;
-      height: clamp(570px, 57vw, 780px) !important;
-      min-height: 570px !important;
-      max-height: 780px !important;
+      height: clamp(480px, 52vw, 760px) !important;
+      min-height: 480px !important;
+      max-height: 760px !important;
       margin: 0 !important;
       padding: 0 !important;
       overflow: hidden !important;
@@ -48,64 +35,54 @@
       isolation: isolate;
     }
 
-    /* صورة الموديل - الناحية الشمال */
+    /* WINTER BACKGROUND */
 
     .akhFullBanner > img {
       position: absolute !important;
-      top: 0 !important;
-      bottom: 0 !important;
-      left: 0 !important;
-      right: auto !important;
-
+      inset: 0 !important;
       display: block !important;
-      width: 69% !important;
+      width: 100% !important;
       height: 100% !important;
-
       object-fit: cover !important;
-      object-position: 25% center !important;
-
-      z-index: 0 !important;
+      object-position: center center !important;
+      z-index: -2 !important;
     }
 
-    /* دمج الصورة مع الجزء الأسود */
+    /* DARK LUXURY OVERLAY */
 
     .akhFullBanner::after {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: -1;
 
-      background:
-        linear-gradient(
-          90deg,
-          rgba(0,0,0,0) 0%,
-          rgba(0,0,0,.04) 35%,
-          rgba(0,0,0,.42) 53%,
-          rgba(0,0,0,.91) 69%,
-          #050505 100%
-        );
+      background: linear-gradient(
+        90deg,
+        rgba(0,0,0,.02) 0%,
+        rgba(0,0,0,.12) 35%,
+        rgba(0,0,0,.78) 66%,
+        rgba(0,0,0,.90) 100%
+      );
 
       pointer-events: none;
     }
 
     /* =========================================
-       RIGHT CONTENT AREA
+       RIGHT SIDE CONTENT
     ========================================= */
 
     .akhBannerContent {
       position: absolute !important;
+
       top: 0 !important;
       right: 0 !important;
       bottom: 0 !important;
       left: auto !important;
 
-      z-index: 2 !important;
+      width: 57% !important;
+      max-width: 850px !important;
 
-      width: 49% !important;
-      max-width: 760px !important;
-      height: 100% !important;
-
-      padding: 35px 4% !important;
+      padding: 35px 5% !important;
 
       display: flex !important;
       flex-direction: column !important;
@@ -116,22 +93,23 @@
       direction: rtl !important;
 
       background: transparent !important;
+      z-index: 2 !important;
     }
 
-    /* COLLECTION LABEL */
+    /* COLLECTION TITLE */
 
     .akhBannerContent .collectionLabel {
       color: #e8c36b !important;
       font-family: 'Cinzel', serif !important;
-      font-size: clamp(17px, 1.8vw, 25px) !important;
+      font-size: clamp(15px, 1.7vw, 23px) !important;
       font-weight: 700 !important;
-      letter-spacing: 4px !important;
-      margin: 0 0 20px !important;
-
-      text-shadow: 0 2px 12px rgba(232,195,107,.25);
+      letter-spacing: 3px !important;
+      margin: 0 0 14px !important;
     }
 
-    /* BRAND LOGO */
+    /* =========================================
+       CROWN + BRAND NAME
+    ========================================= */
 
     .akhBannerContent .brandLogo.brandWordmark {
       display: flex !important;
@@ -142,30 +120,24 @@
       gap: 0 !important;
       width: 100% !important;
 
-      margin: 0 auto 15px !important;
+      margin: 0 auto 14px !important;
       overflow: visible !important;
     }
-
-    /* GOLD CROWN */
 
     .akhBannerContent .brandCrown {
       display: block !important;
 
       font-family: Georgia, serif !important;
-      font-size: clamp(75px, 8vw, 115px) !important;
-      line-height: .85 !important;
+      font-size: clamp(65px, 8vw, 112px) !important;
+      line-height: .9 !important;
 
-      color: #f5d88f !important;
+      color: #f3d58a !important;
 
       text-shadow:
         0 2px 3px #704500,
         0 0 12px rgba(232,195,107,.8),
-        0 0 30px rgba(232,195,107,.35) !important;
-
-      margin-bottom: 8px !important;
+        0 0 28px rgba(232,195,107,.35) !important;
     }
-
-    /* AKH BRAND NAME */
 
     .akhBannerContent h1.brandTitle {
       display: block !important;
@@ -173,7 +145,7 @@
       width: 100% !important;
       max-width: 100% !important;
 
-      margin: 5px auto !important;
+      margin: 8px auto !important;
       padding: 0 !important;
 
       direction: ltr !important;
@@ -181,14 +153,14 @@
       text-align: center !important;
 
       font-family: 'Cinzel', Georgia, serif !important;
-      font-size: clamp(48px, 5.5vw, 82px) !important;
+      font-size: clamp(48px, 6.5vw, 96px) !important;
       font-weight: 800 !important;
       line-height: 1.2 !important;
       letter-spacing: 2px !important;
 
       background: linear-gradient(
         180deg,
-        #fff5d5 0%,
+        #fff2c5 0%,
         #f0cf7b 35%,
         #bd8732 70%,
         #ffe6a2 100%
@@ -200,20 +172,21 @@
 
       color: #edc875 !important;
 
-      filter: drop-shadow(0 4px 7px rgba(212,175,55,.35));
+      text-shadow: 0 4px 15px rgba(0,0,0,.5) !important;
+      filter: drop-shadow(0 3px 5px rgba(212,175,55,.25));
     }
 
-    /* SUBTITLE */
+    /* BRAND SUBTITLE */
 
     .akhBannerContent .brandSubtitle {
       color: #fff0c8 !important;
 
       font-family: 'Cinzel', serif !important;
-      font-size: clamp(10px, 1.3vw, 17px) !important;
+      font-size: clamp(10px, 1.4vw, 18px) !important;
       font-weight: 600 !important;
       letter-spacing: 3px !important;
 
-      margin: 12px 0 18px !important;
+      margin: 8px 0 12px !important;
     }
 
     /* ARABIC DESCRIPTION */
@@ -222,15 +195,15 @@
       color: #f1ce80 !important;
 
       font-family: 'Cairo', sans-serif !important;
-      font-size: clamp(14px, 1.5vw, 21px) !important;
+      font-size: clamp(14px, 1.7vw, 23px) !important;
       font-weight: 700 !important;
-      line-height: 1.9 !important;
+      line-height: 1.8 !important;
 
-      margin: 5px 0 25px !important;
+      margin: 8px 0 25px !important;
     }
 
     /* =========================================
-       BUTTONS
+       HERO BUTTONS
     ========================================= */
 
     .akhBannerContent .heroButtons {
@@ -241,10 +214,10 @@
       align-items: center !important;
 
       flex-wrap: nowrap !important;
-      gap: 15px !important;
+      gap: 18px !important;
 
       width: 100% !important;
-      margin: 5px auto !important;
+      margin: 8px auto !important;
     }
 
     .akhBannerContent .heroButton {
@@ -252,23 +225,27 @@
 
       justify-content: center !important;
       align-items: center !important;
+      gap: 10px !important;
 
-      min-width: 175px !important;
-      min-height: 57px !important;
+      min-width: 190px !important;
+      min-height: 58px !important;
 
-      padding: 12px 23px !important;
+      padding: 12px 25px !important;
 
       border-radius: 50px !important;
       border: 1.5px solid #e8c36b !important;
 
+      color: #f5d88f !important;
+      background: rgba(0,0,0,.55) !important;
+
       font-family: 'Cairo', sans-serif !important;
-      font-size: 16px !important;
+      font-size: 17px !important;
       font-weight: 800 !important;
 
       text-decoration: none !important;
 
+      box-shadow: 0 4px 18px rgba(0,0,0,.35) !important;
       transition: .3s ease !important;
-      box-shadow: 0 5px 20px rgba(0,0,0,.35) !important;
     }
 
     .akhBannerContent .shopButton {
@@ -290,11 +267,11 @@
     }
 
     .akhBannerContent .heroButton:hover {
-      transform: translateY(-4px) !important;
-      box-shadow: 0 8px 25px rgba(232,195,107,.3) !important;
+      transform: translateY(-3px);
+      box-shadow: 0 7px 24px rgba(232,195,107,.3) !important;
     }
 
-    /* DISCOVER */
+    /* DISCOVER LINK */
 
     .akhBannerContent .discoverLink {
       color: #edc875 !important;
@@ -304,12 +281,12 @@
       font-weight: 700 !important;
       letter-spacing: 2px !important;
 
-      margin-top: 25px !important;
+      margin-top: 24px !important;
       text-decoration: none !important;
     }
 
     /* =========================================
-       PRODUCTS
+       PRODUCTS SECTION
     ========================================= */
 
     .productsSection {
@@ -325,26 +302,21 @@
     @media (min-width: 769px) and (max-width: 1050px) {
 
       .akhFullBanner {
-        height: 620px !important;
-      }
-
-      .akhFullBanner > img {
-        width: 67% !important;
-        object-position: 24% center !important;
+        height: 570px !important;
       }
 
       .akhBannerContent {
-        width: 51% !important;
-        padding: 25px 2% !important;
+        width: 60% !important;
+        padding: 25px 3% !important;
       }
 
       .akhBannerContent h1.brandTitle {
-        font-size: clamp(43px, 5.5vw, 62px) !important;
+        font-size: clamp(43px, 6vw, 68px) !important;
       }
 
       .akhBannerContent .heroButton {
-        min-width: 145px !important;
-        font-size: 14px !important;
+        min-width: 155px !important;
+        font-size: 15px !important;
       }
 
     }
@@ -358,35 +330,21 @@
       .akhFullBanner {
         width: 100% !important;
 
-        height: 700px !important;
-        min-height: 650px !important;
-        max-height: 780px !important;
-
-        background: #050505 !important;
+        height: 650px !important;
+        min-height: 560px !important;
+        max-height: 760px !important;
       }
 
-      /* الصورة فوق والنص في الجزء السفلي */
-
       .akhFullBanner > img {
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-
-        width: 100% !important;
-        height: 73% !important;
-
-        object-fit: cover !important;
-        object-position: 25% center !important;
+        object-position: 32% center !important;
       }
 
       .akhFullBanner::after {
         background: linear-gradient(
-          180deg,
-          rgba(0,0,0,0) 0%,
-          rgba(0,0,0,.03) 35%,
-          rgba(0,0,0,.35) 52%,
-          rgba(0,0,0,.91) 69%,
-          #050505 100%
+          0deg,
+          rgba(0,0,0,.94) 0%,
+          rgba(0,0,0,.72) 38%,
+          rgba(0,0,0,.10) 100%
         ) !important;
       }
 
@@ -399,7 +357,7 @@
         width: 100% !important;
         max-width: none !important;
 
-        height: 51% !important;
+        height: 58% !important;
 
         padding: 12px 15px 25px !important;
 
@@ -409,9 +367,9 @@
       }
 
       .akhBannerContent .collectionLabel {
-        font-size: 14px !important;
-        letter-spacing: 2.5px !important;
-        margin-bottom: 9px !important;
+        font-size: 13px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 8px !important;
       }
 
       .akhBannerContent .brandLogo.brandWordmark {
@@ -419,25 +377,24 @@
       }
 
       .akhBannerContent .brandCrown {
-        font-size: 59px !important;
-        margin-bottom: 5px !important;
+        font-size: 55px !important;
       }
 
       .akhBannerContent h1.brandTitle {
-        font-size: clamp(39px, 10vw, 58px) !important;
+        font-size: clamp(39px, 10vw, 60px) !important;
         letter-spacing: 1px !important;
-        margin: 4px auto !important;
+        margin: 5px auto !important;
       }
 
       .akhBannerContent .brandSubtitle {
         font-size: 9px !important;
         letter-spacing: 1.5px !important;
-        margin: 6px 0 !important;
+        margin: 5px 0 !important;
       }
 
       .akhBannerContent .akhHeroArabic {
         font-size: 13px !important;
-        margin: 5px 0 13px !important;
+        margin: 7px 0 14px !important;
       }
 
       .akhBannerContent .heroButtons {
@@ -454,23 +411,22 @@
         padding: 9px 8px !important;
 
         font-size: 13px !important;
+        gap: 5px !important;
       }
 
       .akhBannerContent .discoverLink {
         font-size: 10px !important;
-        margin-top: 13px !important;
+        margin-top: 14px !important;
       }
 
     }
 
-    /* =========================================
-       SMALL MOBILE
-    ========================================= */
+    /* SMALL MOBILE */
 
     @media (max-width: 380px) {
 
       .akhFullBanner {
-        height: 660px !important;
+        height: 600px !important;
       }
 
       .akhBannerContent {
@@ -527,7 +483,7 @@
 
   </header>
 
-  <!-- WINTER COLLECTION HERO -->
+  <!-- WINTER HERO BANNER -->
 
   <main class="akhFullBanner">
 
@@ -578,7 +534,7 @@
 
   </main>
 
-  <!-- PRODUCTS SECTION -->
+  <!-- PRODUCTS -->
 
   <section class="productsSection" id="productsSection">
 
