@@ -6607,7 +6607,7 @@ body {
       rgba(0,0,0,.48) 48%,
       rgba(0,0,0,.78)
     ),
-    url("../images/hero.jpg.jpg") center center / cover no-repeat;
+    url("../images/winter-background.jpg") center center / cover no-repeat;
 }
 
 .winterHero::after {
