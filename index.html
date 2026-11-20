@@ -5,13 +5,167 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#070707">
+
   <title>AKH BRAND | New Collection 2027</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* FULL WIDTH WINTER BANNER */
+
+    .akhFullBanner {
+      position: relative;
+      width: 100%;
+      height: min(58vw, 760px);
+      min-height: 320px;
+      overflow: hidden;
+      background: #070707;
+      margin: 0;
+      padding: 0;
+    }
+
+    .akhFullBanner > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .akhBannerContent {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 35px 8%;
+      text-align: right;
+      background: linear-gradient(
+        90deg,
+        transparent 25%,
+        rgba(0,0,0,.15) 48%,
+        rgba(0,0,0,.62) 100%
+      );
+    }
+
+    .akhBannerContent .collectionLabel {
+      color: #e8c36b;
+      font-size: clamp(14px, 2vw, 24px);
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .akhBannerContent .brandLogo {
+      margin: 0 0 15px !important;
+    }
+
+    .akhBannerContent .brandCrown {
+      display: block;
+      color: #e8c36b;
+      font-size: clamp(45px, 6vw, 85px);
+      line-height: 1;
+      text-shadow: 0 0 18px rgba(232,195,107,.5);
+    }
+
+    .akhBannerContent .brandTitle {
+      color: #e8c36b !important;
+      -webkit-text-fill-color: #e8c36b !important;
+      font-family: 'Cinzel', Georgia, serif !important;
+      font-size: clamp(38px, 7vw, 100px) !important;
+      font-weight: 800;
+      letter-spacing: 2px;
+      direction: ltr;
+      white-space: nowrap;
+      margin: 0;
+      text-shadow: 0 3px 15px rgba(0,0,0,.8);
+    }
+
+    .akhBannerContent .brandSubtitle {
+      color: #fff0c5;
+      font-size: clamp(10px, 1.5vw, 19px);
+      letter-spacing: 3px;
+      margin: 10px 0;
+    }
+
+    .akhBannerContent .akhHeroArabic {
+      color: #f2cf83;
+      font-size: clamp(13px, 1.7vw, 23px);
+      font-weight: 700;
+      margin: 12px 0 22px;
+    }
+
+    .akhBannerContent .heroButtons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .akhBannerContent .discoverLink {
+      color: #e8c36b;
+      margin-top: 25px;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    /* PRODUCTS */
+    .productsSection {
+      width: 95%;
+      max-width: 1450px;
+      margin: 45px auto;
+    }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+      .akhFullBanner {
+        height: 115vw;
+        min-height: 420px;
+        max-height: 650px;
+      }
+
+      .akhFullBanner > img {
+        object-position: center;
+      }
+
+      .akhBannerContent {
+        padding: 20px 5%;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(
+          0deg,
+          rgba(0,0,0,.82),
+          rgba(0,0,0,.12)
+        );
+      }
+
+      .akhBannerContent .brandTitle {
+        font-size: clamp(35px, 10vw, 58px) !important;
+        letter-spacing: 1px;
+      }
+
+      .akhBannerContent .brandCrown {
+        font-size: 52px;
+      }
+
+      .akhBannerContent .brandSubtitle {
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+
+      .akhBannerContent .heroButtons {
+        justify-content: center;
+      }
+
+      .akhBannerContent .heroButton {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -43,17 +197,20 @@
 
   </header>
 
-  <main class="winterHero">
+  <!-- FULL WIDTH HERO BANNER -->
 
-    <div class="akhHeroVisual">
-      <img src="images/winter-background.jpg%20.JPEG" alt="إطلالة شتوية من AKH BRAND">
-    </div>
+  <main class="akhFullBanner">
 
-    <div class="heroContent">
+    <img
+      src="images/winter-background.jpg%20.JPG"
+      alt="AKH BRAND Winter Collection 2027"
+    >
 
-      <div class="akhHeroCrown" aria-hidden="true">♛</div>
+    <div class="akhBannerContent">
 
-      <div class="collectionLabel">NEW COLLECTION 2027</div>
+      <div class="collectionLabel">
+        NEW COLLECTION 2027
+      </div>
 
       <div class="brandLogo brandWordmark">
         <span class="brandCrown">♛</span>
@@ -61,9 +218,7 @@
       </div>
 
       <div class="brandSubtitle">
-        <span></span>
         FEMININE LUXURY STREETWEAR
-        <span></span>
       </div>
 
       <p class="akhHeroArabic">
@@ -71,13 +226,15 @@
       </p>
 
       <div class="heroButtons">
+
         <a href="#productsSection" class="heroButton shopButton">
-          تسوق الآن <span>❯</span>
+          تسوق الآن
         </a>
 
         <a href="order-tracking.html" class="heroButton ordersButton">
-          طلباتي 📦 <span>❯</span>
+          طلباتي 📦
         </a>
+
       </div>
 
       <a href="#productsSection" class="discoverLink">
@@ -87,6 +244,8 @@
     </div>
 
   </main>
+
+  <!-- PRODUCTS -->
 
   <section class="productsSection" id="productsSection">
 
@@ -103,12 +262,15 @@
         type="search"
         id="searchInput"
         placeholder="ابحثي عن المنتج الذي تريدينه..."
-        autocomplete="off">
+        autocomplete="off"
+      >
     </div>
 
     <div id="products" class="productsGrid"></div>
 
   </section>
+
+  <!-- FOOTER -->
 
   <footer class="winterFooter">
     <h2>AKH BRAND</h2>
