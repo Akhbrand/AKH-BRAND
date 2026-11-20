@@ -9,28 +9,28 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
   <header class="akhTopbar">
+
     <div class="akhTopbarActions">
       <a href="cart.html" class="akhRoundAction" aria-label="السلة">
         🛒 <span class="counter" id="cartCount">0</span>
       </a>
+
       <a href="favorites.html" class="akhRoundAction" aria-label="المفضلة">
         ♥ <span class="counter" id="favCount">0</span>
       </a>
     </div>
 
-    <a class="akhTopbarLogo" href="index.html" aria-label="AKH BRAND الرئيسية">
-      <img src="images/VideoToGif_GIF.jpg" alt="AKH BRAND">
-      <span>
-        <strong>AKH BRAND</strong>
-        <small>FEMININE LUXURY STREETWEAR</small>
-      </span>
+    <a class="akhTopbarLogo" href="index.html">
+      <span class="akhHeaderCrown">♛</span>
+      <span class="akhHeaderName">AKH BRAND</span>
     </a>
 
     <nav class="akhNav" aria-label="القائمة الرئيسية">
@@ -40,23 +40,25 @@
       <a href="favorites.html">المفضلة</a>
       <a href="order-tracking.html">تتبع الطلب</a>
     </nav>
+
   </header>
 
   <main class="winterHero">
+
     <div class="akhHeroVisual">
       <img src="images/winter-background.jpg%20.JPEG" alt="إطلالة شتوية من AKH BRAND">
     </div>
 
     <div class="heroContent">
+
       <div class="akhHeroCrown" aria-hidden="true">♛</div>
 
       <div class="collectionLabel">NEW COLLECTION 2027</div>
 
-      <div class="brandLogo">
-        <img src="images/VideoToGif_GIF.jpg" alt="شعار AKH BRAND">
+      <div class="brandLogo brandWordmark">
+        <span class="brandCrown">♛</span>
+        <h1 class="brandTitle">AKH BRAND</h1>
       </div>
-
-      <h1 class="brandTitle">AKH BRAND</h1>
 
       <div class="brandSubtitle">
         <span></span>
@@ -64,27 +66,37 @@
         <span></span>
       </div>
 
-      <p class="akhHeroArabic">جودة عالية • تصميم مميز • أسلوبك الخاص</p>
+      <p class="akhHeroArabic">
+        جودة عالية • تصميم مميز • أسلوبك الخاص
+      </p>
 
       <div class="heroButtons">
         <a href="#productsSection" class="heroButton shopButton">
           تسوق الآن <span>❯</span>
         </a>
+
         <a href="order-tracking.html" class="heroButton ordersButton">
           طلباتي 📦 <span>❯</span>
         </a>
       </div>
 
-      <a href="#productsSection" class="discoverLink">↓ DISCOVER THE COLLECTION</a>
+      <a href="#productsSection" class="discoverLink">
+        ↓ DISCOVER THE COLLECTION
+      </a>
+
     </div>
+
   </main>
 
   <section class="productsSection" id="productsSection">
+
     <div class="sectionHeading">
       <h2>OVERSIZED STREETWEAR</h2>
     </div>
 
-    <p class="sectionDescription">اكتشفي أحدث قطع AKH BRAND</p>
+    <p class="sectionDescription">
+      اكتشفي أحدث قطع AKH BRAND
+    </p>
 
     <div class="searchBox">
       <input
@@ -95,6 +107,7 @@
     </div>
 
     <div id="products" class="productsGrid"></div>
+
   </section>
 
   <footer class="winterFooter">
@@ -107,5 +120,6 @@
   <div id="toast"></div>
 
   <script type="module" src="js/app.js"></script>
+
 </body>
 </html>
