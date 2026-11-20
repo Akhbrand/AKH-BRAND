@@ -7266,3 +7266,24 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .snowflake { animation: none !important; }
 }
+
+/* ==========================================
+   AKH BRAND — BIGGER HERO LOGO
+   Enlarge the logo artwork without changing
+   the banner frame or the hero layout.
+========================================== */
+.brandLogo img {
+  width: 145% !important;
+  height: 145% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 600px) {
+  .brandLogo img {
+    width: 155% !important;
+    height: 155% !important;
+  }
+}
