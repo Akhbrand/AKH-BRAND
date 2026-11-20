@@ -7736,3 +7736,762 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     height: 235% !important;
   }
 }
+
+
+/* =========================================================
+   AKH BRAND — LUXURY STREETWEAR 2027
+   Black + champagne gold luxury, with bold streetwear details.
+   Appended visual refinements only; commerce logic untouched.
+========================================================= */
+
+:root {
+  --akh-black: #070707;
+  --akh-panel: #111111;
+  --akh-gold: #d8ae3f;
+  --akh-gold-light: #f0d889;
+  --akh-white: #f5f2eb;
+  --akh-muted: #b9b3a5;
+}
+
+/* Premium editorial hero with the uploaded jacket image */
+.winterHero {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.28) 0%, rgba(0,0,0,.12) 38%, rgba(0,0,0,.82) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.70), rgba(0,0,0,.16) 50%, rgba(0,0,0,.70)),
+    url("../images/winter-background.jpg%20.JPEG") center 38% / cover no-repeat !important;
+}
+
+.winterHero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(216,174,63,.12), transparent 43%),
+    linear-gradient(135deg, rgba(216,174,63,.045), transparent 42%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+}
+
+/* Keep the collection label luxurious, but more editorial */
+.collectionLabel {
+  background: rgba(8,8,8,.82) !important;
+  color: var(--akh-gold-light) !important;
+  border: 1px solid rgba(216,174,63,.78) !important;
+  border-radius: 3px !important;
+  letter-spacing: 3px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35), 0 0 18px rgba(216,174,63,.10) !important;
+}
+
+.collectionLabel span {
+  color: var(--akh-gold) !important;
+}
+
+/* Gold-framed logo remains central */
+.brandLogo {
+  border: 1px solid rgba(216,174,63,.78) !important;
+  box-shadow:
+    0 0 0 6px rgba(216,174,63,.045),
+    0 0 30px rgba(216,174,63,.16),
+    10px 10px 0 rgba(216,174,63,.075) !important;
+}
+
+.brandLogo img {
+  filter: contrast(1.08) brightness(1.05);
+}
+
+.brandTitle {
+  color: var(--akh-white) !important;
+  font-weight: 1000 !important;
+  letter-spacing: clamp(2px, .75vw, 8px) !important;
+  text-shadow:
+    0 2px 0 rgba(216,174,63,.38),
+    0 8px 24px rgba(0,0,0,.72) !important;
+}
+
+.brandSubtitle {
+  color: #e5dfd1 !important;
+  letter-spacing: 2px !important;
+  font-weight: 800 !important;
+}
+
+.brandSubtitle span {
+  background: var(--akh-gold) !important;
+}
+
+/* Bold streetwear buttons with luxury gold finish */
+.heroButtons {
+  gap: 14px !important;
+}
+
+.heroButton {
+  border-radius: 4px !important;
+  min-height: 62px;
+  font-weight: 900 !important;
+  letter-spacing: .3px;
+  box-shadow: 5px 5px 0 rgba(0,0,0,.42);
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease !important;
+}
+
+.heroButton:hover {
+  transform: translate(-2px,-2px) !important;
+  box-shadow: 8px 8px 0 rgba(0,0,0,.38) !important;
+}
+
+.heroButton.shopButton,
+.heroButton:first-child {
+  background: linear-gradient(135deg, #f0d889, #c99b2e) !important;
+  border-color: #d8ae3f !important;
+  color: #090909 !important;
+}
+
+.heroButton.ordersButton {
+  background: rgba(7,7,7,.78) !important;
+  border: 1px solid rgba(216,174,63,.78) !important;
+  color: var(--akh-white) !important;
+}
+
+.heroButton span {
+  color: inherit !important;
+}
+
+.discoverLink {
+  color: var(--akh-gold-light) !important;
+  font-weight: 900 !important;
+  letter-spacing: 2.5px !important;
+}
+
+/* Floating shortcuts: preserve links and counter IDs */
+.floatingIcon {
+  background: rgba(7,7,7,.86) !important;
+  border: 1px solid rgba(216,174,63,.68) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.42), 0 0 14px rgba(216,174,63,.08);
+  backdrop-filter: blur(12px);
+}
+
+.counter {
+  background: #c92b3a !important;
+  color: #fff !important;
+  font-weight: 900 !important;
+}
+
+/* Products: dark editorial cards, gold prices, crisp borders */
+.productsSection {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(216,174,63,.055), transparent 40%),
+    linear-gradient(180deg, #080808, #101010 52%, #080808) !important;
+}
+
+.sectionHeading h2 {
+  color: var(--akh-white) !important;
+  font-weight: 1000 !important;
+  letter-spacing: 2px;
+}
+
+.sectionHeading span {
+  color: var(--akh-gold) !important;
+}
+
+.sectionDescription {
+  color: var(--akh-muted) !important;
+}
+
+.searchBox input {
+  background: #111 !important;
+  color: var(--akh-white) !important;
+  border: 1px solid rgba(216,174,63,.30) !important;
+  border-radius: 4px !important;
+}
+
+.searchBox input:focus {
+  border-color: var(--akh-gold) !important;
+  box-shadow: 0 0 0 3px rgba(216,174,63,.10) !important;
+}
+
+#products.productsGrid > .card,
+.card,
+.productCard {
+  background: linear-gradient(180deg, #151515, #0d0d0d) !important;
+  border: 1px solid rgba(216,174,63,.20) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 16px 38px rgba(0,0,0,.42) !important;
+  overflow: hidden;
+}
+
+#products.productsGrid > .card:hover,
+.card:hover,
+.productCard:hover {
+  border-color: rgba(216,174,63,.78) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 22px 48px rgba(0,0,0,.56), 0 0 0 1px rgba(216,174,63,.08) !important;
+}
+
+#products.productsGrid .gallery,
+#products.productsGrid .slider img {
+  background: #090909 !important;
+}
+
+#products.productsGrid .info h2,
+#products.productsGrid .productTitle,
+.info h2,
+.productTitle {
+  color: var(--akh-white) !important;
+  font-weight: 900 !important;
+}
+
+#products.productsGrid .price,
+.price {
+  color: var(--akh-gold-light) !important;
+  font-weight: 1000 !important;
+}
+
+#products.productsGrid .info p,
+.info p {
+  color: #c4beb1 !important;
+}
+
+#products.productsGrid .cartBtn,
+.cartBtn {
+  background: linear-gradient(135deg, #f0d889, #c99b2e) !important;
+  color: #090909 !important;
+  border: 1px solid #d8ae3f !important;
+  border-radius: 4px !important;
+  font-weight: 900 !important;
+}
+
+/* Footer */
+.winterFooter {
+  background: #050505 !important;
+  border-top: 1px solid rgba(216,174,63,.42) !important;
+}
+
+.winterFooter h2 {
+  color: var(--akh-gold-light) !important;
+  font-weight: 1000 !important;
+  letter-spacing: 3px;
+}
+
+.winterFooter p {
+  color: #aaa396 !important;
+}
+
+/* Keep winter identity subtle, not dominant */
+.winterSnow {
+  opacity: .12 !important;
+  pointer-events: none;
+}
+
+.snowflake {
+  opacity: .20 !important;
+}
+
+/* Tablet and mobile refinements */
+@media (max-width: 900px) {
+  .winterHero {
+    background-position: center 35% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .winterHero {
+    background-position: center 34% !important;
+  }
+  .collectionLabel {
+    letter-spacing: 1.8px !important;
+  }
+  .brandTitle {
+    letter-spacing: 2px !important;
+  }
+  .heroButton {
+    min-height: 56px;
+    box-shadow: 4px 4px 0 rgba(0,0,0,.42);
+  }
+}
+
+/* Keyboard focus */
+.heroButton:focus-visible,
+.floatingIcon:focus-visible,
+.searchBox input:focus-visible,
+.cartBtn:focus-visible {
+  outline: 2px solid var(--akh-gold-light) !important;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroButton,
+  .card,
+  .productCard,
+  .floatingIcon {
+    transition: none !important;
+  }
+}
+
+
+/* =========================================================
+   AKH BRAND — FEMININE LUXURY STREETWEAR / 2027
+   Final visual layer inspired by the approved homepage concept.
+   Keeps the existing hero image, HTML IDs, links and JS hooks.
+========================================================= */
+
+:root {
+  --akh-black: #070707;
+  --akh-panel: #11100f;
+  --akh-gold: #d8ae3f;
+  --akh-champagne: #f0d9a0;
+  --akh-cream: #f7f0e5;
+  --akh-muted: #c5bcae;
+  --akh-rose: #b98783;
+}
+
+html, body {
+  background: #070707 !important;
+  color: var(--akh-cream) !important;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(216,174,63,.075), transparent 42%),
+    radial-gradient(ellipse at 88% 42%, rgba(185,135,131,.045), transparent 32%),
+    linear-gradient(180deg, #070707, #100e0d 55%, #070707) !important;
+}
+
+/* Hero: retain the user's existing grey-jacket background image */
+.winterHero {
+  min-height: max(720px, 94svh) !important;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.18) 38%, rgba(0,0,0,.86) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.52), rgba(0,0,0,.18) 48%, rgba(0,0,0,.58)),
+    url("../images/winter-background.jpg%20.JPEG") center 38% / cover no-repeat !important;
+}
+
+.winterHero::after {
+  background:
+    radial-gradient(ellipse at center, transparent 15%, rgba(0,0,0,.34) 100%),
+    linear-gradient(135deg, rgba(216,174,63,.06), transparent 42%) !important;
+}
+
+.heroContent {
+  width: min(100% - 32px, 1120px) !important;
+  padding: 76px 16px 64px !important;
+  text-align: center !important;
+}
+
+.collectionLabel {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 24px !important;
+  border: 1px solid rgba(240,217,160,.85) !important;
+  border-radius: 3px !important;
+  background: linear-gradient(135deg, rgba(240,217,160,.96), rgba(184,139,54,.96)) !important;
+  color: #17110a !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,.38), 0 0 24px rgba(216,174,63,.12);
+  font-size: clamp(12px, 1.8vw, 17px) !important;
+  font-weight: 900 !important;
+  letter-spacing: 2.5px !important;
+}
+
+.collectionLabel span {
+  color: #5b4018 !important;
+}
+
+.brandLogo {
+  width: 230px !important;
+  height: 185px !important;
+  margin: 24px auto 16px !important;
+  border: 1px solid rgba(240,217,160,.5) !important;
+  border-radius: 28px !important;
+  background: rgba(0,0,0,.48) !important;
+  box-shadow: 0 18px 48px rgba(0,0,0,.48), 0 0 30px rgba(216,174,63,.08) !important;
+  overflow: hidden !important;
+}
+
+.brandLogo img {
+  width: 205% !important;
+  height: 205% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.brandTitle {
+  color: var(--akh-champagne) !important;
+  font-size: clamp(48px, 8vw, 94px) !important;
+  font-weight: 1000 !important;
+  letter-spacing: clamp(2px, .55vw, 7px) !important;
+  line-height: 1.08 !important;
+  text-shadow: 0 5px 22px rgba(0,0,0,.82), 0 0 26px rgba(216,174,63,.16) !important;
+}
+
+.brandSubtitle {
+  color: #fff8ed !important;
+  font-size: clamp(12px, 1.8vw, 19px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px !important;
+  text-shadow: 0 3px 14px rgba(0,0,0,.9);
+}
+
+.brandSubtitle span {
+  background: linear-gradient(90deg, transparent, var(--akh-gold), transparent) !important;
+  height: 2px !important;
+  width: clamp(28px, 6vw, 80px) !important;
+}
+
+.heroButtons {
+  width: min(620px, 92%) !important;
+  gap: 18px !important;
+}
+
+.heroButton {
+  min-height: 62px !important;
+  border: 1px solid rgba(240,217,160,.82) !important;
+  border-radius: 999px !important;
+  font-size: clamp(16px, 2vw, 20px) !important;
+  font-weight: 900 !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.38) !important;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease !important;
+}
+
+.heroButton:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.48), 0 0 20px rgba(216,174,63,.16) !important;
+  filter: brightness(1.08);
+}
+
+.heroButton.shopButton,
+.heroButton:first-child {
+  background: linear-gradient(135deg, #f4dfad, #d8ae3f 58%, #a87929) !important;
+  color: #17110a !important;
+}
+
+.heroButton.ordersButton {
+  background: rgba(8,8,8,.78) !important;
+  color: var(--akh-cream) !important;
+  border-color: rgba(216,174,63,.7) !important;
+}
+
+.discoverLink {
+  color: var(--akh-champagne) !important;
+  font-weight: 800 !important;
+  letter-spacing: 3px !important;
+}
+
+/* Floating cart and favourites remain linked to their original pages */
+.floatingIcon {
+  width: 60px !important;
+  height: 60px !important;
+  top: 22px !important;
+  border: 1px solid rgba(240,217,160,.72) !important;
+  background: rgba(8,8,8,.82) !important;
+  box-shadow: 0 8px 26px rgba(0,0,0,.48), 0 0 16px rgba(216,174,63,.08) !important;
+  backdrop-filter: blur(12px);
+}
+
+.iconEmoji {
+  font-size: 25px !important;
+}
+
+.counter {
+  background: #b52b3b !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.55);
+  font-weight: 900 !important;
+}
+
+/* Product collection */
+.productsSection {
+  padding: 68px clamp(16px, 4vw, 52px) 82px !important;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(216,174,63,.075), transparent 42%),
+    radial-gradient(ellipse at 92% 36%, rgba(185,135,131,.045), transparent 30%),
+    linear-gradient(180deg, #080808, #12100f 52%, #080808) !important;
+}
+
+.sectionHeading h2 {
+  color: var(--akh-champagne) !important;
+  font-size: clamp(25px, 3.5vw, 42px) !important;
+  font-weight: 1000 !important;
+  letter-spacing: 1.5px !important;
+  text-shadow: 0 4px 16px rgba(0,0,0,.55);
+}
+
+.sectionHeading span {
+  color: var(--akh-gold) !important;
+}
+
+.sectionDescription {
+  color: var(--akh-muted) !important;
+  font-size: clamp(14px, 1.6vw, 18px) !important;
+}
+
+.searchBox {
+  width: min(850px, 94%) !important;
+  margin: 28px auto 36px !important;
+}
+
+.searchBox input {
+  min-height: 54px !important;
+  padding: 0 22px !important;
+  border: 1px solid rgba(216,174,63,.58) !important;
+  border-radius: 999px !important;
+  background: rgba(10,10,10,.92) !important;
+  color: var(--akh-cream) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+
+.searchBox input::placeholder {
+  color: #a9a092 !important;
+}
+
+.searchBox input:focus {
+  border-color: var(--akh-champagne) !important;
+  box-shadow: 0 0 0 3px rgba(216,174,63,.13), 0 10px 30px rgba(0,0,0,.28) !important;
+}
+
+/* Three columns on desktop, two on tablet, one on mobile */
+#products.productsGrid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 2.2vw, 28px) !important;
+  width: 100% !important;
+  max-width: 1450px !important;
+  margin: 34px auto 0 !important;
+  align-items: stretch !important;
+}
+
+#products.productsGrid > .card {
+  min-width: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(216,174,63,.42) !important;
+  border-radius: 16px !important;
+  background: linear-gradient(160deg, #191715, #0b0b0b 76%) !important;
+  box-shadow: 0 16px 42px rgba(0,0,0,.42) !important;
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease !important;
+}
+
+#products.productsGrid > .card:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(240,217,160,.9) !important;
+  box-shadow: 0 22px 48px rgba(0,0,0,.52), 0 0 22px rgba(216,174,63,.10) !important;
+}
+
+#products.productsGrid .gallery {
+  width: 100% !important;
+  height: 410px !important;
+  background: #090909 !important;
+  border-bottom: 1px solid rgba(216,174,63,.18) !important;
+}
+
+#products.productsGrid .slider,
+#products.productsGrid .slider img {
+  height: 100% !important;
+  min-width: 0 !important;
+}
+
+#products.productsGrid .slider img {
+  max-width: 100% !important;
+  object-fit: contain !important;
+  padding: 14px !important;
+  background: #090909 !important;
+}
+
+#products.productsGrid .info {
+  flex: 1 !important;
+  padding: 20px 18px 22px !important;
+  text-align: center !important;
+}
+
+#products.productsGrid .info h2,
+#products.productsGrid .productTitle,
+#products.productsGrid .info .productTitle {
+  color: #fff8ed !important;
+  font-size: clamp(16px, 1.5vw, 21px) !important;
+  font-weight: 900 !important;
+  line-height: 1.55 !important;
+}
+
+#products.productsGrid .price,
+#products.productsGrid .info .price {
+  color: var(--akh-champagne) !important;
+  font-size: 25px !important;
+  font-weight: 1000 !important;
+}
+
+#products.productsGrid .info p {
+  color: #c5bcae !important;
+}
+
+#products.productsGrid .cartBtn,
+#products.productsGrid .btn {
+  min-height: 48px !important;
+  height: auto !important;
+  border: 1px solid rgba(240,217,160,.82) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #f4dfad, #d8ae3f 62%, #a87929) !important;
+  color: #17110a !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+}
+
+/* Footer */
+.winterFooter {
+  padding: 52px 18px 28px !important;
+  border-top: 1px solid rgba(216,174,63,.42) !important;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(216,174,63,.10), transparent 54%),
+    #050505 !important;
+}
+
+.winterFooter h2 {
+  color: var(--akh-champagne) !important;
+  font-size: clamp(28px, 3vw, 38px) !important;
+  font-weight: 1000 !important;
+  letter-spacing: 3px !important;
+}
+
+.winterFooter p {
+  color: #aaa396 !important;
+  letter-spacing: 1.2px;
+}
+
+/* Snow stays subtle so it does not cover product photos or text */
+.winterSnow {
+  opacity: .12 !important;
+  pointer-events: none !important;
+}
+
+.snowflake {
+  opacity: .20 !important;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .winterHero {
+    min-height: max(680px, 92svh) !important;
+    background-position: center 35% !important;
+  }
+
+  #products.productsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  #products.productsGrid .gallery {
+    height: 370px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .winterHero {
+    min-height: 100svh !important;
+    background-position: center 34% !important;
+  }
+
+  .heroContent {
+    width: 100% !important;
+    padding: 90px 14px 42px !important;
+  }
+
+  .collectionLabel {
+    padding: 8px 13px !important;
+    gap: 7px;
+    letter-spacing: 1.5px !important;
+  }
+
+  .brandLogo {
+    width: 190px !important;
+    height: 155px !important;
+    margin: 22px auto 16px !important;
+  }
+
+  .brandLogo img {
+    width: 220% !important;
+    height: 220% !important;
+  }
+
+  .brandTitle {
+    font-size: clamp(39px, 11vw, 52px) !important;
+    letter-spacing: 2px !important;
+  }
+
+  .brandSubtitle {
+    gap: 7px !important;
+    margin: 9px 0 26px !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+    white-space: normal !important;
+  }
+
+  .brandSubtitle span {
+    width: 18px !important;
+  }
+
+  .heroButtons {
+    width: min(340px, 92%) !important;
+    flex-direction: column !important;
+    gap: 11px !important;
+  }
+
+  .heroButton {
+    width: 100% !important;
+    min-height: 54px !important;
+    font-size: 16px !important;
+  }
+
+  .discoverLink {
+    margin-top: 18px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+  }
+
+  .floatingIcon {
+    width: 48px !important;
+    height: 48px !important;
+    top: 12px !important;
+  }
+
+  .cartIcon { left: 10px !important; }
+  .favIcon { right: 10px !important; }
+  .iconEmoji { font-size: 20px !important; }
+  .counter { width: 20px !important; height: 20px !important; font-size: 11px !important; }
+
+  .productsSection {
+    padding: 52px 14px 62px !important;
+  }
+
+  #products.productsGrid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  #products.productsGrid > .card {
+    width: 100% !important;
+    max-width: 470px !important;
+    margin-inline: auto !important;
+  }
+
+  #products.productsGrid .gallery {
+    height: 390px !important;
+  }
+
+  #products.productsGrid .info {
+    padding: 19px 16px 21px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroButton,
+  #products.productsGrid > .card,
+  .floatingIcon {
+    transition: none !important;
+  }
+}
