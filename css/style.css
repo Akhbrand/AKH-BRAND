@@ -8966,3 +8966,40 @@ body {
         width: 205px !important;
     }
 }
+
+
+/* =====================================
+   AKH BRAND - BIGGER LOGO
+===================================== */
+
+/* Main logo */
+.brandLogo img{
+    width: 340px !important;
+    max-width: 95% !important;
+    height: auto !important;
+    object-fit: contain;
+}
+
+/* Header logo */
+.akhTopbarLogo img{
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: contain;
+}
+
+/* Hide search bar visually */
+.searchBox{
+    display: none !important;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .brandLogo img{
+        width: 270px !important;
+    }
+
+    .akhTopbarLogo img{
+        width: 75px !important;
+        height: 75px !important;
+    }
+}
