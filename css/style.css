@@ -7708,3 +7708,31 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     transition: none !important;
   }
 }
+
+/* ==========================================
+   AKH BRAND — LOGO & SNOW FINAL TUNING
+   Keep the gold frame unchanged; enlarge only
+   the artwork and soften flakes over content.
+========================================== */
+.brandLogo img {
+  width: 215% !important;
+  height: 215% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.winterSnow {
+  opacity: .22 !important;
+}
+
+.snowflake {
+  opacity: .32 !important;
+}
+
+@media (max-width: 600px) {
+  .brandLogo img {
+    width: 235% !important;
+    height: 235% !important;
+  }
+}
