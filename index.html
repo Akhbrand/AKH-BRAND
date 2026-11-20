@@ -11,17 +11,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Cinzel:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 
   <style>
+    /* =========================================
+       AKH BRAND - IDENTICAL DESKTOP & MOBILE BANNER
+    ========================================= */
+
     .akhFullBanner {
       position: relative !important;
       width: 100% !important;
       max-width: 1600px !important;
       aspect-ratio: 16 / 9 !important;
       height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
       margin: 0 auto !important;
       padding: 0 !important;
       overflow: hidden !important;
@@ -29,7 +35,7 @@
       isolation: isolate;
     }
 
-    .akhFullBanner > img.akhBannerArt {
+    .akhFullBanner > img {
       position: absolute !important;
       inset: 0 !important;
       display: block !important;
@@ -37,37 +43,221 @@
       height: 100% !important;
       object-fit: cover !important;
       object-position: center center !important;
-      z-index: 1 !important;
+      z-index: -2 !important;
+    }
+
+    .akhFullBanner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.02) 0%,
+        rgba(0, 0, 0, 0.18) 38%,
+        rgba(0, 0, 0, 0.78) 62%,
+        rgba(0, 0, 0, 0.92) 100%
+      );
       pointer-events: none;
     }
 
-    .akhBannerOverlayActions {
+    /* حاوية النصوص والأزرار على اليمين بنفس النسب في كل الشاشات */
+    .akhBannerContent {
       position: absolute !important;
-      left: 53.5% !important;
-      top: 69% !important;
-      width: 39% !important;
-      height: 12.5% !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: auto !important;
+      width: 56% !important;
+      height: 100% !important;
+      max-width: none !important;
+      padding: 2% 4% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      direction: rtl !important;
+      background: transparent !important;
+      z-index: 2 !important;
+      box-sizing: border-box !important;
+    }
+
+    /* التاج الذهبي SVG مطابق للصورة */
+    .akhCrownSvg {
+      width: clamp(42px, 10vw, 145px) !important;
+      height: auto !important;
+      margin-bottom: 0.3vw !important;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 12px rgba(232, 195, 107, 0.45));
+    }
+
+    /* اسم البراند AKH BRAND */
+    .akhBannerContent h1.brandTitle {
+      display: block !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      direction: ltr !important;
+      white-space: nowrap !important;
+      text-align: center !important;
+      font-family: 'Cinzel', Georgia, serif !important;
+      font-size: clamp(20px, 5.1vw, 78px) !important;
+      font-weight: 800 !important;
+      line-height: 1.05 !important;
+      letter-spacing: 0.12vw !important;
+      background: linear-gradient(
+        180deg,
+        #fff5cc 0%,
+        #f2d17c 35%,
+        #b8822c 70%,
+        #ffe7a3 100%
+      ) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      color: #edc875 !important;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.85));
+    }
+
+    /* الخط الذهبي الرفيع تحت AKH BRAND */
+    .akhGoldDivider {
+      position: relative !important;
+      width: 84% !important;
+      height: 1.5px !important;
+      margin: 0.7vw auto 0.9vw !important;
+      background: linear-gradient(90deg, transparent, #e8c36b 20%, #fff0b8 50%, #e8c36b 80%, transparent) !important;
+    }
+
+    .akhGoldDivider::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: clamp(3px, 0.45vw, 7px);
+      height: clamp(3px, 0.45vw, 7px);
+      background: #fff2c5;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 8px #f0cf7b;
+    }
+
+    /* NEW COLLECTION 2027 */
+    .akhBannerContent .collectionLabel {
+      font-family: 'Cinzel', Georgia, serif !important;
+      font-size: clamp(11px, 2.5vw, 38px) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.12vw !important;
+      line-height: 1.15 !important;
+      margin: 0 0 0.6vw !important;
+      white-space: nowrap !important;
+      background: linear-gradient(180deg, #fff3c4 0%, #e6be66 55%, #b8822c 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      color: #e8c36b !important;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+    }
+
+    /* FEMININE LUXURY STREETWEAR + خطين يمين ويسار */
+    .akhSubtitleWrap {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 1vw !important;
+      width: 86% !important;
+      margin: 0 auto 0.9vw !important;
+    }
+
+    .akhSubtitleLine {
+      flex: 1 1 auto !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, #e8c36b) !important;
+    }
+
+    .akhSubtitleLine.right {
+      background: linear-gradient(270deg, transparent, #e8c36b) !important;
+    }
+
+    .akhBannerContent .brandSubtitle {
+      color: #ffffff !important;
+      font-family: 'Cairo', sans-serif !important;
+      font-size: clamp(6.5px, 1.05vw, 16px) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.18vw !important;
+      white-space: nowrap !important;
+      margin: 0 !important;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9) !important;
+    }
+
+    /* جودة عالية • تصميم مميز • أسلوبك الخاص */
+    .akhBannerContent .akhHeroArabic {
+      color: #f3d284 !important;
+      font-family: 'Cairo', sans-serif !important;
+      font-size: clamp(9px, 1.75vw, 27px) !important;
+      font-weight: 700 !important;
+      line-height: 1.4 !important;
+      white-space: nowrap !important;
+      margin: 0 0 1.4vw !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+    }
+
+    /* الأزرار (تسوق الآن على اليمين - طلباتي على اليسار) */
+    .akhBannerContent .heroButtons {
       display: flex !important;
       flex-direction: row !important;
+      justify-content: center !important;
       align-items: center !important;
-      justify-content: space-between !important;
-      gap: 3% !important;
-      z-index: 3 !important;
+      flex-wrap: nowrap !important;
+      gap: 1.3vw !important;
+      width: 88% !important;
+      margin: 0 auto !important;
     }
 
-    .akhBannerHitButton {
+    .akhBannerContent .heroButton {
       flex: 1 1 0 !important;
-      height: 100% !important;
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 0.6vw !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+      height: clamp(24px, 4.3vw, 64px) !important;
+      padding: 0 1.2vw !important;
       border-radius: 999px !important;
-      background: transparent !important;
-      border: none !important;
-      color: transparent !important;
-      font-size: 0 !important;
-      line-height: 0 !important;
+      border: 1.5px solid #e8c36b !important;
+      font-family: 'Cairo', sans-serif !important;
+      font-size: clamp(8.5px, 1.45vw, 22px) !important;
+      font-weight: 800 !important;
+      white-space: nowrap !important;
       text-decoration: none !important;
-      cursor: pointer !important;
+      transition: transform 0.25s ease, box-shadow 0.25s ease !important;
     }
 
+    .akhBannerContent .shopButton {
+      color: #140e07 !important;
+      background: linear-gradient(180deg, #fff1b8 0%, #e8bd60 50%, #c48d36 100%) !important;
+      border-color: #f7df99 !important;
+      box-shadow: 0 0 16px rgba(232, 195, 107, 0.35) !important;
+    }
+
+    .akhBannerContent .ordersButton {
+      color: #f5d88f !important;
+      background: rgba(5, 5, 5, 0.72) !important;
+      border-color: #d8af56 !important;
+    }
+
+    .akhBannerContent .heroButton svg {
+      width: clamp(10px, 1.5vw, 22px) !important;
+      height: clamp(10px, 1.5vw, 22px) !important;
+      flex-shrink: 0 !important;
+    }
+
+    .akhBannerContent .heroButton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232, 195, 107, 0.4) !important;
+    }
+
+    /* PRODUCTS SECTION */
     .productsSection {
       width: 95%;
       max-width: 1450px;
@@ -78,12 +268,12 @@
 
 <body>
 
+  <!-- HEADER -->
   <header class="akhTopbar">
     <div class="akhTopbarActions">
       <a href="cart.html" class="akhRoundAction" aria-label="السلة">
         🛒 <span class="counter" id="cartCount">0</span>
       </a>
-
       <a href="favorites.html" class="akhRoundAction" aria-label="المفضلة">
         ♥ <span class="counter" id="favCount">0</span>
       </a>
@@ -103,50 +293,9 @@
     </nav>
   </header>
 
-  <main class="akhFullBanner" aria-label="AKH BRAND New Collection 2027">
+  <!-- WINTER HERO BANNER -->
+  <main class="akhFullBanner">
+
     <img
-      src="images/banner-2027.jpg"
-      alt="AKH BRAND - NEW COLLECTION 2027"
-      class="akhBannerArt"
-    >
-
-    <div class="akhBannerOverlayActions">
-      <a href="#productsSection" class="akhBannerHitButton" aria-label="تسوق الآن">تسوق الآن</a>
-      <a href="order-tracking.html" class="akhBannerHitButton" aria-label="طلباتي">طلباتي</a>
-    </div>
-  </main>
-
-  <section class="productsSection" id="productsSection">
-    <div class="sectionHeading">
-      <h2>OVERSIZED STREETWEAR</h2>
-    </div>
-
-    <p class="sectionDescription">
-      اكتشفي أحدث قطع AKH BRAND
-    </p>
-
-    <div class="searchBox">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="ابحثي عن المنتج الذي تريدينه..."
-        autocomplete="off"
-      >
-    </div>
-
-    <div id="products" class="productsGrid"></div>
-  </section>
-
-  <footer class="winterFooter">
-    <h2>AKH BRAND</h2>
-    <p>FEMININE LUXURY STREETWEAR</p>
-    <p>Fashion • Style • Confidence</p>
-    <p>© 2027 AKH BRAND. ALL RIGHTS RESERVED.</p>
-  </footer>
-
-  <div id="toast"></div>
-
-  <script type="module" src="js/app.js"></script>
-
-</body>
-</html>
+      src="images/winter-background.jpg%20.JPG"
+      alt="AKH BRAND Winter Collection 20
