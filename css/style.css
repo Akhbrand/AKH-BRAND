@@ -7025,3 +7025,65 @@ body {
   }
 }
 
+/* =====================================================
+   AKH BRAND - SAFE WINTER HOMEPAGE GRID FIX
+   Added after reviewing the complete 7,027-line stylesheet.
+   Existing page styles and JavaScript hooks are preserved.
+===================================================== */
+
+/* The current homepage uses #products.productsGrid,
+   while older product layouts target .products.
+   Give the homepage container its own grid layout. */
+#products.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 28px;
+    width: 100%;
+    max-width: 1450px;
+    margin: 35px auto 0;
+}
+
+/* Prevent long content or image galleries from widening a grid column. */
+#products.productsGrid > .card {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Keep the product gallery inside each card. */
+#products.productsGrid .gallery {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Tablet layout */
+@media (max-width: 900px) {
+    #products.productsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Phone layout */
+@media (max-width: 600px) {
+    #products.productsGrid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        margin-top: 25px;
+    }
+
+    #products.productsGrid > .card {
+        max-width: 520px;
+        margin-inline: auto;
+    }
+}
+
+/* Keep product images from overflowing their gallery. */
+#products.productsGrid .slider {
+    min-width: 0;
+}
+
+#products.productsGrid .slider img {
+    max-width: 100%;
+}
