@@ -7268,13 +7268,13 @@ body {
 }
 
 /* ==========================================
-   AKH BRAND — BIGGER HERO LOGO
-   Enlarge the logo artwork without changing
-   the banner frame or the hero layout.
+   AKH BRAND — EXTRA LARGE HERO LOGO
+   Enlarge the logo artwork while preserving
+   the existing frame and hero layout.
 ========================================== */
 .brandLogo img {
-  width: 145% !important;
-  height: 145% !important;
+  width: 170% !important;
+  height: 170% !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: contain !important;
@@ -7283,7 +7283,7 @@ body {
 
 @media (max-width: 600px) {
   .brandLogo img {
-    width: 155% !important;
-    height: 155% !important;
+    width: 185% !important;
+    height: 185% !important;
   }
 }
