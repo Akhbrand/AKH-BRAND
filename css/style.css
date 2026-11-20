@@ -9151,3 +9151,62 @@ body {
         font-size:23px !important;
     }
 }
+
+
+/* =====================================
+   AKH BRAND - WORDMARK FINAL FIX
+===================================== */
+
+.brandLogo.brandWordmark{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100% !important;
+    max-width:100% !important;
+    margin:20px auto 30px !important;
+    overflow:visible !important;
+}
+
+.brandLogo.brandWordmark .brandCrown{
+    display:block !important;
+    color:#e8c36b !important;
+    font-size:85px !important;
+    line-height:1 !important;
+    text-shadow:0 0 15px rgba(232,195,107,.5) !important;
+}
+
+.brandLogo.brandWordmark h1.brandTitle{
+    display:block !important;
+    width:max-content !important;
+    max-width:100% !important;
+    direction:ltr !important;
+    white-space:nowrap !important;
+    font-family:'Cinzel',Georgia,serif !important;
+    font-size:clamp(48px,8vw,112px) !important;
+    font-weight:800 !important;
+    letter-spacing:2px !important;
+    line-height:1.25 !important;
+    margin:5px auto !important;
+    padding:0 5px !important;
+    color:#e8c36b !important;
+    background:none !important;
+    -webkit-background-clip:border-box !important;
+    background-clip:border-box !important;
+    -webkit-text-fill-color:#e8c36b !important;
+    text-shadow:
+        0 2px 2px #684300,
+        0 0 12px rgba(232,195,107,.45) !important;
+    filter:none !important;
+}
+
+@media(max-width:768px){
+    .brandLogo.brandWordmark .brandCrown{
+        font-size:65px !important;
+    }
+
+    .brandLogo.brandWordmark h1.brandTitle{
+        font-size:clamp(42px,10vw,65px) !important;
+        letter-spacing:1px !important;
+    }
+}
