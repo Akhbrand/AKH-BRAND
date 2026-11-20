@@ -6567,3 +6567,461 @@ body {
 
 }
 
+
+/* ==========================================
+   AKH BRAND - WINTER LUXURY 2026
+========================================== */
+
+:root {
+  --winter-gold: #e9bd50;
+  --winter-black: #050505;
+  --winter-white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--winter-black);
+  color: white;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* WINTER HERO */
+
+.winterHero {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.25),
+      rgba(0,0,0,.48) 48%,
+      rgba(0,0,0,.78)
+    ),
+    url("../images/hero.jpg.jpg") center center / cover no-repeat;
+}
+
+.winterHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 15%,
+    rgba(0,0,0,.35) 100%
+  );
+  z-index: -1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 900px;
+  padding: 55px 15px 70px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* COLLECTION LABEL */
+
+.collectionLabel {
+  color: var(--winter-gold);
+  font-size: clamp(14px, 3.5vw, 24px);
+  font-weight: 900;
+  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.collectionLabel span {
+  font-size: 28px;
+}
+
+/* LOGO */
+
+.brandLogo {
+  width: 235px;
+  height: 190px;
+  background: #030303;
+  border: 2px solid rgba(233,189,80,.55);
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 38px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.5);
+}
+
+.brandLogo img {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+
+/* BRAND NAME */
+
+.brandTitle {
+  font-size: clamp(45px, 10vw, 100px);
+  font-weight: 900;
+  letter-spacing: 5px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  background: linear-gradient(
+    180deg,
+    #fff0b0 0%,
+    #e9bd50 45%,
+    #a87920 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 8px 25px rgba(0,0,0,.4);
+}
+
+/* SUBTITLE */
+
+.brandSubtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: white;
+  font-size: clamp(16px, 4vw, 31px);
+  letter-spacing: 3px;
+  margin-bottom: 65px;
+  white-space: nowrap;
+}
+
+.brandSubtitle span {
+  width: 45px;
+  height: 3px;
+  background: var(--winter-gold);
+}
+
+/* BUTTONS */
+
+.heroButtons {
+  width: min(430px, 90%);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.heroButton {
+  min-height: 95px;
+  padding: 10px 25px;
+  box-sizing: border-box;
+  border: 3px solid var(--winter-gold);
+  border-radius: 13px;
+  background: rgba(0,0,0,.83);
+  color: white;
+  text-decoration: none;
+  font-size: 31px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: .3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,.35);
+}
+
+.heroButton span {
+  position: absolute;
+  right: 25px;
+  color: var(--winter-gold);
+  font-size: 30px;
+}
+
+.shopButton {
+  color: var(--winter-gold);
+}
+
+.heroButton:hover {
+  background: var(--winter-gold);
+  color: black;
+  transform: translateY(-4px);
+}
+
+.heroButton:hover span {
+  color: black;
+}
+
+.discoverLink {
+  margin-top: 28px;
+  color: white;
+  font-size: 19px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* FLOATING ICONS */
+
+.floatingIcon {
+  position: fixed;
+  z-index: 1000;
+  top: 18px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.78);
+  border: 2px solid rgba(255,255,255,.17);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,.4);
+}
+
+.cartIcon {
+  left: 25px;
+}
+
+.favIcon {
+  right: 25px;
+}
+
+.iconEmoji {
+  font-size: 43px;
+}
+
+.counter {
+  position: absolute;
+  top: -9px;
+  right: -8px;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: var(--winter-gold);
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+/* SNOW */
+
+#winterSnow {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  top: -30px;
+  color: white;
+  opacity: .7;
+  text-shadow: 0 0 8px white;
+  animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-30px) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: .8;
+  }
+
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* PRODUCTS SECTION */
+
+.productsSection {
+  position: relative;
+  background: #050505;
+  padding: 75px 5%;
+  min-height: 400px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: var(--winter-gold);
+}
+
+.sectionHeading h2 {
+  font-size: clamp(22px, 5vw, 38px);
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.sectionHeading span {
+  font-size: 25px;
+}
+
+.sectionDescription {
+  text-align: center;
+  color: #bbb;
+  font-size: 18px;
+}
+
+.searchBox {
+  max-width: 650px;
+  margin: 35px auto;
+}
+
+.searchBox input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px;
+  background: #151515;
+  color: white;
+  border: 1px solid var(--winter-gold);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 17px;
+  outline: none;
+}
+
+.searchBox input:focus {
+  box-shadow: 0 0 15px rgba(233,189,80,.25);
+}
+
+/* PRODUCT GRID */
+
+.productsGrid {
+  width: 100%;
+}
+
+/* FOOTER */
+
+.winterFooter {
+  text-align: center;
+  background: #000;
+  border-top: 1px solid rgba(233,189,80,.3);
+  padding: 45px 15px;
+}
+
+.winterFooter h2 {
+  color: var(--winter-gold);
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+
+.winterFooter p {
+  color: #aaa;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .winterHero {
+    min-height: 100svh;
+    background-position: center center;
+  }
+
+  .heroContent {
+    padding: 90px 12px 45px;
+  }
+
+  .collectionLabel {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+  }
+
+  .brandLogo {
+    width: 190px;
+    height: 155px;
+    border-radius: 35px;
+    margin-bottom: 35px;
+  }
+
+  .brandTitle {
+    font-size: 48px;
+    letter-spacing: 2px;
+  }
+
+  .brandSubtitle {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    gap: 8px;
+    margin-bottom: 55px;
+  }
+
+  .brandSubtitle span {
+    width: 25px;
+  }
+
+  .heroButtons {
+    width: 75%;
+    gap: 20px;
+  }
+
+  .heroButton {
+    min-height: 78px;
+    font-size: 25px;
+    border-width: 2px;
+  }
+
+  .heroButton span {
+    right: 17px;
+    font-size: 23px;
+  }
+
+  .floatingIcon {
+    width: 72px;
+    height: 72px;
+    top: 100px;
+  }
+
+  .cartIcon {
+    left: 12px;
+  }
+
+  .favIcon {
+    right: 12px;
+  }
+
+  .iconEmoji {
+    font-size: 32px;
+  }
+
+  .counter {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .discoverLink {
+    font-size: 15px;
+  }
+
+  .productsSection {
+    padding: 50px 15px;
+  }
+}
+
