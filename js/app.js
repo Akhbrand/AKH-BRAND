@@ -397,7 +397,16 @@ async function loadProducts() {
            LOOP PRODUCTS
         ------------------------------------------------- */
 
-        snapshot.forEach(doc => {
+        /* المنتجات المتاحة أولاً ثم SOLD OUT في الآخر */
+        const sortedDocs = snapshot.docs
+            .slice()
+            .sort((a, b) => {
+                const aSold = a.data().available === false ? 1 : 0;
+                const bSold = b.data().available === false ? 1 : 0;
+                return aSold - bSold;
+            });
+
+        sortedDocs.forEach(doc => {
 
             try {
 
@@ -560,7 +569,7 @@ async function loadProducts() {
                 productsHTML += `
 
                     <div
-                        class="card"
+                        class="card ${!available ? "cardSoldOut" : ""}"
                         onclick="openProduct('${String(productCode).replace(/'/g, "\\'")}')"
                     >
 
