@@ -8932,3 +8932,37 @@ body {
 @media (max-width: 650px) {
   .akhTopbar { direction: rtl; }
 }
+
+
+/* =====================================
+   AKH BRAND - LOGO SIZE & GOLD TONE
+===================================== */
+
+/* Logo in the top navigation */
+.akhTopbarLogo img{
+    width: 85px !important;
+    height: 85px !important;
+    object-fit: contain;
+    filter: sepia(.75) saturate(1.5) hue-rotate(5deg) brightness(1.08);
+}
+
+/* Main hero logo */
+.brandLogo img{
+    width: 250px !important;
+    max-width: 90% !important;
+    height: auto !important;
+    object-fit: contain;
+    filter: sepia(.75) saturate(1.5) hue-rotate(5deg) brightness(1.08);
+}
+
+/* Mobile sizing */
+@media(max-width:768px){
+    .akhTopbarLogo img{
+        width: 68px !important;
+        height: 68px !important;
+    }
+
+    .brandLogo img{
+        width: 205px !important;
+    }
+}
