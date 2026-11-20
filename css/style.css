@@ -8065,3 +8065,119 @@ body {
     transition: none !important;
   }
 }
+
+
+/* =========================================================
+   AKH BRAND — FINAL STREETWEAR HERO FINISH
+   Matches the approved bold black / neon-lime direction.
+   Existing commerce selectors and JS hooks are untouched.
+========================================================= */
+
+:root {
+  --street-acid: #baff00;
+  --street-acid-soft: rgba(186,255,0,.22);
+}
+
+.winterHero {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,.18) 36%, rgba(0,0,0,.82) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.20) 50%, rgba(0,0,0,.72)),
+    url("../images/winter-background.jpg%20.JPEG") center 38% / cover no-repeat !important;
+}
+
+.winterHero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(186,255,0,.13), transparent 42%),
+    radial-gradient(ellipse at 15% 75%, rgba(186,255,0,.07), transparent 34%);
+  mix-blend-mode: screen;
+}
+
+.winterHero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 55%, #08090a 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+}
+
+.collectionLabel {
+  background: var(--street-acid) !important;
+  color: #08090a !important;
+  border: 1px solid var(--street-acid) !important;
+  box-shadow: 0 0 22px rgba(186,255,0,.22), 6px 6px 0 rgba(0,0,0,.55) !important;
+  transform: skew(-3deg);
+}
+
+.collectionLabel span {
+  display: none !important;
+}
+
+.brandLogo {
+  border: 1px solid rgba(186,255,0,.72) !important;
+  box-shadow:
+    0 0 0 7px rgba(186,255,0,.055),
+    0 0 28px rgba(186,255,0,.22),
+    12px 12px 0 rgba(186,255,0,.10) !important;
+}
+
+.brandLogo img {
+  filter: contrast(1.12) brightness(1.08);
+}
+
+.brandTitle {
+  color: #f4f4ef !important;
+  text-shadow:
+    0 2px 0 #b5b5ae,
+    0 5px 0 rgba(0,0,0,.65),
+    0 0 22px rgba(186,255,0,.12) !important;
+}
+
+.heroButton.shopButton,
+.heroButton:first-child {
+  background: var(--street-acid) !important;
+  border-color: var(--street-acid) !important;
+  box-shadow: 0 0 24px rgba(186,255,0,.15), 6px 6px 0 rgba(0,0,0,.45) !important;
+}
+
+.heroButton.ordersButton {
+  border-color: rgba(244,244,239,.78) !important;
+  background: rgba(4,5,5,.78) !important;
+}
+
+.sectionHeading span {
+  display: none !important;
+}
+
+.sectionHeading h2 {
+  color: var(--street-acid) !important;
+  letter-spacing: 2.5px !important;
+}
+
+.winterFooter {
+  border-top: 1px solid rgba(186,255,0,.35) !important;
+}
+
+@media (max-width: 600px) {
+  .winterHero {
+    background-position: center 34% !important;
+  }
+  .brandLogo {
+    box-shadow:
+      0 0 0 5px rgba(186,255,0,.05),
+      0 0 22px rgba(186,255,0,.18),
+      8px 8px 0 rgba(186,255,0,.09) !important;
+  }
+}
