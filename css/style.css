@@ -5923,3 +5923,647 @@ border:1px solid #ff5f5f;
 .card:has(.soldOutBadge) .gallery img{
     filter:brightness(.55);
 }
+
+
+/* ==========================================
+   AKH BRAND - WINTER COLLECTION 2026
+   FINAL WINTER UPGRADE
+========================================== */
+
+/* WINTER COLORS */
+
+:root {
+    --winter-gold: #d8ae3f;
+    --winter-blue: #9ebbd4;
+    --winter-black: #070a0e;
+}
+
+/* PAGE */
+
+body {
+    background-color: var(--winter-black);
+    color: #fff;
+}
+
+/* SNOW EFFECT */
+
+.winterSnow {
+    position: fixed;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    opacity: .48;
+
+    background-image:
+        radial-gradient(3px 3px at 20px 30px, #fff 98%, transparent),
+        radial-gradient(2px 2px at 100px 150px, #fff 98%, transparent),
+        radial-gradient(3px 3px at 200px 80px, #fff 98%, transparent),
+        radial-gradient(2px 2px at 300px 220px, #fff 98%, transparent),
+        radial-gradient(3px 3px at 400px 120px, #fff 98%, transparent),
+        radial-gradient(2px 2px at 500px 250px, #fff 98%, transparent);
+
+    background-size: 550px 300px;
+
+    animation: winterFall 12s linear infinite;
+}
+
+@keyframes winterFall {
+    from {
+        background-position: 0 -300px;
+    }
+
+    to {
+        background-position: 100px 600px;
+    }
+}
+
+/* HERO BACKGROUND */
+
+.mainHeader {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3, 7, 12, .40),
+            rgba(3, 7, 12, .72),
+            rgba(3, 7, 12, .90)
+        ),
+        url("../images/hero.jpg.jpg");
+
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+/* COLD LIGHT */
+
+.mainHeader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(159, 190, 220, .17),
+            transparent 45%
+        );
+
+    z-index: 1;
+}
+
+.overlay {
+    display: none !important;
+}
+
+/* HERO CONTENT */
+
+.headerContent {
+    position: relative;
+    z-index: 6;
+    width: 92%;
+    max-width: 850px;
+    text-align: center;
+    animation: winterReveal 1.2s ease both;
+}
+
+@keyframes winterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* COLLECTION TAG */
+
+.brandTag {
+    display: block;
+    color: var(--winter-gold);
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+    text-shadow: 0 0 20px rgba(216,174,63,.35);
+}
+
+/* LOGO */
+
+.logo {
+    width: 155px !important;
+    height: 155px !important;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 30px;
+    border-radius: 25px;
+    border: 1px solid rgba(216,174,63,.25);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.65),
+        0 0 35px rgba(216,174,63,.12);
+}
+
+/* BRAND NAME */
+
+.mainHeader h1 {
+    font-size: clamp(48px, 9vw, 90px);
+    font-weight: 900;
+    letter-spacing: 7px;
+    margin-bottom: 12px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #d8ae3f,
+        #fff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    text-shadow: none;
+}
+
+/* SUBTITLE */
+
+.mainHeader p {
+    color: #e2e8ef;
+    font-size: clamp(17px, 3vw, 25px);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.winterTagline {
+    color: #aebfd0;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 35px;
+}
+
+/* HERO BUTTONS */
+
+.heroButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    margin-top: 15px;
+}
+
+.shopBtn,
+.ordersBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 270px;
+    height: 67px;
+
+    border: 1px solid var(--winter-gold);
+    border-radius: 4px;
+
+    background: rgba(0,0,0,.42);
+    color: var(--winter-gold);
+
+    font-family: 'Cairo', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+
+    backdrop-filter: blur(8px);
+    transition: .35s;
+}
+
+.ordersBtn {
+    color: #fff;
+    background: rgba(255,255,255,.04);
+}
+
+.shopBtn:hover,
+.ordersBtn:hover {
+    background: var(--winter-gold);
+    color: #080808;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(216,174,63,.22);
+}
+
+/* SCROLL INDICATOR */
+
+.winterScroll {
+    margin-top: 35px;
+    color: #b5c3d0;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.scrollArrow {
+    display: block;
+    color: var(--winter-gold);
+    font-size: 23px;
+    margin-top: 5px;
+    animation: arrowDown 1.5s infinite;
+}
+
+@keyframes arrowDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+/* CART AND FAVORITES */
+
+.cartIcon,
+.favIcon {
+    z-index: 9999;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(216,174,63,.35);
+    box-shadow: 0 8px 30px rgba(0,0,0,.4);
+}
+
+/* ABOUT */
+
+.aboutBrand {
+    position: relative;
+    z-index: 2;
+    margin: 100px auto 70px;
+}
+
+.winterSectionTag {
+    display: block;
+    color: var(--winter-gold);
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.aboutBrand h2 {
+    color: #fff;
+    font-size: clamp(32px, 5vw, 52px);
+    letter-spacing: 5px;
+}
+
+.aboutBrand p {
+    color: #aebdca;
+}
+
+/* BRAND STORY */
+
+.brandStory {
+    display: none !important;
+}
+
+/* WINTER BANNER */
+
+.akhBanner {
+    position: relative;
+    z-index: 2;
+    width: 95%;
+    max-width: 1450px;
+    height: 400px;
+    margin: 70px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(216,174,63,.35);
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.akhBannerBg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    filter: brightness(.55) saturate(.65) contrast(1.1);
+}
+
+.akhBannerOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2,6,12,.9),
+            rgba(2,6,12,.48),
+            rgba(2,6,12,.12)
+        );
+}
+
+.akhBannerContent {
+    position: absolute;
+    z-index: 3;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48%;
+    text-align: left;
+}
+
+.akhBannerContent .bannerTag {
+    color: var(--winter-gold);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.akhBannerContent h2 {
+    color: #fff;
+    font-size: clamp(38px, 7vw, 76px);
+    font-weight: 900;
+    line-height: .95;
+    margin-bottom: 18px;
+}
+
+.akhBannerContent p {
+    color: #c6d3df;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.akhBannerBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
+    height: 53px;
+    padding: 0 25px;
+    background: var(--winter-gold);
+    color: #080808;
+    font-weight: 900;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.akhBannerBtn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(216,174,63,.3);
+}
+
+/* COLLECTION TITLE */
+
+.collectionTitle {
+    position: relative;
+    z-index: 2;
+    padding: 85px 20px 40px;
+}
+
+.collectionTitle span {
+    display: block;
+    color: var(--winter-gold);
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.collectionTitle h2 {
+    font-size: clamp(32px, 5vw, 52px);
+    letter-spacing: 4px;
+}
+
+.collectionTitle p {
+    color: #aebdca;
+}
+
+/* SEARCH */
+
+.searchContainer,
+.products {
+    position: relative;
+    z-index: 2;
+}
+
+/* PRODUCT CARDS */
+
+.card {
+    background: #0b1017;
+    border: 1px solid rgba(159,190,220,.12);
+}
+
+.card:hover {
+    border-color: var(--winter-gold);
+}
+
+.price {
+    color: var(--winter-gold);
+}
+
+.dot.active {
+    background: var(--winter-gold);
+}
+
+/* FEATURES */
+
+.features {
+    position: relative;
+    z-index: 2;
+}
+
+.featureBox {
+    background: #0b1017;
+    border: 1px solid rgba(159,190,220,.13);
+}
+
+.featureIcon {
+    background: linear-gradient(
+        135deg,
+        #d8ae3f,
+        #f4d77a
+    );
+}
+
+/* FOOTER */
+
+.footer {
+    position: relative;
+    z-index: 2;
+    background: #04070b;
+    border-top: 1px solid rgba(216,174,63,.25);
+}
+
+.footerWinter {
+    color: var(--winter-gold);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin: 0 0 25px;
+}
+
+/* LOADER */
+
+#loader {
+    background:
+        radial-gradient(
+            circle at center,
+            #17212c,
+            #05070a 70%
+        );
+}
+
+.loaderSub {
+    color: var(--winter-gold);
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px) {
+
+    .mainHeader {
+        height: 100svh;
+        min-height: 680px;
+        background-position: center center;
+        background-attachment: scroll;
+    }
+
+    .headerContent {
+        width: 94%;
+        padding-top: 15px;
+    }
+
+    .brandTag {
+        font-size: 12px;
+        letter-spacing: 3px;
+        margin-bottom: 25px;
+    }
+
+    .logo {
+        width: 115px !important;
+        height: 115px !important;
+        margin-bottom: 25px;
+    }
+
+    .mainHeader h1 {
+        font-size: 45px;
+        letter-spacing: 4px;
+    }
+
+    .mainHeader p {
+        font-size: 17px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .winterTagline {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+        margin-bottom: 25px;
+    }
+
+    .heroButtons {
+        gap: 13px;
+    }
+
+    .shopBtn,
+    .ordersBtn {
+        width: 225px;
+        height: 58px;
+        font-size: 18px;
+    }
+
+    .winterScroll {
+        margin-top: 25px;
+        font-size: 8px;
+    }
+
+    .cartIcon {
+        top: 95px;
+        left: 18px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .favIcon {
+        top: 95px;
+        right: 18px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .akhBanner {
+        width: 94%;
+        height: 260px;
+        margin: 45px auto;
+    }
+
+    .akhBannerContent {
+        left: 5%;
+        width: 65%;
+    }
+
+    .akhBannerContent h2 {
+        font-size: 36px;
+    }
+
+    .akhBannerContent p {
+        font-size: 12px;
+    }
+
+    .akhBannerContent .bannerTag {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .akhBannerBtn {
+        min-width: 145px;
+        height: 43px;
+        font-size: 13px;
+    }
+
+    .collectionTitle {
+        padding: 60px 15px 30px;
+    }
+
+    .collectionTitle h2 {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+
+    .aboutBrand {
+        margin: 75px auto 50px;
+    }
+
+    .aboutBrand h2 {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+
+    .aboutBrand p {
+        font-size: 16px;
+    }
+
+}
+
+/* REDUCE MOTION ACCESSIBILITY */
+
+@media(prefers-reduced-motion: reduce) {
+
+    .winterSnow,
+    .headerContent,
+    .scrollArrow {
+        animation: none !important;
+    }
+
+}
+
