@@ -1,296 +1,133 @@
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>AKH BRAND | Premium Oversized Streetwear</title>
 
-    <meta name="theme-color" content="#080b10">
-    <meta name="description" content="AKH BRAND - Winter Collection 2026. Premium Oversized Streetwear.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>AKH BRAND | WINTER COLLECTION 2026</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- WINTER SNOW -->
-<div class="winterSnow" aria-hidden="true"></div>
+  <!-- Snow -->
+  <div class="winterSnow" id="winterSnow"></div>
 
-<!-- LOADER -->
-<div id="loader">
+  <!-- Cart -->
+  <a href="cart.html" class="floatingIcon cartIcon" aria-label="السلة">
+    <span class="iconEmoji">🛒</span>
+    <span class="counter" id="cartCount">0</span>
+  </a>
 
-    <img
-        src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif"
-        class="loaderLogo"
-        alt="AKH BRAND">
+  <!-- Favorites -->
+  <a href="favorites.html" class="floatingIcon favIcon" aria-label="المفضلة">
+    <span class="iconEmoji">❤️</span>
+    <span class="counter" id="favCount">0</span>
+  </a>
 
-    <div class="loaderTitle">AKH BRAND</div>
+  <!-- HERO -->
+  <main class="winterHero">
 
-    <div class="loaderSub">WINTER COLLECTION 2026</div>
+    <div class="heroContent">
 
-    <div class="loaderBar">
-        <div class="loaderProgress"></div>
-    </div>
+      <div class="collectionLabel">
+        <span>❄</span>
+        NEW COLLECTION 2026
+        <span>❄</span>
+      </div>
 
-</div>
-
-<!-- CART -->
-<a href="cart.html" class="cartIcon" aria-label="سلة التسوق">
-    🛒
-    <span id="cartCount">0</span>
-</a>
-
-<!-- FAVORITES -->
-<a href="favorites.html" class="favIcon" aria-label="المفضلة">
-    ❤️
-    <span id="favCount">0</span>
-</a>
-
-<!-- HERO -->
-<header class="mainHeader">
-
-    <div class="overlay"></div>
-
-    <div class="headerContent">
-
-        <span class="brandTag">
-            ❄ WINTER COLLECTION 2026 ❄
-        </span>
-
+      <div class="brandLogo">
         <img
-            src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif"
-            class="logo"
-            alt="AKH BRAND">
+          src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif"
+          alt="AKH BRAND Logo">
+      </div>
 
-        <h1>AKH BRAND</h1>
+      <h1 class="brandTitle">AKH BRAND</h1>
 
-        <p>Premium Oversized Streetwear</p>
+      <div class="brandSubtitle">
+        <span></span>
+        Premium Oversized Streetwear
+        <span></span>
+      </div>
 
-        <div class="winterTagline">
-            BUILT FOR THE COLD. MADE TO STAND OUT.
-        </div>
+      <div class="heroButtons">
 
-        <div class="heroButtons">
+        <a href="#products" class="heroButton shopButton">
+          تسوق الآن
+          <span>❯</span>
+        </a>
 
-            <a href="#products" class="shopBtn">
-                تسوق الآن
-            </a>
+        <a href="order-tracking.html" class="heroButton ordersButton">
+          طلباتي 📦
+          <span>❯</span>
+        </a>
 
-            <a href="order-tracking.html" class="ordersBtn">
-                📦 طلباتي
-            </a>
+      </div>
 
-        </div>
-
-        <div class="winterScroll">
-            <span>DISCOVER THE COLLECTION</span>
-            <span class="scrollArrow">↓</span>
-        </div>
+      <a href="#products" class="discoverLink">
+        ↓ DISCOVER THE COLLECTION
+      </a>
 
     </div>
+  </main>
 
-</header>
+  <!-- PRODUCTS -->
+  <section class="productsSection" id="products">
 
-<!-- ABOUT -->
-<section class="aboutBrand">
+    <div class="sectionHeading">
+      <span>❄</span>
+      <h2>WINTER COLLECTION</h2>
+      <span>❄</span>
+    </div>
 
-    <span class="winterSectionTag">THE WINTER EDITION</span>
-
-    <h2>WEAR YOUR IDENTITY</h2>
-
-    <p>
-        AKH BRAND creates premium oversized streetwear
-        for those who choose confidence, quality and a unique identity.
-        Discover your winter style.
+    <p class="sectionDescription">
+      اكتشف أحدث قطع AKH BRAND
     </p>
 
-</section>
-
-<!-- BRAND STORY -->
-<section class="brandStory">
-
-    <div class="storyImage">
-        <img
-            src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif"
-            alt="AKH BRAND">
-    </div>
-
-    <div class="storyContent">
-
-        <span>OUR STORY</span>
-
-        <h2>MORE THAN CLOTHES</h2>
-
-        <p>
-            AKH BRAND is built for those who choose
-            a different identity.
-            Premium oversized pieces designed with
-            attention to details, quality and confidence.
-        </p>
-
-        <a href="#products" class="storyBtn">
-            EXPLORE COLLECTION
-        </a>
-
-    </div>
-
-</section>
-
-<!-- WINTER BANNER -->
-<section class="akhBanner">
-
-    <img
-        src="images/hero.jpg.jpg"
-        class="akhBannerBg"
-        alt="AKH BRAND Winter Collection">
-
-    <div class="akhBannerOverlay"></div>
-
-    <div class="akhBannerContent">
-
-        <span class="bannerTag">
-            AKH BRAND EXCLUSIVE
-        </span>
-
-        <h2>
-            WINTER<br>
-            COLLECTION
-        </h2>
-
-        <p>
-            Premium Style. Ultimate Comfort.
-        </p>
-
-        <a href="#products" class="akhBannerBtn">
-            اكتشف المجموعة
-        </a>
-
-    </div>
-
-</section>
-
-<!-- COLLECTION TITLE -->
-<section class="collectionTitle">
-
-    <span>NEW SEASON • NEW STYLE</span>
-
-    <h2>WINTER COLLECTION</h2>
-
-    <p>Latest Winter Drops From AKH BRAND</p>
-
-</section>
-
-<!-- SEARCH -->
-<div class="searchContainer">
-
-    <input
-        type="text"
+    <div class="searchBox">
+      <input
+        type="search"
         id="searchInput"
-        placeholder="🔍 ابحث عن منتج..."
-        class="searchBox">
-
-</div>
-
-<!-- PRODUCTS -->
-<section class="products" id="products"></section>
-
-<!-- FEATURES -->
-<section class="features">
-
-    <div class="featureBox">
-
-        <div class="featureIcon">🚚</div>
-
-        <h3>شحن سريع</h3>
-
-        <p>توصيل لجميع المحافظات</p>
-
+        placeholder="ابحث عن المنتج الذي تريده..."
+        autocomplete="off">
     </div>
 
-    <div class="featureBox">
+    <div id="products" class="productsGrid"></div>
 
-        <div class="featureIcon">⭐</div>
+  </section>
 
-        <h3>جودة عالية</h3>
+  <!-- FOOTER -->
+  <footer class="winterFooter">
+    <h2>AKH BRAND</h2>
+    <p>PREMIUM OVERSIZED STREETWEAR</p>
+    <p>© 2026 AKH BRAND. ALL RIGHTS RESERVED.</p>
+  </footer>
 
-        <p>خامات ممتازة مختارة بعناية</p>
+  <div id="toast"></div>
 
-    </div>
+  <script>
+    // Snow animation
+    const snow = document.getElementById("winterSnow");
 
-    <div class="featureBox">
+    for (let i = 0; i < 65; i++) {
+      const flake = document.createElement("span");
+      flake.className = "snowflake";
+      flake.textContent = "❄";
+      flake.style.left = Math.random() * 100 + "%";
+      flake.style.animationDuration = (5 + Math.random() * 10) + "s";
+      flake.style.animationDelay = (Math.random() * 10) + "s";
+      flake.style.fontSize = (8 + Math.random() * 12) + "px";
+      snow.appendChild(flake);
+    }
+  </script>
 
-        <div class="featureIcon">💳</div>
-
-        <h3>الدفع عند الاستلام</h3>
-
-        <p>اطلب الآن وادفع عند الاستلام</p>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-    <h3>AKH BRAND</h3>
-
-    <p>Premium Oversized Streetwear</p>
-
-    <div class="footerWinter">
-        ❄ WINTER COLLECTION 2026 ❄
-    </div>
-
-    <div class="footerLinks">
-
-        <a href="https://wa.me/201097521334">
-            WhatsApp
-        </a>
-
-        <a href="#">
-            Instagram
-        </a>
-
-        <a href="#">
-            TikTok
-        </a>
-
-    </div>
-
-    <div class="footerCopy">
-        © 2026 AKH BRAND - All Rights Reserved
-    </div>
-
-</footer>
-
-<!-- APP -->
-<script type="module" src="js/app.js"></script>
-
-<!-- LOADER SCRIPT -->
-<script>
-
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        const loader = document.getElementById("loader");
-
-        if (loader) {
-            loader.classList.add("loaderHide");
-        }
-
-    }, 1800);
-
-});
-
-</script>
-
-<!-- TOAST -->
-<div id="toast" class="toast"></div>
+  <!-- Keep existing Firebase and products functionality -->
+  <script type="module" src="js/app.js"></script>
 
 </body>
 </html>
