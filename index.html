@@ -4,17 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08090a">
-  <title>AKH BRAND | Global Streetwear 2027</title>
+  <meta name="theme-color" content="#050505">
+  <title>AKH BRAND | Premium Oversized Streetwear</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+  <div class="winterSnow" id="winterSnow"></div>
 
   <a href="cart.html" class="floatingIcon cartIcon" aria-label="السلة">
     <span class="iconEmoji">🛒</span>
@@ -27,10 +28,13 @@
   </a>
 
   <main class="winterHero">
+
     <div class="heroContent">
 
       <div class="collectionLabel">
+        <span>❄</span>
         NEW COLLECTION 2027
+        <span>❄</span>
       </div>
 
       <div class="brandLogo">
@@ -48,6 +52,7 @@
       </div>
 
       <div class="heroButtons">
+
         <a href="#productsSection" class="heroButton shopButton">
           تسوق الآن
           <span>❯</span>
@@ -57,6 +62,7 @@
           طلباتي 📦
           <span>❯</span>
         </a>
+
       </div>
 
       <a href="#productsSection" class="discoverLink">
@@ -69,7 +75,9 @@
   <section class="productsSection" id="productsSection">
 
     <div class="sectionHeading">
-      <h2>OVERSIZED STREETWEAR</h2>
+      <span>❄</span>
+      <h2>WINTER COLLECTION</h2>
+      <span>❄</span>
     </div>
 
     <p class="sectionDescription">
@@ -84,7 +92,7 @@
         autocomplete="off">
     </div>
 
-    <!-- app.js displays products here; keep this ID unchanged -->
+    <!-- مهم: هذا هو المكان الذي يعرض فيه app.js المنتجات -->
     <div id="products" class="productsGrid"></div>
 
   </section>
@@ -92,10 +100,25 @@
   <footer class="winterFooter">
     <h2>AKH BRAND</h2>
     <p>PREMIUM OVERSIZED STREETWEAR</p>
-    <p>© 2027 AKH BRAND. ALL RIGHTS RESERVED.</p>
+    <p>© 2026 AKH BRAND. ALL RIGHTS RESERVED.</p>
   </footer>
 
   <div id="toast"></div>
+
+  <script>
+    const snow = document.getElementById("winterSnow");
+
+    for (let i = 0; i < 65; i++) {
+      const flake = document.createElement("span");
+      flake.className = "snowflake";
+      flake.textContent = "❄";
+      flake.style.left = Math.random() * 100 + "%";
+      flake.style.animationDuration = (5 + Math.random() * 10) + "s";
+      flake.style.animationDelay = (Math.random() * 10) + "s";
+      flake.style.fontSize = (8 + Math.random() * 12) + "px";
+      snow.appendChild(flake);
+    }
+  </script>
 
   <script type="module" src="js/app.js"></script>
 
