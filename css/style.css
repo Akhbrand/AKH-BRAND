@@ -9054,3 +9054,100 @@ body {
         height: 85px !important;
     }
 }
+
+
+/* =========================================
+   AKH BRAND - ROYAL GOLD WORDMARK 2027
+========================================= */
+
+/* Main brand name and crown */
+.brandLogo.brandWordmark{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:0 !important;
+    margin:15px auto 25px !important;
+}
+
+.brandLogo.brandWordmark .brandCrown{
+    display:block !important;
+    font-family:serif !important;
+    font-size:100px !important;
+    line-height:.9 !important;
+    color:#e9c46a !important;
+    text-shadow:
+        0 2px 2px #704500,
+        0 0 15px rgba(231,190,91,.65) !important;
+}
+
+.brandLogo.brandWordmark .brandTitle{
+    font-family:'Cinzel',serif !important;
+    font-size:clamp(65px,8vw,125px) !important;
+    font-weight:800 !important;
+    line-height:1.15 !important;
+    letter-spacing:3px !important;
+    margin:0 !important;
+    background:linear-gradient(
+        180deg,
+        #fff0b5 0%,
+        #e8c36b 35%,
+        #b8862e 65%,
+        #ffe6a0 100%
+    ) !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    filter:drop-shadow(0 4px 8px rgba(212,175,55,.3));
+}
+
+/* Header wordmark */
+.akhTopbarLogo{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:0 !important;
+    text-decoration:none !important;
+}
+
+.akhTopbarLogo img,
+.akhTopbarLogo small{
+    display:none !important;
+}
+
+.akhTopbarLogo .akhHeaderCrown{
+    color:#e8c36b !important;
+    font-size:30px !important;
+    line-height:1 !important;
+    text-shadow:0 0 10px rgba(212,175,55,.5);
+}
+
+.akhTopbarLogo .akhHeaderName{
+    font-family:'Cinzel',serif !important;
+    font-size:27px !important;
+    font-weight:800 !important;
+    letter-spacing:1px !important;
+    color:#e8c36b !important;
+    text-shadow:0 0 10px rgba(212,175,55,.3);
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .brandLogo.brandWordmark .brandCrown{
+        font-size:72px !important;
+    }
+
+    .brandLogo.brandWordmark .brandTitle{
+        font-size:clamp(48px,12vw,75px) !important;
+        letter-spacing:1px !important;
+    }
+
+    .akhTopbarLogo .akhHeaderName{
+        font-size:19px !important;
+    }
+
+    .akhTopbarLogo .akhHeaderCrown{
+        font-size:23px !important;
+    }
+}
