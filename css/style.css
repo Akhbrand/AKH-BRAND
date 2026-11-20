@@ -7088,323 +7088,181 @@ body {
     max-width: 100%;
 }
 
+
 /* =====================================================
-   AKH BRAND - WINTER LUXURY BLACK & SILVER 2026
-   Safe visual override: preserves existing HTML, JS,
-   Firebase, cart, favorites, checkout and admin behavior.
+   AKH BRAND — ROYAL WINTER THEME
+   Black + Royal Gold + Soft Snow
+   Visual overrides only: no HTML/JS functionality changed.
 ===================================================== */
 
 :root {
-    --winter-gold: #dce8f2;
-    --winter-black: #05070a;
-    --winter-white: #ffffff;
-    --winter-silver: #dce8f2;
-    --winter-ice: #91b8d5;
+  --winter-gold: #d8ae3f;
+  --royal-gold: #d8ae3f;
+  --royal-gold-light: #f2d27a;
+  --royal-gold-deep: #9f7620;
+  --winter-black: #070707;
 }
 
-/* Main winter atmosphere */
+html, body {
+  background: #070707;
+  color: #f7f3e9;
+}
+
 body {
-    background: #05070a;
-    color: #f5f8fb;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(216,174,63,.075), transparent 48%);
 }
 
-.winterHero {
-    background-color: #05070a;
-    background-image:
-        linear-gradient(
-            to bottom,
-            rgba(3, 7, 12, .30),
-            rgba(3, 7, 12, .56) 48%,
-            rgba(3, 7, 12, .88)
-        ),
-        url("../images/hero.jpg.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+/* Gold scrollbar and selection */
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #f2d27a, #9f7620); }
+::selection { background: rgba(216,174,63,.35); color: #fff; }
+
+/* Royal hero */
+.winterHero, .mainHeader {
+  background-color: #050505;
+}
+.winterHero::before, .mainHeader::before {
+  pointer-events: none;
+}
+.brandTitle, .mainHeader h1, .brandName {
+  background: linear-gradient(115deg, #fff1bd 5%, #d8ae3f 42%, #fff0b0 72%, #a87920 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 8px 35px rgba(216,174,63,.12);
+}
+.collectionLabel, .sectionHeading, .sectionHeading h2,
+.collectionTitle h2, .aboutBrand h2, .winterFooter h2,
+.bannerContent span, .footer h3 {
+  color: var(--royal-gold-light);
 }
 
-/* Keep the original brand mark; give its frame an icy finish */
-.brandLogo {
-    background: rgba(3, 7, 12, .88);
-    border: 2px solid rgba(220, 232, 242, .72);
-    box-shadow:
-        0 0 0 5px rgba(220, 232, 242, .045),
-        0 12px 40px rgba(0, 0, 0, .65),
-        0 0 28px rgba(145, 184, 213, .16);
+/* Buttons */
+.heroButton, .shopBtn, .bannerBtn, .cartLink, .confirmBtn,
+.qtyBtn, .featureIcon {
+  background: linear-gradient(135deg, #f4d98b 0%, #d8ae3f 48%, #a87920 100%);
+  color: #100d06;
+  border-color: rgba(242,210,122,.85);
+  box-shadow: 0 10px 28px rgba(216,174,63,.16);
+}
+.heroButton:hover, .shopBtn:hover, .bannerBtn:hover,
+.cartLink:hover, .confirmBtn:hover, .qtyBtn:hover {
+  background: linear-gradient(135deg, #fff0b5, #e0b94e 55%, #b4872b);
+  box-shadow: 0 14px 34px rgba(216,174,63,.28);
+}
+.ordersBtn, .heroButton.secondary {
+  color: var(--royal-gold-light);
+  border-color: var(--royal-gold);
 }
 
-.brandTitle {
-    background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #dce8f2 42%,
-        #91a9bb 78%,
-        #f8fcff 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 8px 28px rgba(145, 184, 213, .15);
+/* Floating cart and favorites retain their existing links and IDs */
+.floatingIcon, .cartIcon, .favIcon {
+  background: rgba(8,8,8,.88);
+  border: 1px solid rgba(216,174,63,.58);
+  color: #f7e4ad;
+  box-shadow: 0 8px 28px rgba(0,0,0,.5), 0 0 18px rgba(216,174,63,.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.floatingIcon:hover, .cartIcon:hover, .favIcon:hover {
+  border-color: #f2d27a;
+  box-shadow: 0 0 24px rgba(216,174,63,.22);
+}
+#cartCount, #favCount, .counter {
+  background: #d8ae3f;
+  color: #100d06;
+  border: 1px solid #f2d27a;
 }
 
-.collectionLabel,
-.sectionHeading,
-.sectionHeading span,
-.winterFooter h2 {
-    color: #dce8f2;
+/* Products and cards */
+.productsSection { background: linear-gradient(180deg, #080808, #0d0b07 55%, #070707); }
+.card, .productCard {
+  background: linear-gradient(155deg, #15130e, #0b0b0a 62%, #11100c);
+  border: 1px solid rgba(216,174,63,.22);
+  box-shadow: 0 16px 42px rgba(0,0,0,.42);
 }
-
-.brandSubtitle span {
-    background: linear-gradient(90deg, #91b8d5, #f5f9fc);
+.card:hover, .productCard:hover {
+  border-color: rgba(242,210,122,.78);
+  box-shadow: 0 20px 52px rgba(0,0,0,.58), 0 0 24px rgba(216,174,63,.10);
 }
-
-/* Silver winter buttons */
-.heroButton {
-    border-color: #c8d8e5;
-    background: rgba(5, 9, 14, .88);
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, .4),
-        inset 0 0 18px rgba(220, 232, 242, .035);
-}
-
-.heroButton span,
-.shopButton {
-    color: #e5f0f8;
-}
-
-.heroButton:hover {
-    background: linear-gradient(135deg, #f4f8fb, #a9c2d5);
-    color: #071019;
-    box-shadow: 0 12px 32px rgba(145, 184, 213, .24);
-}
-
-.heroButton:hover span {
-    color: #071019;
-}
-
-.discoverLink {
-    color: #d4e1eb;
-}
-
-/* Floating cart and favorites */
-.floatingIcon {
-    background: rgba(5, 10, 16, .86);
-    border: 1px solid rgba(220, 232, 242, .42);
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, .5),
-        0 0 18px rgba(145, 184, 213, .10);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-.counter {
-    background: linear-gradient(135deg, #f7fbff, #a9c2d5);
-    color: #071019;
-}
-
-/* Snowfall: a little brighter, still behind the controls */
-#winterSnow {
-    z-index: 5;
-    pointer-events: none;
-}
-
-.snowflake {
-    color: #f4faff;
-    text-shadow:
-        0 0 5px rgba(255, 255, 255, .9),
-        0 0 14px rgba(145, 184, 213, .7);
-    opacity: .72;
-}
-
-/* Product section and search */
-.productsSection {
-    background:
-        radial-gradient(ellipse at 50% 0%, rgba(65, 95, 120, .16), transparent 48%),
-        #05070a;
-}
-
-.sectionDescription {
-    color: #b8c7d3;
-}
-
-.searchBox input {
-    background: #0b1118;
-    color: #f5f8fb;
-    border: 1px solid rgba(200, 216, 229, .55);
-}
-
-.searchBox input:focus {
-    border-color: #eaf4fb;
-    box-shadow: 0 0 18px rgba(145, 184, 213, .20);
-}
-
-/* Product cards: black glass with cool silver borders */
-#products.productsGrid > .card,
-.products > .card,
-.card {
-    background: linear-gradient(160deg, #101923 0%, #080d13 62%, #070a0f 100%);
-    border: 1px solid rgba(190, 210, 225, .20);
-    box-shadow:
-        0 16px 38px rgba(0, 0, 0, .48),
-        inset 0 1px 0 rgba(255, 255, 255, .035);
-}
-
-#products.productsGrid > .card:hover,
-.products > .card:hover,
-.card:hover {
-    border-color: rgba(220, 235, 246, .72);
-    box-shadow:
-        0 22px 48px rgba(0, 0, 0, .58),
-        0 0 22px rgba(145, 184, 213, .10);
-}
-
-.gallery,
-#products.productsGrid .gallery {
-    background: #080e15;
-}
-
-.slider img {
-    background: #080e15;
-}
-
-.info h2 {
-    color: #f2f7fb;
-}
-
-.price,
-.dot.active {
-    color: #e2edf5;
-    background-color: #b9ccdc;
-}
-
+.info h2, .productTitle { color: #fff8e8; }
+.price, .totalBox, .cartTotal { color: var(--royal-gold-light); }
+.dot.active { background: var(--royal-gold); }
 .cartBtn {
-    background: linear-gradient(135deg, #eaf2f8, #a9c2d5);
-    color: #071019;
-    border: 1px solid rgba(255, 255, 255, .55);
+  border: 1px solid rgba(216,174,63,.42);
+  background: linear-gradient(135deg, #211b0e, #17130a);
+  color: #f4d98b;
+}
+.cartBtn:hover { background: linear-gradient(135deg, #f4d98b, #c99a2e); color: #100d06; }
+
+/* Forms, checkout, tracking and order panels */
+.checkoutLeft, .checkoutRight, .trackingBox, .customerOrder,
+.cartSummary, .featureBox, .orderCard {
+  background: linear-gradient(155deg, #15130e, #0b0b0a 70%, #100e09);
+  border-color: rgba(216,174,63,.22);
+}
+.checkoutRight input, .checkoutRight textarea, .checkoutRight select,
+.trackingBox input {
+  background: #11100c;
+  border-color: rgba(216,174,63,.25);
+  color: #fff;
+}
+.checkoutRight input:focus, .checkoutRight textarea:focus,
+.checkoutRight select:focus, .trackingBox input:focus {
+  border-color: #d8ae3f;
+  box-shadow: 0 0 0 3px rgba(216,174,63,.10);
+  outline: none;
+}
+.checkoutLeft h2, .checkoutRight h2, .customerOrder h2,
+.status { color: var(--royal-gold-light); }
+
+/* Winter snowfall: soft white flakes with a subtle warm glow */
+.winterSnow {
+  opacity: .36;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.95) 98%, transparent),
+    radial-gradient(2px 2px at 100px 150px, rgba(255,248,225,.9) 98%, transparent),
+    radial-gradient(3px 3px at 200px 80px, rgba(255,255,255,.85) 98%, transparent),
+    radial-gradient(2px 2px at 300px 220px, rgba(242,210,122,.65) 98%, transparent);
+}
+#winterSnow { pointer-events: none; }
+.snowflake {
+  color: #fffdf5;
+  text-shadow: 0 0 5px rgba(255,255,255,.75), 0 0 12px rgba(216,174,63,.22);
+  opacity: .62;
 }
 
-.cartBtn:hover {
-    background: #ffffff;
-    color: #050b11;
-    box-shadow: 0 10px 25px rgba(145, 184, 213, .20);
+/* Footer */
+.footer, .winterFooter {
+  background: #050505;
+  border-top: 1px solid rgba(216,174,63,.30);
 }
+.winterFooter p, .footer p { color: #b9b2a2; }
 
-/* Existing WhatsApp action remains green for recognition */
-.btn {
-    border-radius: 12px;
-}
-
-/* Secondary page accents: cart, checkout and order tracking */
-.cartLink,
-.qtyBtn,
-.confirmBtn {
-    background: linear-gradient(135deg, #edf4f9, #a9c2d5);
-    color: #071019;
-}
-
-.cartLink:hover,
-.qtyBtn:hover,
-.confirmBtn:hover {
-    box-shadow: 0 12px 30px rgba(145, 184, 213, .20);
-}
-
-.totalBox,
-.cartTotal {
-    color: #dce8f2;
-}
-
-.checkoutLeft,
-.checkoutRight,
-.trackingBox,
-.customerOrder,
-.cartSummary,
-.featureBox {
-    background: linear-gradient(160deg, #101923, #080d13);
-    border-color: rgba(190, 210, 225, .18);
-}
-
-.checkoutRight input:focus,
-.checkoutRight textarea:focus,
-.checkoutRight select:focus,
-.trackingBox input:focus {
-    border-color: #c8d8e5;
-    box-shadow: 0 0 12px rgba(145, 184, 213, .13);
-}
-
-.customerOrder h2,
-.status {
-    color: #dce8f2;
-}
-
-.featureIcon {
-    background: linear-gradient(135deg, #f4f8fb, #a9c2d5);
-    color: #071019;
-}
-
-.footer,
-.winterFooter {
-    background: #030609;
-    border-top: 1px solid rgba(190, 210, 225, .20);
-}
-
-.footer h3 {
-    color: #dce8f2;
-}
-
-/* Keep the existing product grid behavior on all screen sizes */
+/* Preserve homepage product grid exactly across breakpoints */
 #products.productsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: start;
-    gap: 28px;
-    width: 100%;
-    max-width: 1450px;
-    margin: 35px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 28px;
+  width: 100%;
+  max-width: 1450px;
+  margin: 35px auto 0;
 }
-
-#products.productsGrid > .card {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-}
+#products.productsGrid > .card { width: 100%; min-width: 0; margin: 0; }
+#products.productsGrid .gallery, #products.productsGrid .slider { min-width: 0; }
+#products.productsGrid .slider img { max-width: 100%; }
 
 @media (max-width: 900px) {
-    #products.productsGrid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
-    }
+  #products.productsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 }
-
 @media (max-width: 600px) {
-    #products.productsGrid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 22px;
-        margin-top: 25px;
-    }
-
-    #products.productsGrid > .card {
-        max-width: 520px;
-        margin-inline: auto;
-    }
-
-    .floatingIcon {
-        width: 72px;
-        height: 72px;
-        top: 100px;
-    }
-
-    .cartIcon {
-        left: 12px;
-    }
-
-    .favIcon {
-        right: 12px;
-    }
+  #products.productsGrid { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 25px; }
+  #products.productsGrid > .card { max-width: 520px; margin-inline: auto; }
+  .floatingIcon { width: 72px; height: 72px; top: 100px; }
+  .cartIcon { left: 12px; }
+  .favIcon { right: 12px; }
 }
 
-/* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
-    .snowflake {
-        animation: none !important;
-    }
+  .snowflake { animation: none !important; }
 }
