@@ -826,7 +826,7 @@ function setupSliders() {
         let cur = 0, moved = false, x0 = 0;
         const show = i => {
             cur = (i + imgs.length) % imgs.length;
-            imgs.forEach((im, k) => im.style.display = k === cur ? "block" : "none");
+            imgs.forEach((im, k) => im.classList.toggle("xOn", k === cur));
             dots.forEach((d, k) => d.classList.toggle("active", k === cur));
         };
         const stop = e => { e.stopPropagation(); e.preventDefault(); };
