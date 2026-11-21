@@ -819,59 +819,33 @@ function setupSearch() {
 ===================================================== */
 
 function setupSliders() {
-
-    document
-        .querySelectorAll(".slider")
-        .forEach(slider => {
-
-            const images =
-                slider.querySelectorAll("img");
-
-
-            if (images.length <= 1) return;
-
-
-            let current = 0;
-
-
-            images.forEach(
-                (img, index) => {
-
-                    img.style.display =
-                        index === 0
-                            ? "block"
-                            : "none";
-
-                }
-            );
-
-
-            setInterval(() => {
-
-                images[current]
-                    .style.display = "none";
-
-
-                current++;
-
-
-                if (
-                    current >= images.length
-                ) {
-
-                    current = 0;
-
-                }
-
-
-                images[current]
-                    .style.display = "block";
-
-
-            }, 2500);
-
+    document.querySelectorAll(".card .gallery").forEach(g => {
+        const imgs = [...g.querySelectorAll(".slider img")];
+        const dots = [...g.querySelectorAll(".dot")];
+        if (imgs.length < 2) return;
+        let cur = 0, moved = false, x0 = 0;
+        const show = i => {
+            cur = (i + imgs.length) % imgs.length;
+            imgs.forEach((im, k) => im.style.display = k === cur ? "block" : "none");
+            dots.forEach((d, k) => d.classList.toggle("active", k === cur));
+        };
+        const stop = e => { e.stopPropagation(); e.preventDefault(); };
+        [["xArrow xPrev", "›", -1], ["xArrow xNext", "‹", 1]].forEach(([cls, ch, d]) => {
+            const btn = document.createElement("button");
+            btn.type = "button"; btn.className = cls; btn.textContent = ch;
+            btn.setAttribute("aria-label", d > 0 ? "الصورة التالية" : "الصورة السابقة");
+            btn.onclick = e => { stop(e); show(cur + d); };
+            g.appendChild(btn);
         });
-
+        dots.forEach((dot, k) => dot.onclick = e => { stop(e); show(k); });
+        g.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; moved = false; }, { passive: true });
+        g.addEventListener("touchend", e => {
+            const dx = e.changedTouches[0].clientX - x0;
+            if (Math.abs(dx) > 40) { moved = true; show(cur + (dx < 0 ? 1 : -1)); }
+        });
+        g.addEventListener("click", e => { if (moved) { stop(e); moved = false; } }, true);
+        show(0);
+    });
 }
 
 

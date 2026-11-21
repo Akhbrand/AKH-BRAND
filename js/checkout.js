@@ -177,11 +177,33 @@ if(
 !address
 ){
 
-alert("اكمل البيانات المطلوبة");
+AKH.toast("من فضلك اكملي كل البيانات المطلوبة","warn");
 
 return;
 
 }
+
+if(!/^01[0125]\d{8}$/.test(phone.replace(/\s/g,""))){
+
+AKH.toast("رقم الهاتف غير صحيح (مثال: 01012345678)","warn");
+
+return;
+
+}
+
+if(!cart.length){
+
+AKH.toast("السلة فارغة","warn");
+
+return;
+
+}
+
+const sendBtn=document.getElementById("sendOrder");
+
+sendBtn.disabled=true;
+
+sendBtn.textContent="جاري إرسال الطلب...";
 
 
 
@@ -240,9 +262,7 @@ localStorage.removeItem("cart");
 
 
 
-alert(
-"✅ تم تأكيد الطلب\nرقم الطلب: "+orderNumber
-);
+sessionStorage.setItem("lastOrder",orderNumber);
 
 
 
@@ -259,7 +279,11 @@ catch(error){
 console.log(error);
 
 
-alert("حدث خطأ");
+AKH.toast("حدث خطأ، حاولي مرة أخرى","warn");
+
+sendBtn.disabled=false;
+
+sendBtn.textContent="✅ تأكيد الطلب";
 
 
 }

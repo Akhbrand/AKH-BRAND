@@ -42,6 +42,7 @@ if(product.code == productId){
 
 
 found = true;
+document.title = product.name + " | AKH BRAND";
 
 
 
@@ -85,6 +86,7 @@ thumbnails += `
 
 <img 
 src="${imagePath}"
+class="thumb ${index===0?"on":""}"
 onclick="changeImage(${index})">
 
 `;
@@ -224,8 +226,12 @@ onclick='addToCart(${JSON.stringify(product)})'>
 
 
 
+<button class="favWide" onclick='toggleFav(${JSON.stringify(product)},this)'>
+${AKH.get("favorites").some(f=>String(f.code)===String(product.code))?"❤️ في المفضلة":"🤍 أضف للمفضلة"}
+</button>
+
 <a class="btn"
-href="https://wa.me/201097521334?text=أريد طلب ${product.name}">
+href="https://wa.me/201097521334?text=${encodeURIComponent("أريد طلب "+product.name+" - كود "+product.code)}">
 
 اطلب واتساب
 
@@ -254,6 +260,13 @@ href="https://wa.me/201097521334?text=أريد طلب ${product.name}">
 
 
 
+window.toggleFav=function(prod,btn){
+const f=AKH.get("favorites"), i=f.findIndex(x=>String(x.code)===String(prod.code));
+if(i>-1){f.splice(i,1);btn.textContent="🤍 أضف للمفضلة";AKH.toast("تمت الإزالة من المفضلة","warn");}
+else{f.push(prod);btn.textContent="❤️ في المفضلة";AKH.toast("❤️ تمت الإضافة للمفضلة");}
+AKH.set("favorites",f);
+};
+
 window.changeImage=function(index){
 
 
@@ -268,6 +281,9 @@ img.classList.remove("activeImage");
 document
 .getElementById("image"+index)
 .classList.add("activeImage");
+
+document.querySelectorAll(".thumbs img")
+.forEach((t,k)=>t.classList.toggle("on",k===index));
 
 
 };
@@ -314,7 +330,7 @@ snapshot.forEach(doc=>{
             <div class="gallery">
 
                 <img
-                src="${image}"
+                src="${AKH.img(item.image)}"
                 onclick="location.href='product.html?id=${item.code}'">
 
             </div>
@@ -386,7 +402,8 @@ localStorage.setItem(
 JSON.stringify(cart)
 );
 
-alert("✅ تم إضافة المنتج للسلة");
+AKH.badges();
+AKH.toast("🛒 تم إضافة المنتج للسلة");
 
 };
 
