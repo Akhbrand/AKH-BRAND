@@ -53,7 +53,7 @@ placeholder="كلمة المرور" autocomplete="current-password">
 
 
 <p id="loginMsg"></p>
-<p style="opacity:.35;font-size:11px;text-align:center">v3</p>
+<p style="opacity:.35;font-size:11px;text-align:center">v4</p>
 
 
 
@@ -78,7 +78,7 @@ async function login(){
     if (await sha(email + ":" + pass) === OK) {
       localStorage.setItem("adminLogin", "true");
       msg.innerHTML = "✅ تم الدخول";
-      window.location.href = "admin.html";
+      window.location.href = "dashboard.html";
     } else {
       msg.innerHTML = "❌ البريد أو كلمة المرور غير صحيحة";
     }
