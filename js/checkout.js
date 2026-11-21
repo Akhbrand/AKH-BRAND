@@ -271,7 +271,11 @@ localStorage.removeItem("cart");
 
 
 
-sessionStorage.setItem("lastOrder",JSON.stringify({orderNumber,payment,total:total+shipping}));
+try{
+await setDoc(doc(db,"tracking",phone.replace(/\D/g,""),"orders",orderNumber),{orderNumber,createdAt:new Date().toISOString()});
+}catch(e){console.log(e);}
+
+sessionStorage.setItem("lastOrder",JSON.stringify({summary:"طلب جديد من "+name+"\n📞 "+phone+"\n📍 "+governorate+" - "+city+" - "+address+"\n"+cart.map(p=>"• "+p.name+" ("+(p.size||"-")+") ×"+(p.quantity||1)).join("\n")+"\n💰 "+(total+shipping)+" جنيه (شامل شحن "+shipping+")\n💳 "+payment,orderNumber,payment,phone:phone.replace(/\D/g,""),total:total+shipping}));
 
 if(window.fbq)fbq("track","Purchase",{value:total+shipping,currency:"EGP"});
 

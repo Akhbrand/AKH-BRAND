@@ -189,6 +189,8 @@ ${product.price}
 
 ${(product.stock>0&&product.stock<=3)?`<div class="lowStock">🔥 آخر ${product.stock} قطع</div>`:``}
 
+<div class="xSticky"><div><small>السعر</small><b>${product.price}</b></div><button type="button" onclick='addSel(${JSON.stringify(product)})'>🛒 أضف للسلة</button></div>
+
 <div class="xOpt"><h4>المقاس</h4><div class="xSizes" id="xSizes">${
 (Array.isArray(product.sizes)&&product.sizes.length?product.sizes:[product.size||"Free Size"]).map((z,i,a)=>`<button type="button" class="xSize ${a.length===1?"on":""}" data-s="${String(z).replace(/"/g,"&quot;")}">${z}</button>`).join("")
 }</div></div>

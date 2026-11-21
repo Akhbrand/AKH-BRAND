@@ -1,6 +1,6 @@
 /* AKH shared helpers */
 window.AKH = {
-  SHIP: 70, WA: "201097521334", PIXEL: "" /* ضعي رقم Meta Pixel هنا */,
+  SHIP: 70, WA: "201097521334", GA: "" /* ضعي رقم Google Analytics (G-XXXX) هنا */, PIXEL: "" /* ضعي رقم Meta Pixel هنا */,
   get(k){ try{ const v=JSON.parse(localStorage.getItem(k)); return Array.isArray(v)?v:[]; }catch(e){ return []; } },
   set(k,v){ localStorage.setItem(k,JSON.stringify(v)); AKH.badges(); },
   img(i){ i=Array.isArray(i)?i[0]:i; return !i?"images/hero.jpg.jpg":(/^(https?:|\.\/|\/)/.test(i)?i:"images/"+i); },
@@ -39,3 +39,12 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
 });
 if(window.AKH&&AKH.PIXEL){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',AKH.PIXEL);fbq('track','PageView');}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  if(!document.querySelector(".xAnn")){
+    const d=document.createElement("div"); d.className="xAnn";
+    d.textContent="🚚 شحن "+AKH.SHIP+" جنيه لكل المحافظات  •  الدفع عند الاستلام  •  استبدال خلال 3 أيام";
+    document.body.prepend(d);
+  }
+});
+if(AKH.GA){const g=document.createElement("script");g.async=true;g.src="https://www.googletagmanager.com/gtag/js?id="+AKH.GA;document.head.appendChild(g);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",AKH.GA);}
