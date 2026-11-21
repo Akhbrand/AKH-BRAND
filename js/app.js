@@ -824,9 +824,26 @@ function setupSliders() {
         const dots = [...g.querySelectorAll(".dot")];
         if (imgs.length < 2) return;
         let cur = 0, moved = false, x0 = 0;
-        const show = i => {
+        const P = (el, k, v) => el.style.setProperty(k, v, "important");
+        imgs.forEach(im => {
+            P(im, "position", "absolute"); P(im, "inset", "0");
+            P(im, "width", "100%"); P(im, "height", "100%");
+            P(im, "display", "block"); P(im, "flex", "none");
+            P(im, "transition", "opacity .5s ease, transform .5s cubic-bezier(.22,.8,.3,1)");
+            P(im, "will-change", "opacity, transform");
+        });
+        const show = (i, dir = 1) => {
+            const prev = cur;
             cur = (i + imgs.length) % imgs.length;
-            imgs.forEach((im, k) => { im.classList.toggle("xOn", k === cur); im.style.setProperty("display", k === cur ? "block" : "none", "important"); });
+            imgs.forEach((im, k) => {
+                const on = k === cur;
+                im.classList.toggle("xOn", on);
+                P(im, "opacity", on ? "1" : "0");
+                P(im, "pointer-events", on ? "auto" : "none");
+                if (on) P(im, "transform", "translateX(0) scale(1)");
+                else if (k === prev) P(im, "transform", `translateX(${dir * -7}%) scale(.97)`);
+                else P(im, "transform", `translateX(${dir * 7}%) scale(.97)`);
+            });
             dots.forEach((d, k) => d.classList.toggle("active", k === cur));
         };
         const stop = e => { e.stopPropagation(); e.preventDefault(); };
@@ -834,14 +851,14 @@ function setupSliders() {
             const btn = document.createElement("button");
             btn.type = "button"; btn.className = cls; btn.textContent = ch;
             btn.setAttribute("aria-label", d > 0 ? "الصورة التالية" : "الصورة السابقة");
-            btn.onclick = e => { stop(e); show(cur + d); };
+            btn.onclick = e => { stop(e); show(cur + d, d); };
             g.appendChild(btn);
         });
-        dots.forEach((dot, k) => dot.onclick = e => { stop(e); show(k); });
+        dots.forEach((dot, k) => dot.onclick = e => { stop(e); show(k, k > cur ? 1 : -1); });
         g.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; moved = false; }, { passive: true });
         g.addEventListener("touchend", e => {
             const dx = e.changedTouches[0].clientX - x0;
-            if (Math.abs(dx) > 40) { moved = true; show(cur + (dx < 0 ? 1 : -1)); }
+            if (Math.abs(dx) > 40) { moved = true; show(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); }
         });
         g.addEventListener("click", e => { if (moved) { stop(e); moved = false; } }, true);
         show(0);
