@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AKH BRAND Admin</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+
+<body>
+
+
+<script>
+if(localStorage.getItem("adminLogin") !== "true"){
+    window.location.href = "admin-login.html";
+}
+</script>
+
+
+
+<div class="box">
+
+
+<div class="adminHeader">
+
+<button onclick="logoutAdmin()">
+🚪 تسجيل خروج
+</button>
+
+<h1>AKH BRAND</h1>
+
+<p>لوحة التحكم</p>
+
+</div>
+
+
+
+
+<div class="sectionTitle">
+
+➕ إضافة منتج جديد
+
+</div>
+
+
+
+<div class="stats">
+
+
+<div class="statCard">
+
+<span id="productsCount">
+0
+</span>
+
+<p>
+📦 المنتجات
+</p>
+
+</div>
+
+
+
+<div class="statCard">
+
+<span id="ordersCount">
+0
+</span>
+
+<p>
+🛒 الطلبات
+</p>
+
+</div>
+
+
+
+<div class="statCard">
+
+<span id="newOrders">
+0
+</span>
+
+<p>
+🆕 الجديدة
+</p>
+
+</div>
+
+
+
+<div class="statCard">
+
+<span id="salesTotal">
+0 EGP
+</span>
+
+<p>
+💰 المبيعات
+</p>
+
+</div>
+
+
+</div>
+<input id="name" placeholder="اسم المنتج">
+
+
+<input id="price" placeholder="السعر">
+
+
+<input id="material" placeholder="الخامة">
+<input id="sizes" placeholder="المقاسات مفصولة بفاصلة (S,M,L,XL) - اختياري">
+<input id="stock" type="number" min="0" placeholder="الكمية المتاحة (اختياري - تظهر آخر القطع لو 1-3)">
+
+
+<input id="size" placeholder="المقاس">
+
+
+<input id="code" placeholder="الكود">
+
+
+<textarea 
+id="description" 
+placeholder="وصف المنتج">
+</textarea>
+
+
+
+<input 
+type="file" 
+id="images" 
+multiple 
+accept="image/*">
+
+
+
+<div id="preview"></div>
+
+
+
+
+<button onclick="addProduct()">
+
+نشر المنتج
+
+</button>
+
+
+
+<p id="msg"></p>
+
+
+
+
+<hr style="margin:30px 0;border:1px solid #333;">
+
+
+
+
+<div 
+class="sectionTitle"
+onclick="toggleProductsList()"
+style="cursor:pointer;">
+
+📦 المنتجات الموجودة
+
+</div>
+
+
+
+<div 
+id="productsList"
+style="display:none;">
+
+</div>
+
+
+
+
+
+<hr style="margin:40px 0;border:1px solid #333;">
+
+
+
+
+<div 
+class="sectionTitle"
+onclick="toggleOrdersList()"
+style="cursor:pointer;">
+
+🛒 الطلبات الواردة
+
+</div>
+
+
+
+<div 
+id="ordersList"
+style="display:none;">
+
+</div>
+
+
+
+</div>
+<script type="module">
+
+
+import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+
+getFirestore,
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc,
+updateDoc
+
+}
+
+from
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",
+
+authDomain: "akh-brand.firebaseapp.com",
+
+projectId: "akh-brand",
+
+storageBucket: "akh-brand.firebasestorage.app",
+
+messagingSenderId: "671562968837",
+
+appId: "1:671562968837:web:06557b3ab756696cf5116c",
+
+measurementId: "G-L1HPJ8PYMJ"
+
+};
+
+
+
+
+
+const app = initializeApp(firebaseConfig);
+
+
+const db = getFirestore(app);
+
+
+
+
+let imageUrls=[];
+
+
+
+
+
+document.getElementById("images")
+.addEventListener("change",function(){
+
+
+let preview =
+document.getElementById("preview");
+
+
+preview.innerHTML="";
+
+
+
+for(let file of this.files){
+
+
+let img =
+document.createElement("img");
+
+
+img.src =
+URL.createObjectURL(file);
+
+
+preview.appendChild(img);
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+async function uploadImage(file){
+
+
+let formData =
+new FormData();
+
+
+formData.append("file",file);
+
+
+formData.append(
+"upload_preset",
+"akh_upload"
+);
+
+
+
+
+let response =
+await fetch(
+
+"https://api.cloudinary.com/v1_1/yhwzc937/image/upload",
+
+{
+
+method:"POST",
+
+body:formData
+
+}
+
+);
+
+
+
+
+let data =
+await response.json();
+
+
+
+
+return data.secure_url;
+
+
+
+}
+
+
+
+
+
+
+window.addProduct = async function(){
+
+
+try{
+
+
+document.getElementById("msg").innerHTML=
+"⏳ جاري النشر...";
+
+
+
+let files =
+document.getElementById("images").files;
+
+
+
+if(files.length===0){
+
+
+document.getElementById("msg").innerHTML=
+"❌ اختر صور المنتج";
+
+
+return;
+
+
+}
+
+
+
+
+imageUrls=[];
+
+
+
+
+for(let file of files){
+
+
+let url =
+await uploadImage(file);
+
+
+imageUrls.push(url);
+
+
+}
+
+
+
+
+
+
+await addDoc(
+collection(db,"products"),
+{
+
+
+name:
+document.getElementById("name").value,
+
+
+price:
+document.getElementById("price").value,
+
+
+material:
+document.getElementById("material").value,
+sizes:(document.getElementById("sizes").value||"").split(",").map(s=>s.trim()).filter(Boolean),
+stock:Number(document.getElementById("stock").value)||0,
+
+
+size:
+document.getElementById("size").value,
+
+
+code:
+document.getElementById("code").value,
+
+
+description:
+document.getElementById("description").value,
+
+
+image:imageUrls,
+
+available:true
+
+});
+
+
+
+
+document.getElementById("msg").innerHTML=
+"✅ تم نشر المنتج";
+
+
+
+loadProducts();
+
+
+
+}
+
+
+
+catch(error){
+
+
+console.log(error);
+
+
+document.getElementById("msg").innerHTML=
+"❌ خطأ في النشر";
+
+
+}
+
+
+
+}
+ async function loadProducts(){
+
+
+const list =
+document.getElementById("productsList");
+
+
+list.innerHTML="";
+
+
+
+const snapshot =
+await getDocs(collection(db,"products"));
+
+
+
+document.getElementById("productsCount").innerText =
+snapshot.size;
+
+
+
+
+snapshot.forEach(item=>{
+
+
+const product =
+item.data();
+
+
+
+const image =
+Array.isArray(product.image)
+?
+product.image[0]
+:
+product.image;
+
+
+
+
+list.innerHTML += `
+
+<div class="productCard">
+
+    <img
+    src="${image}"
+    class="productImage">
+
+    <div class="productInfo">
+
+        <h3>${product.name}</h3>
+
+        <p>🏷️ ${product.code}</p>
+
+        <p>
+        ${product.available === false
+        ? "❌ نفذ"
+        : "✅ متوفر"}
+        </p>
+
+    </div>
+
+    <div class="productActions">
+
+        <button
+        class="availableBtn"
+        onclick="changeProductStatus('${item.id}', true)">
+        ✅
+        </button>
+
+        <button
+        class="soldBtn"
+        onclick="changeProductStatus('${item.id}', false)">
+        ❌
+        </button>
+
+        <button
+        class="deleteProductBtn"
+        onclick="deleteProduct('${item.id}')">
+        🗑️
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+window.deleteProduct = async function(id){
+
+
+if(!confirm("حذف المنتج؟")) return;
+
+
+
+await deleteDoc(
+doc(db,"products",id)
+);
+
+
+
+alert("✅ تم الحذف");
+
+
+loadProducts();
+
+
+}
+
+window.changeProductStatus = async function(id,status){
+
+await updateDoc(
+doc(db,"products",id),
+{
+available: status
+}
+);
+
+loadProducts();
+
+}
+
+
+
+
+async function loadOrders(){
+
+const list =
+document.getElementById("ordersList");
+
+list.innerHTML="";
+
+const snapshot =
+await getDocs(collection(db,"orders"));
+
+document.getElementById("ordersCount").innerText =
+snapshot.size;
+
+let newOrders=0;
+let sales=0;
+
+let groupedOrders = {};
+
+snapshot.forEach(item=>{
+
+    const order = item.data();
+
+    if(order.status=="جديد")
+    newOrders++;
+
+    sales += Number(order.total || 0);
+
+    const phone = order.customerPhone || "بدون رقم";
+
+    if(!groupedOrders[phone]){
+
+        groupedOrders[phone] = [];
+
+    }
+
+    groupedOrders[phone].push({
+        id:item.id,
+        ...order
+    });
+
+});
+
+Object.keys(groupedOrders).forEach(phone=>{
+
+    const customerOrders = groupedOrders[phone];
+
+    const firstOrder = customerOrders[0];
+
+    list.innerHTML += `
+
+    <div style="
+    background:#111;
+    border:2px solid #d8ae3f;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:25px;
+    ">
+
+        <h2>
+        👤 ${firstOrder.customerName}
+        </h2>
+
+        <p>
+        📞 ${phone}
+        </p>
+
+        <p>
+        📦 عدد الطلبات:
+        ${customerOrders.length}
+        </p>
+
+    `;
+
+    customerOrders.forEach(order=>{
+
+        list.innerHTML += `
+
+        <div class="orderCard">
+
+            <p>
+            📍 ${order.governorate} - ${order.city}
+            </p>
+
+            <p>
+            💰 ${order.total} EGP
+            </p>
+
+            <p>
+            🚚 الحالة:
+            <b>${order.status}</b>
+            </p>
+
+            <select
+            onchange="changeStatus('${order.id}',this.value)">
+
+                <option ${order.status=="جديد"?"selected":""}>
+                جديد
+                </option>
+
+                <option ${order.status=="جاري التجهيز"?"selected":""}>
+                جاري التجهيز
+                </option>
+
+                <option ${order.status=="تم الشحن"?"selected":""}>
+                تم الشحن
+                </option>
+
+                <option ${order.status=="تم التسليم"?"selected":""}>
+                تم التسليم
+                </option>
+
+            </select>
+
+            <button
+            onclick="toggleProducts('${order.id}')">
+
+            📦 المنتجات
+
+            </button>
+
+            <button
+            class="deleteProductBtn"
+            onclick="deleteOrder('${order.id}')">
+
+            🗑️ حذف الطلب
+
+            </button>
+
+            <div
+            id="products-${order.id}"
+            style="display:none">
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    list.innerHTML += `</div>`;
+
+});
+
+document.getElementById("newOrders").innerText =
+newOrders;
+
+document.getElementById("salesTotal").innerText =
+sales+" EGP";
+
+}
+
+
+
+window.toggleProducts = async function(id){
+
+const box = document.getElementById("products-" + id);
+
+if(box.style.display === "block"){
+
+    box.style.display = "none";
+    return;
+
+}
+
+box.style.display = "block";
+
+const snapshot = await getDocs(collection(db,"orders"));
+
+let html = "";
+
+snapshot.forEach(docItem=>{
+
+    if(docItem.id === id){
+
+        const order = docItem.data();
+
+        if(order.products && order.products.length){
+
+            order.products.forEach(product=>{
+
+                let image = "";
+
+                if(Array.isArray(product.image)){
+
+                    image = product.image[0];
+
+                }else{
+
+                    image = product.image || "";
+
+                }
+
+                html += `
+
+                <div style="
+                background:#111;
+                border:1px solid #333;
+                border-radius:12px;
+                padding:15px;
+                margin-top:10px;
+                display:flex;
+                gap:15px;
+                align-items:center;
+                ">
+
+                    <img
+                    src="${image}"
+                    style="
+                    width:80px;
+                    height:80px;
+                    object-fit:cover;
+                    border-radius:10px;
+                    border:1px solid #333;
+                    ">
+
+                    <div>
+
+                        <strong>${product.name}</strong>
+
+                        <br><br>
+
+                        الكمية: ${product.quantity || 1}
+
+                        <br>
+
+                        السعر: ${product.price}
+
+                        <br>
+
+                        المقاس: ${product.size || "-"}
+
+                        <br>
+
+                        الكود: ${product.code || "-"}
+
+                    </div>
+
+                </div>
+
+                `;
+
+            });
+
+        }else{
+
+            html = "لا توجد منتجات داخل هذا الطلب";
+
+        }
+
+    }
+
+});
+
+box.innerHTML = html;
+
+};
+
+
+window.changeStatus = async function(id,status){
+
+
+await updateDoc(
+
+doc(db,"orders",id),
+
+{
+
+status:status
+
+}
+
+);
+
+
+
+alert("✅ تم تحديث الحالة");
+
+
+loadOrders();
+
+
+}
+
+
+
+
+
+
+window.deleteOrder = async function(id){
+
+
+if(!confirm("حذف الطلب؟")) return;
+
+
+
+await deleteDoc(
+doc(db,"orders",id)
+);
+
+
+
+alert("✅ تم حذف الطلب");
+
+
+loadOrders();
+
+
+}
+
+
+
+
+
+
+window.toggleProductsList=function(){
+
+
+let box =
+document.getElementById("productsList");
+
+box.style.display =
+box.style.display=="none"
+?
+"grid"
+:
+"none";
+
+
+}
+
+
+
+
+
+window.toggleOrdersList=function(){
+
+
+let box =
+document.getElementById("ordersList");
+
+
+if(box.style.display=="none"){
+
+box.style.display="block";
+
+loadOrders();
+
+
+}else{
+
+box.style.display="none";
+
+}
+
+
+}
+
+
+
+
+
+window.logoutAdmin=function(){
+localStorage.removeItem("adminLogin");
+window.location.href="admin-login.html";
+}
+
+
+
+
+
+loadProducts();
+loadOrders();
+</script>
+
+
+</body>
+
+</html>
