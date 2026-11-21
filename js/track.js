@@ -5,9 +5,9 @@ apiKey:"AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",authDomain:"akh-brand.firebasea
 storageBucket:"akh-brand.firebasestorage.app",messagingSenderId:"671562968837",appId:"1:671562968837:web:06557b3ab756696cf5116c"}));
 const out=document.getElementById("ordersResult"), pi=document.getElementById("searchPhone");
 const q=new URLSearchParams(location.search); if(q.get("phone")) pi.value=q.get("phone");
-const STEPS=["جاري المراجعة","تم التأكيد","جاري الشحن","تم التسليم"];
+const STEPS=["جاري المراجعة","جاري التجهيز","تم الشحن","تم التسليم"];
 const card=o=>{
- const idx=STEPS.indexOf(o.status), cancelled=/ملغ/.test(o.status||"");
+ const idx=o.status==="جديد"?0:STEPS.indexOf(o.status), cancelled=/ملغ/.test(o.status||"");
  return `<div class="customerOrder"><h2>📦 طلب بتاريخ ${new Date(o.createdAt).toLocaleDateString("ar-EG")}</h2>
  ${cancelled?`<p class="status">❌ ${AKH.esc(o.status)}</p>`:`<div class="xTrack">${STEPS.map((s,i)=>`<span class="${i<=idx?"on":""}">${s}</span>`).join("")}</div>`}
  <p>💰 المجموع ${AKH.money(o.subtotal??o.total)} + شحن ${AKH.money(o.shipping??0)} = <b>${AKH.money(o.total)}</b></p>
