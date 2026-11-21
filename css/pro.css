@@ -56,3 +56,7 @@
 #products.productsGrid .slider img:only-child{display:block!important}
 #products.productsGrid .dots{display:flex!important;opacity:1!important;visibility:visible!important}
 #products.productsGrid .xArrow{display:flex!important}
+/* smooth gallery */
+#products.productsGrid .slider{position:relative!important;overflow:hidden!important}
+.card .dots .dot{transition:width .3s,background .3s,border-radius .3s}
+.card .dots .dot.active{width:22px;border-radius:6px}
