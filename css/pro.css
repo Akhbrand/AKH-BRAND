@@ -49,3 +49,10 @@
 .checkoutContainer input:focus,.checkoutContainer select:focus,.checkoutContainer textarea:focus{outline:0;border-color:var(--gold)}
 .confirmBtn:disabled{opacity:.6;cursor:wait}
 @media(max-width:600px){.xTitle{display:none}.xRow>a img{width:84px;height:112px}}
+
+/* gallery fix: style.css forces every slider img visible (!important), so switch by class */
+#products.productsGrid .slider img{display:none!important}
+#products.productsGrid .slider img.xOn{display:block!important}
+#products.productsGrid .slider img:only-child{display:block!important}
+#products.productsGrid .dots{display:flex!important;opacity:1!important;visibility:visible!important}
+#products.productsGrid .xArrow{display:flex!important}
