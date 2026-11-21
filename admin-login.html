@@ -35,12 +35,12 @@ AKH BRAND
 
 
 
-<input type="email" id="adminEmail" placeholder="البريد الإلكتروني" dir="ltr">
+<input type="email" id="adminEmail" placeholder="البريد الإلكتروني" dir="ltr" autocomplete="username">
 
 <input 
 type="password"
 id="adminPassword"
-placeholder="كلمة المرور">
+placeholder="كلمة المرور" autocomplete="current-password">
 
 
 
@@ -62,16 +62,25 @@ placeholder="كلمة المرور">
 
 
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-const auth=getAuth(initializeApp({apiKey:"AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",authDomain:"akh-brand.firebaseapp.com",projectId:"akh-brand",appId:"1:671562968837:web:06557b3ab756696cf5116c"}));
-const msg=document.getElementById("loginMsg"), btn=document.getElementById("loginBtn");
-btn.onclick=async()=>{
- btn.disabled=true; msg.textContent="⏳";
- try{await signInWithEmailAndPassword(auth,document.getElementById("adminEmail").value.trim(),document.getElementById("adminPassword").value);location.href="admin.html";}
- catch(e){msg.textContent="❌ بيانات الدخول غير صحيحة";btn.disabled=false;}
-};
+<script>
+const OK = "0d21938906a69c9b67a58ff0365a091635f257e40902760047cfb0a9d50720f9";
+async function sha(t){
+  const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
+}
+async function login(){
+  const email = document.getElementById("adminEmail").value.trim().toLowerCase();
+  const pass = document.getElementById("adminPassword").value;
+  const msg = document.getElementById("loginMsg");
+  if (await sha(email + ":" + pass) === OK) {
+    localStorage.setItem("adminLogin", "true");
+    window.location.href = "admin.html";
+  } else {
+    msg.innerHTML = "❌ البريد أو كلمة المرور غير صحيحة";
+  }
+}
+document.getElementById("loginBtn").onclick = login;
+document.getElementById("adminPassword").addEventListener("keydown", e => { if (e.key === "Enter") login(); });
 </script>
 </body>
 </html>
