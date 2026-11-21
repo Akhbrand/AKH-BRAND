@@ -99,3 +99,11 @@ html{scroll-padding-top:70px}
 .xAdminTools input,.xAdminTools select{flex:1;min-width:150px;padding:12px;border-radius:10px;border:1px solid #d8ae3f;background:#111;color:#fff;font:inherit}
 .xAdminTools button{padding:12px 16px;border-radius:10px;border:1px solid #d8ae3f;background:#111;color:#d8ae3f;cursor:pointer;font:inherit}
 .xBanner{display:none;background:#d8ae3f;color:#000;padding:12px;border-radius:10px;text-align:center;font-weight:800;margin-bottom:14px;cursor:pointer}
+/* v5: home tools bar matches the luxury theme */
+.xTools{display:flex!important;gap:12px!important;max-width:560px!important;width:calc(100% - 28px)!important;margin:6px auto 30px!important;padding:0!important;direction:rtl}
+.xTools select,.xTools button{-webkit-appearance:none!important;appearance:none!important;height:52px!important;min-height:52px!important;margin:0!important;border:1px solid var(--akh-champagne,#e8c36b)!important;border-radius:999px!important;background-color:rgba(7,7,7,.97)!important;color:#f3e3b0!important;font:700 14px Cairo,sans-serif!important;letter-spacing:0!important;text-transform:none!important;box-shadow:none!important;transition:.25s!important;cursor:pointer}
+.xTools select{flex:1.6!important;width:auto!important;padding:0 20px 0 38px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e8c36b' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:16px center!important;text-align:right!important}
+.xTools button{flex:1!important;width:auto!important;padding:0 14px!important;white-space:nowrap}
+.xTools button:hover,.xTools select:hover{background-color:rgba(232,195,107,.12)!important}
+.xTools button.on{background:linear-gradient(135deg,#f1dc9a,#b98f35)!important;color:#000!important;border-color:transparent!important}
+.xTools select option{background:#0b0b0b;color:#f3e3b0}
