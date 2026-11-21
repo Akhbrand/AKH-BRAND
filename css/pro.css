@@ -80,7 +80,6 @@
 .xTabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.xTabs a{padding:8px 16px;border:1px solid var(--line);border-radius:20px;color:var(--gold);font-size:14px}
 html{scroll-padding-top:70px}
 /* v4 */
-.xAnn{background:var(--gold);color:#000;text-align:center;font:700 13px/1 Cairo,sans-serif;padding:9px 10px}
 .productsLoading{font-size:0!important;min-height:360px;border-radius:18px;grid-column:1/-1;background:linear-gradient(100deg,#111 30%,#1d1b14 50%,#111 70%);background-size:200% 100%;animation:xShim 1.3s infinite}
 @keyframes xShim{to{background-position:-200% 0}}
 .xTools{display:flex;gap:10px;max-width:560px;margin:10px auto 18px;padding:0 14px}
@@ -107,3 +106,11 @@ html{scroll-padding-top:70px}
 .xTools button:hover,.xTools select:hover{background-color:rgba(232,195,107,.12)!important}
 .xTools button.on{background:linear-gradient(135deg,#f1dc9a,#b98f35)!important;color:#000!important;border-color:transparent!important}
 .xTools select option{background:#0b0b0b;color:#f3e3b0}
+/* v6: WhatsApp button in theme colors + heading ornament fix */
+.xWa{width:54px!important;height:54px!important;background:rgba(7,7,7,.92)!important;color:#e8c36b!important;border:1.5px solid #e8c36b!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.65),0 0 16px rgba(232,195,107,.28)!important;transition:.25s}
+.xWa svg{width:26px;height:26px}
+.xWa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(232,195,107,.45);animation:xRing 2.6s ease-out infinite;pointer-events:none}
+@keyframes xRing{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+.xWa:hover,.xWa:active{background:linear-gradient(135deg,#f1dc9a,#b98f35)!important;color:#000!important}
+.sectionHeading{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center}
+.sectionHeading::after{margin:6px auto 0!important}
