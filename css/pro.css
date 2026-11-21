@@ -60,3 +60,22 @@
 #products.productsGrid .slider{position:relative!important;overflow:hidden!important}
 .card .dots .dot{transition:width .3s,background .3s,border-radius .3s}
 .card .dots .dot.active{width:22px;border-radius:6px}
+/* v3: shipping, options, success, tracking, policy, whatsapp */
+.xSum{display:flex;flex-direction:column;gap:8px;margin:10px 0 16px}.xSum div{display:flex;justify-content:space-between;color:#cfc9bb}
+.xSum .xGrand{border-top:1px solid var(--line);padding-top:10px;font-size:20px;color:var(--gold);font-weight:800}
+.xOpt{margin:14px 0}.xOpt h4{font-size:14px;color:#9c9689;margin-bottom:8px}
+.xSizes{display:flex;flex-wrap:wrap;gap:8px}
+.xSize{min-width:52px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:transparent;color:#fff;font:700 14px Cairo,sans-serif;cursor:pointer}
+.xSize.on{background:var(--gold);color:#000;border-color:var(--gold)}
+.lowStock{display:inline-block;margin:6px 0;padding:5px 12px;border-radius:20px;background:rgba(192,80,77,.18);color:#ff8a80;font-weight:700;font-size:13px}
+.xWa{position:fixed;bottom:20px;right:20px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.xPage{max-width:620px;margin:30px auto;padding:0 16px}
+.xDone{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 18px}
+.xTick{width:70px;height:70px;margin:0 auto 12px;border-radius:50%;background:var(--gold);color:#000;font-size:40px;line-height:70px;font-weight:900}
+.xCode{direction:ltr;font:700 20px monospace;color:var(--gold);background:#0d0d0d;border:1px dashed var(--line);border-radius:10px;padding:12px;margin:8px 0;word-break:break-all}
+.xSteps{text-align:right;margin:16px 0;padding-right:22px;color:#cfc9bb;line-height:2}
+.xTrack{display:flex;gap:6px;margin:12px 0}.xTrack span{flex:1;text-align:center;font-size:12px;padding:8px 4px;border-radius:8px;background:#1a1a1a;color:#777}.xTrack span.on{background:var(--gold);color:#000;font-weight:700}
+.xPolicy section{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin:16px 0;line-height:2}
+.xPolicy h2{color:var(--gold);margin-bottom:8px}.xPolicy ul{padding-right:20px}
+.xTabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.xTabs a{padding:8px 16px;border:1px solid var(--line);border-radius:20px;color:var(--gold);font-size:14px}
+html{scroll-padding-top:70px}
