@@ -629,8 +629,15 @@ document.getElementById("ordersList");
 
 list.innerHTML="";
 
-const snapshot =
-await getDocs(collection(db,"orders"));
+let snapshot;
+try{
+snapshot = await getDocs(collection(db,"orders"));
+}catch(e){
+list.innerHTML = `<div style="padding:20px;border:1px solid #c0504d;border-radius:12px;color:#ff8a80">
+⚠️ تعذّر تحميل الطلبات<br><span dir="ltr">${e.code||e.message}</span><br>
+${e.code==="permission-denied"?"قواعد Firebase مش مسموح فيها القراءة: افتحي Firestore ← Rules وانشري ملف firestore.rules الأخير (Publish).":""}</div>`;
+return;
+}
 
 document.getElementById("ordersCount").innerText =
 snapshot.size;
@@ -644,7 +651,7 @@ snapshot.forEach(item=>{
 
     const order = item.data();
 
-    if(order.status=="جديد")
+    if(order.status=="جديد"||order.status=="جاري المراجعة")
     newOrders++;
 
     sales += Number(order.total || 0);
@@ -706,7 +713,7 @@ Object.keys(groupedOrders).forEach(phone=>{
             </p>
 
             <p>
-            💰 ${order.total} EGP
+            💰 ${order.total} EGP ${order.shipping?"(شامل شحن "+order.shipping+")":""}
             </p>
 
             <p>
@@ -716,6 +723,9 @@ Object.keys(groupedOrders).forEach(phone=>{
 
             <select
             onchange="changeStatus('${order.id}',this.value)">
+                <option ${order.status=="جاري المراجعة"?"selected":""}>
+                جاري المراجعة
+                </option>
 
                 <option ${order.status=="جديد"?"selected":""}>
                 جديد
