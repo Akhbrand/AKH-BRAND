@@ -10,25 +10,13 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+<link rel="stylesheet" href="css/pro.css">
+<script src="js/shared.js"></script>
 </head>
 
 <body>
 
-<header>
-
-<img
-src="https://akhbrand.github.io/AKH-BRAND/images/VideoToGif_GIF.gif"
-class="cartLogo">
-
-<h1 style="text-align:center;">
-🛒 سلة المشتريات
-</h1>
-
-<p style="text-align:center;">
-AKH BRAND
-</p>
-
-</header>
+<header class="xBar" id="xBar" data-title="سلة المشتريات"></header>
 
 <section
 id="cartItems"
@@ -53,7 +41,7 @@ id="totalPrice">
 
 <button
 class="btn"
-onclick="location.href='checkout.html'">
+id="goCheckout" onclick="location.href='checkout.html'">
 
 ✅ إتمام الطلب
 
