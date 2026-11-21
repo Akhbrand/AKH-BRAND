@@ -53,6 +53,7 @@ placeholder="كلمة المرور" autocomplete="current-password">
 
 
 <p id="loginMsg"></p>
+<p style="opacity:.35;font-size:11px;text-align:center">v3</p>
 
 
 
@@ -69,14 +70,20 @@ async function sha(t){
   return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
 }
 async function login(){
-  const email = document.getElementById("adminEmail").value.trim().toLowerCase();
-  const pass = document.getElementById("adminPassword").value;
   const msg = document.getElementById("loginMsg");
-  if (await sha(email + ":" + pass) === OK) {
-    localStorage.setItem("adminLogin", "true");
-    window.location.href = "admin.html";
-  } else {
-    msg.innerHTML = "❌ البريد أو كلمة المرور غير صحيحة";
+  try {
+    const email = document.getElementById("adminEmail").value.trim().toLowerCase();
+    const pass = document.getElementById("adminPassword").value.trim();
+    msg.innerHTML = "⏳ جاري التحقق...";
+    if (await sha(email + ":" + pass) === OK) {
+      localStorage.setItem("adminLogin", "true");
+      msg.innerHTML = "✅ تم الدخول";
+      window.location.href = "admin.html";
+    } else {
+      msg.innerHTML = "❌ البريد أو كلمة المرور غير صحيحة";
+    }
+  } catch (e) {
+    msg.innerHTML = "⚠️ خطأ: " + e.message;
   }
 }
 document.getElementById("loginBtn").onclick = login;
