@@ -187,6 +187,14 @@ ${product.price}
 
 </div>
 
+${(product.stock>0&&product.stock<=3)?`<div class="lowStock">🔥 آخر ${product.stock} قطع</div>`:``}
+
+<div class="xOpt"><h4>المقاس</h4><div class="xSizes" id="xSizes">${
+(Array.isArray(product.sizes)&&product.sizes.length?product.sizes:[product.size||"Free Size"]).map((z,i,a)=>`<button type="button" class="xSize ${a.length===1?"on":""}" data-s="${String(z).replace(/"/g,"&quot;")}">${z}</button>`).join("")
+}</div></div>
+
+<div class="xOpt"><h4>الكمية</h4><div class="xQty"><button type="button" onclick="xQ(-1)">−</button><span id="xQtyN">1</span><button type="button" onclick="xQ(1)">+</button></div></div>
+
 <div class="descriptionBox">
 
 <h3>
@@ -217,7 +225,7 @@ disabled>
 : `
 <button
 class="cartBtn"
-onclick='addToCart(${JSON.stringify(product)})'>
+onclick='addSel(${JSON.stringify(product)})'>
 🛒 أضف للسلة
 </button>
 `
@@ -265,6 +273,18 @@ const f=AKH.get("favorites"), i=f.findIndex(x=>String(x.code)===String(prod.code
 if(i>-1){f.splice(i,1);btn.textContent="🤍 أضف للمفضلة";AKH.toast("تمت الإزالة من المفضلة","warn");}
 else{f.push(prod);btn.textContent="❤️ في المفضلة";AKH.toast("❤️ تمت الإضافة للمفضلة");}
 AKH.set("favorites",f);
+};
+
+window.xQ=function(d){const e=document.getElementById("xQtyN");e.textContent=Math.min(10,Math.max(1,(+e.textContent)+d));};
+document.addEventListener("click",e=>{const b=e.target.closest(".xSize");if(!b)return;document.querySelectorAll(".xSize").forEach(x=>x.classList.remove("on"));b.classList.add("on");});
+window.addSel=function(prod){
+const on=document.querySelector(".xSize.on");
+if(!on){AKH.toast("اختاري المقاس أولًا","warn");document.getElementById("xSizes").scrollIntoView({behavior:"smooth",block:"center"});return;}
+const q=+document.getElementById("xQtyN").textContent||1,cart=AKH.get("cart");
+const ex=cart.find(i=>String(i.code)===String(prod.code)&&i.size===on.dataset.s);
+if(ex)ex.quantity=(Number(ex.quantity)||1)+q;else cart.push({...prod,size:on.dataset.s,quantity:q});
+AKH.set("cart",cart);AKH.toast("🛒 تمت الإضافة للسلة ("+on.dataset.s+" × "+q+")");
+if(window.fbq)fbq("track","AddToCart",{content_ids:[String(prod.code)],content_type:"product"});
 };
 
 window.changeImage=function(index){

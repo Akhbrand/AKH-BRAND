@@ -3,7 +3,7 @@ function render(){
   const cart=AKH.get("cart"); let total=0;
   if(!cart.length){
     box.innerHTML=`<div class="xEmpty"><div>🛒</div><h2>السلة فارغة</h2><p>لم تضيفي أي منتجات بعد</p><a href="index.html" class="btn">ابدأي التسوق</a></div>`;
-    totalBox.textContent="0 جنيه"; if(goBtn) goBtn.disabled=true; return;
+    totalBox.textContent="0 جنيه"; document.getElementById("subTotal").textContent="0"; document.getElementById("shipFee").textContent="0"; if(goBtn) goBtn.disabled=true; return;
   }
   if(goBtn) goBtn.disabled=false;
   box.innerHTML=cart.map((p,i)=>{
@@ -21,7 +21,7 @@ function render(){
       <button class="xDel" data-i="${i}" data-del="1" aria-label="حذف">✕</button>
     </article>`;
   }).join("");
-  totalBox.textContent=AKH.money(total);
+  const ship=AKH.SHIP; document.getElementById("subTotal").textContent=AKH.money(total); document.getElementById("shipFee").textContent=AKH.money(ship); totalBox.textContent=AKH.money(total+ship);
 }
 box.addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b) return;

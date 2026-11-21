@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { 
 getFirestore,
 collection,
-addDoc
+doc,
+setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
@@ -119,7 +120,11 @@ html += `
 orderItems.innerHTML = html;
 
 
-totalPrice.innerText = total+" EGP";
+const shipping = itemsCount ? AKH.SHIP : 0;
+
+totalPrice.innerText = (total+shipping)+" EGP";
+
+document.getElementById("shipFee").innerText = shipping+" EGP";
 
 
 totalItems.innerText = itemsCount;
@@ -208,15 +213,15 @@ sendBtn.textContent="جاري إرسال الطلب...";
 
 
 let orderNumber =
-"AKH-" + Date.now();
+"AKH-" + Date.now().toString(36).toUpperCase() + crypto.getRandomValues(new Uint32Array(1))[0].toString(36).toUpperCase();
 
 
 
 try{
 
 
-await addDoc(
-collection(db,"orders"),
+await setDoc(
+doc(db,"orders",orderNumber),
 {
 
 
@@ -241,7 +246,11 @@ payment,
 products:cart,
 
 
-total,
+subtotal:total,
+
+shipping,
+
+total:total+shipping,
 
 totalItems:itemsCount,
 
@@ -262,12 +271,14 @@ localStorage.removeItem("cart");
 
 
 
-sessionStorage.setItem("lastOrder",orderNumber);
+sessionStorage.setItem("lastOrder",JSON.stringify({orderNumber,payment,total:total+shipping}));
+
+if(window.fbq)fbq("track","Purchase",{value:total+shipping,currency:"EGP"});
 
 
 
 window.location.href =
-"order-tracking.html?phone="+phone;
+"order-success.html";
 
 
 
