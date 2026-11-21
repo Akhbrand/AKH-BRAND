@@ -1,0 +1,53 @@
+/* AKH FX: motion & luxury layer */
+:root{--g1:#f1dc9a;--g2:#e8c36b;--g3:#b98f35}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.xReveal{opacity:1!important;transform:none!important}}
+/* 1 reveal on scroll */
+.card.xReveal{opacity:0;transform:translateY(26px) scale(.98);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.3,1)}
+.card.xReveal.in{opacity:1;transform:none}
+/* 2 gold shine on buttons */
+.cartBtn,.confirmBtn,.xSticky button{position:relative;overflow:hidden}
+.cartBtn::after,.confirmBtn::after,.xSticky button::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:xShine 4.5s ease-in-out infinite;pointer-events:none}
+@keyframes xShine{0%,60%{left:-70%}100%{left:130%}}
+/* 3 heart pulse + badge bump */
+.favoriteBtn.xPulse{animation:xPulse .5s ease}
+@keyframes xPulse{0%{transform:scale(1)}30%{transform:scale(1.35)}60%{transform:scale(.9)}100%{transform:scale(1)}}
+.xBump{animation:xBump .45s ease}
+@keyframes xBump{0%{transform:scale(1)}40%{transform:scale(1.5) translateY(-3px)}100%{transform:scale(1)}}
+/* 4 slow cinematic zoom on hero */
+.akhFullBanner{overflow:hidden;position:relative}
+.akhFullBanner>img{animation:xKen 18s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes xKen{from{transform:scale(1)}to{transform:scale(1.035)}}
+.xDust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+/* 6 glass */
+.akhTopbar,.xBar{background:rgba(7,7,7,.72)!important;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+/* 7 gradient headings + ornament */
+.sectionHeading h2,.xLookbook h2,.xReviews h2{background:linear-gradient(120deg,var(--g1),var(--g2) 45%,var(--g3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.sectionHeading{position:relative;padding-bottom:18px}
+.sectionHeading::after,.xLookbook h2::after,.xReviews h2::after{content:"◆";display:block;text-align:center;font-size:12px;letter-spacing:10px;color:var(--g2);-webkit-text-fill-color:var(--g2);margin-top:10px;opacity:.9}
+/* 8 card glow */
+.card{transition:box-shadow .35s ease,border-color .35s ease}
+.card:hover,.card:active{border-color:rgba(232,195,107,.85)!important;box-shadow:0 0 0 1px rgba(232,195,107,.5),0 14px 44px rgba(232,195,107,.16)!important}
+/* 9 marquee */
+.xMarquee{direction:ltr;overflow:hidden;white-space:nowrap;border-top:1px solid rgba(232,195,107,.25);border-bottom:1px solid rgba(232,195,107,.25);background:#080808;padding:12px 0}
+.xMarquee div{display:inline-block;padding-left:100%;animation:xMar 28s linear infinite;font:600 13px/1 'Cinzel',serif;letter-spacing:4px;color:var(--g2)}
+.xMarquee span{margin:0 22px;opacity:.9}
+@keyframes xMar{to{transform:translateX(-100%)}}
+/* 10 lookbook */
+.xLookbook,.xReviews{max-width:1200px;margin:10px auto 40px;padding:0 14px}
+.xLookbook h2,.xReviews h2{text-align:center;font:700 26px 'Cinzel',serif;letter-spacing:2px;margin-bottom:18px}
+.xLookRow{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.xLookRow::-webkit-scrollbar{display:none}
+.xLook{flex:0 0 70%;max-width:300px;scroll-snap-align:center;position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(232,195,107,.35);cursor:pointer;aspect-ratio:3/4;background:#111}
+.xLook img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.xLook:hover img{transform:scale(1.06)}
+.xLook span{position:absolute;bottom:0;left:0;right:0;padding:30px 12px 12px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#f3e3b0;font:700 14px Cairo,sans-serif;text-align:center}
+/* 11 reviews (glass cards) */
+.xRevRow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.xRev{padding:18px;border-radius:18px;border:1px solid rgba(232,195,107,.3);background:rgba(255,255,255,.04);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.xRev p{line-height:1.9;color:#e7e1d0;margin:6px 0 10px}.xRev b{color:var(--g2)}.xRev .st{color:var(--g2);letter-spacing:3px}
+/* 12 countdown */
+.xCount{max-width:560px;margin:22px auto;padding:16px;text-align:center;border:1px solid rgba(232,195,107,.45);border-radius:18px;background:linear-gradient(135deg,rgba(232,195,107,.12),rgba(0,0,0,.4))}
+.xCount h3{color:var(--g1);margin:0 0 10px;font:700 17px Cairo,sans-serif}
+.xCount .t{display:flex;justify-content:center;gap:10px;direction:ltr}
+.xCount .t div{min-width:62px;padding:10px 4px;border-radius:12px;background:#0b0b0b;border:1px solid rgba(232,195,107,.35)}
+.xCount .t b{display:block;font:800 24px Cairo,sans-serif;color:var(--g2)}.xCount .t small{color:#9c9689;font-size:11px}
