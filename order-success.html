@@ -24,16 +24,14 @@ const box=document.getElementById("box");
 if(!o){box.innerHTML='<div class="xEmpty"><div>📦</div><h2>مفيش طلب حديث</h2><a class="btn" href="order-tracking.html">تتبع طلبك</a></div>';}
 else{
  const pay=o.payment!=="الدفع عند الاستلام";
- const msg=encodeURIComponent("مرحبا، طلبي رقم "+o.orderNumber+(pay?" وعايزة بيانات الدفع ("+o.payment+")":""));
+ const msg=encodeURIComponent((o.summary||("طلب على رقم "+(o.phone||"")))+(pay?"\nعايزة بيانات الدفع":""));
  box.innerHTML=`<div class="xDone"><div class="xTick">✓</div><h2>تم استلام طلبك بنجاح</h2>
- <p>رقم الطلب</p><div class="xCode" id="oc">${AKH.esc(o.orderNumber)}</div>
- <button class="favWide" onclick="navigator.clipboard&&navigator.clipboard.writeText('${AKH.esc(o.orderNumber)}');AKH.toast('تم نسخ رقم الطلب')">📋 نسخ رقم الطلب</button>
- <p class="xMeta">احتفظي بالرقم ده، هتحتاجيه مع رقم الهاتف لتتبع الطلب. الإجمالي: <b>${AKH.money(o.total)}</b> شامل الشحن.</p>
- <ol class="xSteps"><li>فريقنا هيتواصل معاكِ على الهاتف لتأكيد الطلب.</li>
- ${pay?`<li>الدفع عن طريق <b>${AKH.esc(o.payment)}</b>: ابعتيلنا رقم الطلب على واتساب وهنرسل لك بيانات التحويل.</li>`:`<li>الدفع عند الاستلام.</li>`}
+ <p class="xMeta">تقدري تتابعي طلبك في أي وقت برقم هاتفك. الإجمالي: <b>${AKH.money(o.total)}</b> شامل الشحن.</p>
+ <ol class="xSteps"><li>ابعتي تفاصيل طلبك لنا على واتساب بالزرار تحت لتأكيد أسرع.</li>
+ ${pay?`<li>الدفع عن طريق <b>${AKH.esc(o.payment)}</b>: ابعتيلنا على واتساب وهنرسل لك بيانات التحويل.</li>`:`<li>الدفع عند الاستلام.</li>`}
  <li>التوصيل بيكون خلال 2-5 أيام عمل لكل المحافظات.</li></ol>
- <a class="btn" target="_blank" rel="noopener" href="https://wa.me/${AKH.WA}?text=${msg}">${pay?"💬 ابعتي رقم الطلب على واتساب":"💬 تواصلي معنا على واتساب"}</a>
- <a class="favWide" style="display:block;text-align:center;margin-top:10px" href="order-tracking.html?order=${encodeURIComponent(o.orderNumber)}">📦 تتبع الطلب</a></div>`;
+ <a class="btn" target="_blank" rel="noopener" href="https://wa.me/${AKH.WA}?text=${msg}">${pay?"💬 أرسلي تفاصيل الطلب على واتساب":"💬 أرسلي تفاصيل الطلب على واتساب"}</a>
+ <a class="favWide" style="display:block;text-align:center;margin-top:10px" href="order-tracking.html?phone=${encodeURIComponent(o.phone||"")}">📦 تتبع الطلب</a></div>`;
 }
 </script>
 </body></html>

@@ -202,8 +202,13 @@ style="cursor:pointer;">
 
 
 
-<div 
-id="ordersList"
+<div class="xAdminTools">
+<input id="oSearch" placeholder="🔎 بحث بالاسم أو الرقم أو المحافظة" oninput="loadOrders()">
+<select id="oStatus" onchange="loadOrders()"><option value="">كل الحالات</option><option>جاري المراجعة</option><option>جديد</option><option>جاري التجهيز</option><option>تم الشحن</option><option>تم التسليم</option></select>
+<button type="button" onclick="exportOrders()">⬇️ تصدير Excel</button>
+</div>
+<div id="newOrderBanner" class="xBanner" onclick="this.style.display='none';loadOrders()">🔔 وصل طلب جديد — اضغطي للتحديث</div>
+<div id="ordersList"
 style="display:none;">
 
 </div>
@@ -643,6 +648,8 @@ document.getElementById("ordersCount").innerText =
 snapshot.size;
 
 let newOrders=0;
+window.__all=[];
+window.__cnt=snapshot.size;
 let sales=0;
 
 let groupedOrders = {};
@@ -655,6 +662,11 @@ snapshot.forEach(item=>{
     newOrders++;
 
     sales += Number(order.total || 0);
+    window.__all.push({id:item.id,...order});
+    const qv=(document.getElementById("oSearch")||{value:""}).value.trim().toLowerCase();
+    const sv=(document.getElementById("oStatus")||{value:""}).value;
+    if(sv && order.status!==sv) return;
+    if(qv && ![order.customerName,order.customerPhone,order.governorate,order.city].join(" ").toLowerCase().includes(qv)) return;
 
     const phone = order.customerPhone || "بدون رقم";
 
@@ -752,6 +764,7 @@ Object.keys(groupedOrders).forEach(phone=>{
 
             </button>
 
+            <button onclick="printOrder('${order.id}')">🖨️ فاتورة</button>
             <button
             class="deleteProductBtn"
             onclick="deleteOrder('${order.id}')">
@@ -1003,6 +1016,31 @@ window.location.href="admin-login.html";
 
 
 
+window.loadOrders=loadOrders;
+window.printOrder=function(id){
+const o=(window.__all||[]).find(x=>x.id===id); if(!o) return;
+const w=window.open("","_blank");
+w.document.write(`<html dir="rtl"><head><meta charset="utf-8"><title>فاتورة</title><style>body{font-family:Arial;padding:24px;max-width:600px;margin:auto}table{width:100%;border-collapse:collapse;margin:14px 0}td,th{border:1px solid #999;padding:8px;text-align:right}</style></head><body>
+<h2>AKH BRAND</h2><p>التاريخ: ${new Date(o.createdAt).toLocaleDateString("ar-EG")}</p>
+<p><b>${o.customerName}</b><br>📞 ${o.customerPhone}<br>📍 ${o.governorate} - ${o.city}<br>${o.address||""}<br>${o.notes?"ملاحظات: "+o.notes:""}</p>
+<table><tr><th>المنتج</th><th>المقاس</th><th>الكمية</th><th>السعر</th></tr>
+${(o.products||[]).map(p=>`<tr><td>${p.name}</td><td>${p.size||"-"}</td><td>${p.quantity||1}</td><td>${p.price}</td></tr>`).join("")}</table>
+<p>الشحن: ${o.shipping||0} جنيه<br><b>الإجمالي: ${o.total} جنيه</b><br>الدفع: ${o.payment||""}</p>
+<script>window.onload=()=>window.print()<\/script></body></html>`);
+w.document.close();
+};
+window.exportOrders=function(){
+const rows=[["التاريخ","الاسم","الهاتف","المحافظة","المدينة","العنوان","المنتجات","الشحن","الإجمالي","الدفع","الحالة"]];
+(window.__all||[]).forEach(o=>rows.push([new Date(o.createdAt).toLocaleDateString("en-GB"),o.customerName,o.customerPhone,o.governorate,o.city,o.address,(o.products||[]).map(p=>p.name+" ("+(p.size||"-")+")x"+(p.quantity||1)).join(" | "),o.shipping||0,o.total,o.payment,o.status]));
+const csv="\ufeff"+rows.map(r=>r.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\n");
+const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download="orders.csv";a.click();
+};
+setInterval(async()=>{
+try{const s=await getDocs(collection(db,"orders"));
+if(window.__cnt!=null&&s.size>window.__cnt){document.getElementById("newOrderBanner").style.display="block";document.title="🔔 طلب جديد";
+try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator();o.connect(c.destination);o.start();o.stop(c.currentTime+.25);}catch(e){}}
+}catch(e){}
+},30000);
 loadProducts();
 loadOrders();
 </script>
