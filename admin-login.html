@@ -35,6 +35,8 @@ AKH BRAND
 
 
 
+<input type="email" id="adminEmail" placeholder="البريد الإلكتروني" dir="ltr">
+
 <input 
 type="password"
 id="adminPassword"
@@ -60,60 +62,16 @@ placeholder="كلمة المرور">
 
 
 
-<script>
-
-
-const correctPassword = "AKH2026";
-
-
-
-document.getElementById("loginBtn").onclick = function(){
-
-
-
-const password =
-document.getElementById("adminPassword").value;
-
-
-
-const msg =
-document.getElementById("loginMsg");
-
-
-
-if(password === correctPassword){
-
-
-localStorage.setItem(
-"adminLogin",
-"true"
-);
-
-
-
-window.location.href="admin.html";
-
-
-
-}else{
-
-
-msg.innerHTML=
-"❌ كلمة المرور غير صحيحة";
-
-
-}
-
-
-
-}
-
-
-
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const auth=getAuth(initializeApp({apiKey:"AIzaSyBpFVpOyPfS9C7b8Hit2NpAtcK4k-DeTPw",authDomain:"akh-brand.firebaseapp.com",projectId:"akh-brand",appId:"1:671562968837:web:06557b3ab756696cf5116c"}));
+const msg=document.getElementById("loginMsg"), btn=document.getElementById("loginBtn");
+btn.onclick=async()=>{
+ btn.disabled=true; msg.textContent="⏳";
+ try{await signInWithEmailAndPassword(auth,document.getElementById("adminEmail").value.trim(),document.getElementById("adminPassword").value);location.href="admin.html";}
+ catch(e){msg.textContent="❌ بيانات الدخول غير صحيحة";btn.disabled=false;}
+};
 </script>
-
-
-
 </body>
-
 </html>
